@@ -95,8 +95,8 @@ class CupTable extends Component {
                         wins: 2,
                         loses: 1,
                         ties: 0,
-                        gf: 6,
-                        ga: 3
+                        gf: 10,
+                        ga: 7
                     },
                     {
                         name: "Italy",
@@ -235,12 +235,25 @@ class CupTable extends Component {
                 const sortedTeams = group.teams.sort((a, b) => {
                     const aPts = (a.wins * 3) + a.ties;
                     const bPts = (b.wins * 3) + b.ties;
+                    const aGd = a.gf - a.ga;
+                    const bGd = b.gf - b.ga;
                     if (aPts !== bPts)
                         if (aPts > bPts)
                             return -1;
                         else
                             return 1;
-                    
+                    else if (aGd !== bGd) {
+                        if (aGd > bGd)
+                            return -1;
+                        else
+                            return 1;
+                    }
+                    else if (a.gf !== b.gf) {
+                        if (a.gf > b.gf)
+                            return -1;
+                        else
+                            return 1;
+                    }
                     return 0;
                 });
                 const sortedGroup = {
