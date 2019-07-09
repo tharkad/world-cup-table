@@ -40,7 +40,16 @@ class CupTable extends Component {
                         gf: 1,
                         ga: 8
                     },                    
-                ]
+                ],
+                games: [
+                    ["France", "South Korea"],
+                    ["Norway", "Nigeria"],
+                    ["Nigeria", "South Korea"],
+                    ["France", "Norway"],
+                    ["South Korea", "Norway"],
+                    ["Nigeria", "France"]
+                ],
+                results: []
             },
             {
                 name: "Group B",
@@ -77,7 +86,16 @@ class CupTable extends Component {
                         gf: 3,
                         ga: 2
                     },                    
-                ]
+                ],
+                games: [
+                    ["German", "China"],
+                    ["Spain", "South Africa"],
+                    ["Germany", "Spain"],
+                    ["South Africa", "China"],
+                    ["China", "Spain"],
+                    ["South Africa", "Germany"]
+                ],    
+                results: []
             },
             {
                 name: "Group C",
@@ -114,7 +132,16 @@ class CupTable extends Component {
                         gf: 1,
                         ga: 12
                     },                    
-                ]
+                ],
+                games: [
+                    ["Australia", "Italy"],
+                    ["Brazil", "Jamaica"],
+                    ["Australia", "Brazil"],
+                    ["Jamaica", "Italy"],
+                    ["Italy", "Brazil"],
+                    ["Jamaica", "Australia"]
+                ],
+                results: []
             },
             {
                 name: "Group D",
@@ -151,7 +178,16 @@ class CupTable extends Component {
                         gf: 5,
                         ga: 7
                     }             
-                ]
+                ],
+                games: [
+                    ["England", "Scotland"],
+                    ["Argentina", "Japan"],
+                    ["Japan", "Scotland"],
+                    ["England", "Argentina"],
+                    ["Scotland", "Argentina"],
+                    ["Japan", "England"]
+                ],
+                results: []
             },            
             {
                 name: "Group E",
@@ -188,7 +224,16 @@ class CupTable extends Component {
                         gf: 1,
                         ga: 5
                     },                    
-                ]
+                ],
+                games: [
+                    ["Canada", "Cameroon"],
+                    ["New Zealand", "Netherlands"],
+                    ["Netherlands", "Cameroon"],
+                    ["Canada", "New Zealand"],
+                    ["Netherlands", "Canada"],
+                    ["Cameroon", "New Zealand"]
+                ],
+                results: []
             },
             {
                 name: "Group F",
@@ -225,7 +270,16 @@ class CupTable extends Component {
                         gf: 18,
                         ga: 0
                     }             
-                ]
+                ],
+                games: [
+                    ["Chile", "Sweeden"],
+                    ["United States", "Thailand"],
+                    ["Sweeden", "Thailand"],
+                    ["United States", "Chile"],
+                    ["Sweeden", "United States"],
+                    ["Thailand", "Chile"]
+                ],
+                results: []
             }
         ]
     }
