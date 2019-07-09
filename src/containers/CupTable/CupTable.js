@@ -10,138 +10,135 @@ class CupTable extends Component {
                 teams: [
                     {
                         name: "France",
-                        wins: 3,
+                        wins: 0,
                         loses: 0,
                         ties: 0,
-                        gf: 7,
-                        ga: 1
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Nigeria",
-                        wins: 1,
-                        loses: 2,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 2,
-                        ga: 4
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Norway",
-                        wins: 2,
-                        loses: 1,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 6,
-                        ga: 3
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "South Korea",
                         wins: 0,
-                        loses: 3,
+                        loses: 0,
                         ties: 0,
-                        gf: 1,
-                        ga: 8
+                        gf: 0,
+                        ga: 0
                     },                    
                 ],
                 games: [
-                    ["France", "South Korea"],
-                    ["Norway", "Nigeria"],
-                    ["Nigeria", "South Korea"],
-                    ["France", "Norway"],
-                    ["South Korea", "Norway"],
-                    ["Nigeria", "France"]
-                ],
-                results: []
+                    [["France", "South Korea"], [null,null]],
+                    [["Norway", "Nigeria"], [null,null]],
+                    [["Nigeria", "South Korea"], [null,null]],
+                    [["France", "Norway"], [null,null]],
+                    [["South Korea", "Norway"], [null,null]],
+                    [["Nigeria", "France"], [null,null]],
+                ]
             },
             {
                 name: "Group B",
                 teams: [
                     {
                         name: "China",
-                        wins: 1,
-                        loses: 2,
-                        ties: 1,
-                        gf: 1,
-                        ga: 1
+                        wins: 0,
+                        loses: 0,
+                        ties: 0,
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Germany",
-                        wins: 3,
+                        wins: 0,
                         loses: 0,
                         ties: 0,
-                        gf: 6,
+                        gf: 0,
                         ga: 0
                     },
                     {
                         name: "South Africa",
                         wins: 0,
-                        loses: 3,
+                        loses: 0,
                         ties: 0,
-                        gf: 1,
-                        ga: 8
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Spain",
-                        wins: 1,
-                        loses: 1,
-                        ties: 1,
-                        gf: 3,
-                        ga: 2
+                        wins: 0,
+                        loses: 0,
+                        ties: 0,
+                        gf: 0,
+                        ga: 0
                     },                    
                 ],
                 games: [
-                    ["German", "China"],
-                    ["Spain", "South Africa"],
-                    ["Germany", "Spain"],
-                    ["South Africa", "China"],
-                    ["China", "Spain"],
-                    ["South Africa", "Germany"]
-                ],    
-                results: []
+                    [["German", "China"], [null,null]],
+                    [["Spain", "South Africa"], [null,null]],
+                    [["Germany", "Spain"], [null,null]],
+                    [["South Africa", "China"], [null,null]],
+                    [["China", "Spain"], [null,null]],
+                    [["South Africa", "Germany"], [null,null]]
+                ]
             },
             {
                 name: "Group C",
                 teams: [
                     {
                         name: "Australia",
-                        wins: 2,
-                        loses: 1,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 8,
-                        ga: 5
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Brazil",
-                        wins: 2,
-                        loses: 1,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 10,
-                        ga: 7
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Italy",
-                        wins: 2,
-                        loses: 1,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 7,
-                        ga: 2
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Jamaica",
                         wins: 0,
-                        loses: 3,
+                        loses: 0,
                         ties: 0,
-                        gf: 1,
-                        ga: 12
+                        gf: 0,
+                        ga: 0
                     },                    
                 ],
                 games: [
-                    ["Australia", "Italy"],
-                    ["Brazil", "Jamaica"],
-                    ["Australia", "Brazil"],
-                    ["Jamaica", "Italy"],
-                    ["Italy", "Brazil"],
-                    ["Jamaica", "Australia"]
-                ],
-                results: []
+                    [["Australia", "Italy"], [null,null]],
+                    [["Brazil", "Jamaica"], [null,null]],
+                    [["Australia", "Brazil"], [null,null]],
+                    [["Jamaica", "Italy"], [null,null]],
+                    [["Italy", "Brazil"], [null,null]],
+                    [["Jamaica", "Australia"], [null,null]]
+                ]
             },
             {
                 name: "Group D",
@@ -149,137 +146,134 @@ class CupTable extends Component {
                     {
                         name: "Argentina",
                         wins: 0,
-                        loses: 1,
-                        ties: 2,
-                        gf: 3,
-                        ga: 4
+                        loses: 0,
+                        ties: 0,
+                        gf: 0,
+                        ga: 0
                     },
                    {
                         name: "England",
-                        wins: 3,
+                        wins: 0,
                         loses: 0,
                         ties: 0,
-                        gf: 5,
-                        ga: 1
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Japan",
-                        wins: 1,
-                        loses: 1,
-                        ties: 1,
-                        gf: 2,
-                        ga: 3
+                        wins: 0,
+                        loses: 0,
+                        ties: 0,
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Scotland",
                         wins: 0,
-                        loses: 2,
-                        ties: 1,
-                        gf: 5,
-                        ga: 7
+                        loses: 0,
+                        ties: 0,
+                        gf: 0,
+                        ga: 0
                     }             
                 ],
                 games: [
-                    ["England", "Scotland"],
-                    ["Argentina", "Japan"],
-                    ["Japan", "Scotland"],
-                    ["England", "Argentina"],
-                    ["Scotland", "Argentina"],
-                    ["Japan", "England"]
-                ],
-                results: []
+                    [["England", "Scotland"], [null,null]],
+                    [["Argentina", "Japan"], [null,null]],
+                    [["Japan", "Scotland"], [null,null]],
+                    [["England", "Argentina"], [null,null]],
+                    [["Scotland", "Argentina"], [null,null]],
+                    [["Japan", "England"], [null,null]]
+                ]
             },            
             {
                 name: "Group E",
                 teams: [
                     {
                         name: "Cameroon",
-                        wins: 1,
-                        loses: 2,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 3,
-                        ga: 5
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Canada",
-                        wins: 2,
-                        loses: 1,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 4,
-                        ga: 2
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Netherlands",
-                        wins: 3,
+                        wins: 0,
                         loses: 0,
                         ties: 0,
-                        gf: 6,
-                        ga: 2
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "New Zealand",
                         wins: 0,
-                        loses: 3,
+                        loses: 0,
                         ties: 0,
-                        gf: 1,
-                        ga: 5
+                        gf: 0,
+                        ga: 0
                     },                    
                 ],
                 games: [
-                    ["Canada", "Cameroon"],
-                    ["New Zealand", "Netherlands"],
-                    ["Netherlands", "Cameroon"],
-                    ["Canada", "New Zealand"],
-                    ["Netherlands", "Canada"],
-                    ["Cameroon", "New Zealand"]
-                ],
-                results: []
+                    [["Canada", "Cameroon"], [null,null]],
+                    [["New Zealand", "Netherlands"], [null,null]],
+                    [["Netherlands", "Cameroon"], [null,null]],
+                    [["Canada", "New Zealand"], [null,null]],
+                    [["Netherlands", "Canada"], [null,null]],
+                    [["Cameroon", "New Zealand"], [null,null]]
+                ]
             },
             {
                 name: "Group F",
                 teams: [
                     {
                         name: "Chile",
-                        wins: 1,
-                        loses: 2,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 2,
-                        ga: 5
+                        gf: 0,
+                        ga: 0
                     },
                    {
                         name: "Sweden",
-                        wins: 2,
-                        loses: 1,
+                        wins: 0,
+                        loses: 0,
                         ties: 0,
-                        gf: 7,
-                        ga: 3
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "Thailand",
                         wins: 0,
-                        loses: 3,
+                        loses: 0,
                         ties: 0,
-                        gf: 1,
-                        ga: 20
+                        gf: 0,
+                        ga: 0
                     },
                     {
                         name: "United States",
-                        wins: 3,
+                        wins: 0,
                         loses: 0,
                         ties: 0,
-                        gf: 18,
+                        gf: 0,
                         ga: 0
                     }             
                 ],
                 games: [
-                    ["Chile", "Sweeden"],
-                    ["United States", "Thailand"],
-                    ["Sweeden", "Thailand"],
-                    ["United States", "Chile"],
-                    ["Sweeden", "United States"],
-                    ["Thailand", "Chile"]
-                ],
-                results: []
+                    [["Chile", "Sweeden"], [null,null]],
+                    [["United States", "Thailand"], [null,null]],
+                    [["Sweeden", "Thailand"], [null,null]],
+                    [["United States", "Chile"], [null,null]],
+                    [["Sweeden", "United States"], [null,null]],
+                    [["Thailand", "Chile"], [null,null]]
+                ]
             }
         ]
     }
@@ -312,7 +306,8 @@ class CupTable extends Component {
                 });
                 const sortedGroup = {
                     name: group.name,
-                    teams: sortedTeams
+                    teams: sortedTeams,
+                    games: group.games
                 }
                 return <Group 
                     key={group.name}
@@ -322,6 +317,7 @@ class CupTable extends Component {
         return (
             <Aux>
                 <h1>Women's World Cup 2019</h1>
+                <h3>Group Stage</h3>
                 {groups}                
             </Aux>
         );
