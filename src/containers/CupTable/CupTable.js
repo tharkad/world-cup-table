@@ -311,8 +311,51 @@ class CupTable extends Component {
     }
 
     updateTeamsFromGames = (stateCopy, groupIndex) => {
+        stateCopy.groups[groupIndex].teams = 
+            this.deepCopy(this.defaultState.groups[groupIndex].teams);
+
         for (const game of stateCopy.groups[groupIndex].games) {
-            console.log(game);
+            for (const team of stateCopy.groups[groupIndex].teams) {
+                if (team.name === game[0][0]) {
+                    if (game[1][0] !== "" && game[1][0] !== null) {
+                        team.gf = team.gf + parseInt(game[1][0]);
+                    }
+                    if (game[1][1] !== "" && game[1][1] !== null) {
+                        team.ga = team.ga + parseInt(game[1][1]);
+                    }
+                    if ((game[1][0] !== "" && game[1][0] !== null) &&
+                        (game[1][1] !== "" && game[1][1] !== null)) {
+                            let gf = parseInt(game[1][0]);
+                            let ga = parseInt(game[1][1]);
+                            if (gf > ga) {
+                                team.wins = team.wins + 1;
+                            } else if (gf < ga) {
+                                team.loses = team.loses + 1;
+                            } else {
+                                team.ties = team.ties + 1;
+                            }
+                    }
+                } else if (team.name === game[0][1]) {
+                    if (game[1][1] !== "" && game[1][1] !== null) {
+                        team.gf = team.gf + parseInt(game[1][1]);
+                    }
+                    if (game[1][0] !== "" && game[1][0] !== null) {
+                        team.ga = team.ga + parseInt(game[1][0]);
+                    }
+                    if ((game[1][0] !== "" && game[1][0] !== null) &&
+                        (game[1][1] !== "" && game[1][1] !== null)) {
+                            let gf = parseInt(game[1][1]);
+                            let ga = parseInt(game[1][0]);
+                            if (gf > ga) {
+                                team.wins = team.wins + 1;
+                            } else if (gf < ga) {
+                                team.loses = team.loses + 1;
+                            } else {
+                                team.ties = team.ties + 1;
+                            }
+                    }
+                }
+            }
         }
         return null;
     }
