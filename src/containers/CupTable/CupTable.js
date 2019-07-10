@@ -4,7 +4,7 @@ import Group from '../../components/Group/Group';
 import SimpleStorage from 'react-simple-storage';
 
 class CupTable extends Component {
-    state = {
+    defaultState = {
         groups: [
             {
                 name: "Group A",
@@ -279,6 +279,7 @@ class CupTable extends Component {
         ]
     }
 
+
     deepCopy = (obj) => {
         if(typeof obj !== 'object' || obj === null) {
             return obj;
@@ -302,10 +303,18 @@ class CupTable extends Component {
             }, {})
         }
     }
-    
-    teamsFromGames = (stateCopy, groupIndex) => {
-        console.log(groupIndex, stateCopy);
-        stateCopy.groups[groupIndex].teams[0].wins = 1;
+
+    state = this.deepCopy(this.defaultState);
+
+    resetToDefaultState = () => {
+        this.setState(this.defaultState);
+    }
+
+    updateTeamsFromGames = (stateCopy, groupIndex) => {
+        for (const game of stateCopy.groups[groupIndex].games) {
+            console.log(game);
+        }
+        return null;
     }
 
     scoreChangedHandler = (event, id) => {
@@ -316,7 +325,7 @@ class CupTable extends Component {
        if (event.target.validity.valid) {
             let stateCopy = this.deepCopy(this.state);
             stateCopy.groups[groupIndex].games[id[1]][1][id[2]] = event.target.value;
-            this.teamsFromGames(stateCopy, groupIndex);
+            this.updateTeamsFromGames(stateCopy, groupIndex);
             this.setState(stateCopy);
        }
     }
@@ -364,6 +373,7 @@ class CupTable extends Component {
                 <SimpleStorage parent={this} />
                 <h1>Women's World Cup 2019</h1>
                 <h3>Group Stage</h3>
+                <button onClick={this.resetToDefaultState}>Reset</button>
                 {groups}                
             </Aux>
         );
