@@ -46,8 +46,12 @@
     border-spacing: 8px;
 }
 
-.GroupHeading {
+.GroupHeadingTeam {
     text-align: left;
+    font-size: 0.8rem;
+}
+.GroupHeading {
+    text-align: right;
     font-size: 0.8rem;
 }
 

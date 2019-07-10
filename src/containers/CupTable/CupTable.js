@@ -43,12 +43,12 @@ class CupTable extends Component {
                     },                    
                 ],
                 games: [
-                    [["France", "South Korea"], [null,null]],
-                    [["Norway", "Nigeria"], [null,null]],
-                    [["Nigeria", "South Korea"], [null,null]],
-                    [["France", "Norway"], [null,null]],
-                    [["South Korea", "Norway"], [null,null]],
-                    [["Nigeria", "France"], [null,null]],
+                    [["France", "South Korea"], ["",""]],
+                    [["Norway", "Nigeria"], ["",""]],
+                    [["Nigeria", "South Korea"], ["",""]],
+                    [["France", "Norway"], ["",""]],
+                    [["South Korea", "Norway"], ["",""]],
+                    [["Nigeria", "France"], ["",""]],
                 ]
             },
             {
@@ -88,12 +88,12 @@ class CupTable extends Component {
                     },                    
                 ],
                 games: [
-                    [["German", "China"], [null,null]],
-                    [["Spain", "South Africa"], [null,null]],
-                    [["Germany", "Spain"], [null,null]],
-                    [["South Africa", "China"], [null,null]],
-                    [["China", "Spain"], [null,null]],
-                    [["South Africa", "Germany"], [null,null]]
+                    [["German", "China"], ["",""]],
+                    [["Spain", "South Africa"], ["",""]],
+                    [["Germany", "Spain"], ["",""]],
+                    [["South Africa", "China"], ["",""]],
+                    [["China", "Spain"], ["",""]],
+                    [["South Africa", "Germany"], ["",""]]
                 ]
             },
             {
@@ -133,12 +133,12 @@ class CupTable extends Component {
                     },                    
                 ],
                 games: [
-                    [["Australia", "Italy"], [null,null]],
-                    [["Brazil", "Jamaica"], [null,null]],
-                    [["Australia", "Brazil"], [null,null]],
-                    [["Jamaica", "Italy"], [null,null]],
-                    [["Italy", "Brazil"], [null,null]],
-                    [["Jamaica", "Australia"], [null,null]]
+                    [["Australia", "Italy"], ["",""]],
+                    [["Brazil", "Jamaica"], ["",""]],
+                    [["Australia", "Brazil"], ["",""]],
+                    [["Jamaica", "Italy"], ["",""]],
+                    [["Italy", "Brazil"], ["",""]],
+                    [["Jamaica", "Australia"], ["",""]]
                 ]
             },
             {
@@ -178,12 +178,12 @@ class CupTable extends Component {
                     }             
                 ],
                 games: [
-                    [["England", "Scotland"], [null,null]],
-                    [["Argentina", "Japan"], [null,null]],
-                    [["Japan", "Scotland"], [null,null]],
-                    [["England", "Argentina"], [null,null]],
-                    [["Scotland", "Argentina"], [null,null]],
-                    [["Japan", "England"], [null,null]]
+                    [["England", "Scotland"], ["",""]],
+                    [["Argentina", "Japan"], ["",""]],
+                    [["Japan", "Scotland"], ["",""]],
+                    [["England", "Argentina"], ["",""]],
+                    [["Scotland", "Argentina"], ["",""]],
+                    [["Japan", "England"], ["",""]]
                 ]
             },            
             {
@@ -223,12 +223,12 @@ class CupTable extends Component {
                     },                    
                 ],
                 games: [
-                    [["Canada", "Cameroon"], [null,null]],
-                    [["New Zealand", "Netherlands"], [null,null]],
-                    [["Netherlands", "Cameroon"], [null,null]],
-                    [["Canada", "New Zealand"], [null,null]],
-                    [["Netherlands", "Canada"], [null,null]],
-                    [["Cameroon", "New Zealand"], [null,null]]
+                    [["Canada", "Cameroon"], ["",""]],
+                    [["New Zealand", "Netherlands"], ["",""]],
+                    [["Netherlands", "Cameroon"], ["",""]],
+                    [["Canada", "New Zealand"], ["",""]],
+                    [["Netherlands", "Canada"], ["",""]],
+                    [["Cameroon", "New Zealand"], ["",""]]
                 ]
             },
             {
@@ -268,12 +268,12 @@ class CupTable extends Component {
                     }             
                 ],
                 games: [
-                    [["Chile", "Sweeden"], [null,null]],
-                    [["United States", "Thailand"], [null,null]],
-                    [["Sweeden", "Thailand"], [null,null]],
-                    [["United States", "Chile"], [null,null]],
-                    [["Sweeden", "United States"], [null,null]],
-                    [["Thailand", "Chile"], [null,null]]
+                    [["Chile", "Sweeden"], ["",""]],
+                    [["United States", "Thailand"], ["",""]],
+                    [["Sweeden", "Thailand"], ["",""]],
+                    [["United States", "Chile"], ["",""]],
+                    [["Sweeden", "United States"], ["",""]],
+                    [["Thailand", "Chile"], ["",""]]
                 ]
             }
         ]
@@ -317,47 +317,44 @@ class CupTable extends Component {
         for (const game of stateCopy.groups[groupIndex].games) {
             for (const team of stateCopy.groups[groupIndex].teams) {
                 if (team.name === game[0][0]) {
-                    if (game[1][0] !== "" && game[1][0] !== null) {
+                    if (game[1][0] !== "") {
                         team.gf = team.gf + parseInt(game[1][0]);
                     }
-                    if (game[1][1] !== "" && game[1][1] !== null) {
+                    if (game[1][1] !== "") {
                         team.ga = team.ga + parseInt(game[1][1]);
                     }
-                    if ((game[1][0] !== "" && game[1][0] !== null) &&
-                        (game[1][1] !== "" && game[1][1] !== null)) {
-                            let gf = parseInt(game[1][0]);
-                            let ga = parseInt(game[1][1]);
-                            if (gf > ga) {
-                                team.wins = team.wins + 1;
-                            } else if (gf < ga) {
-                                team.loses = team.loses + 1;
-                            } else {
-                                team.ties = team.ties + 1;
-                            }
+                    if ((game[1][0] !== "") && (game[1][1] !== "")) {
+                        let gf = parseInt(game[1][0]);
+                        let ga = parseInt(game[1][1]);
+                        if (gf > ga) {
+                            team.wins = team.wins + 1;
+                        } else if (gf < ga) {
+                            team.loses = team.loses + 1;
+                        } else {
+                            team.ties = team.ties + 1;
+                        }
                     }
                 } else if (team.name === game[0][1]) {
-                    if (game[1][1] !== "" && game[1][1] !== null) {
+                    if (game[1][1] !== "") {
                         team.gf = team.gf + parseInt(game[1][1]);
                     }
-                    if (game[1][0] !== "" && game[1][0] !== null) {
+                    if (game[1][0] !== "") {
                         team.ga = team.ga + parseInt(game[1][0]);
                     }
-                    if ((game[1][0] !== "" && game[1][0] !== null) &&
-                        (game[1][1] !== "" && game[1][1] !== null)) {
-                            let gf = parseInt(game[1][1]);
-                            let ga = parseInt(game[1][0]);
-                            if (gf > ga) {
-                                team.wins = team.wins + 1;
-                            } else if (gf < ga) {
-                                team.loses = team.loses + 1;
-                            } else {
-                                team.ties = team.ties + 1;
-                            }
+                    if ((game[1][0] !== "") && (game[1][1] !== "")) {
+                        let gf = parseInt(game[1][1]);
+                        let ga = parseInt(game[1][0]);
+                        if (gf > ga) {
+                            team.wins = team.wins + 1;
+                        } else if (gf < ga) {
+                            team.loses = team.loses + 1;
+                        } else {
+                            team.ties = team.ties + 1;
+                        }
                     }
                 }
             }
         }
-        return null;
     }
 
     scoreChangedHandler = (event, id) => {
@@ -375,42 +372,76 @@ class CupTable extends Component {
 
     render () {
         const groups = this.state.groups.map(group => {
-                const sortedTeams = group.teams.sort((a, b) => {
-                    const aPts = (a.wins * 3) + a.ties;
-                    const bPts = (b.wins * 3) + b.ties;
-                    const aGd = a.gf - a.ga;
-                    const bGd = b.gf - b.ga;
-                    if (aPts !== bPts)
-                        if (aPts > bPts)
-                            return -1;
-                        else
-                            return 1;
-                    else if (aGd !== bGd) {
-                        if (aGd > bGd)
-                            return -1;
-                        else
-                            return 1;
-                    }
-                    else if (a.gf !== b.gf) {
-                        if (a.gf > b.gf)
-                            return -1;
-                        else
-                            return 1;
-                    }
-                    return 0;
-                });
-                const sortedGroup = {
-                    name: group.name,
-                    teams: sortedTeams,
-                    games: group.games
+            const sortedTeams = group.teams.sort((a, b) => {
+                const aPts = (a.wins * 3) + a.ties;
+                const bPts = (b.wins * 3) + b.ties;
+                const aGd = a.gf - a.ga;
+                const bGd = b.gf - b.ga;
+                if (aPts !== bPts) { // Points
+                    if (aPts > bPts)
+                        return -1;
+                    else
+                        return 1;
                 }
-                return <Group 
-                    key={group.name}
-                    groupName={group.name}
-                    group={sortedGroup}
-                    changed={this.scoreChangedHandler}
-                />
-        })
+                else if (aGd !== bGd) { // Goal differential
+                    if (aGd > bGd)
+                        return -1;
+                    else
+                        return 1;
+                }
+                else if (a.gf !== b.gf) { // Goals scored
+                    if (a.gf > b.gf)
+                        return -1;
+                    else
+                        return 1;
+                }
+                else {
+                    let aTeamGf = 0;
+                    let bTeamGf = 0;
+
+                    for (const game of group.games) {
+                        if ((a.name === game[0][0]) &&
+                            (b.name === game[0][1])) {
+                                if (game[1][0] !== "") {
+                                    aTeamGf = aTeamGf + parseInt(game[1][0]);
+                                }
+                                if (game[1][1] !== "") {
+                                    bTeamGf = bTeamGf + parseInt(game[1][1]);
+                                }
+                        } else 
+                            if ((a.name === game[0][1]) &&
+                            (b.name === game[0][0])) {
+                                if (game[1][1] !== "") {
+                                    aTeamGf = aTeamGf + parseInt(game[1][1]);
+                                }
+                                if (game[1][0] !== "") {
+                                    bTeamGf = bTeamGf + parseInt(game[1][0]);
+                                }
+                        }
+                    }
+                    if (aTeamGf !== bTeamGf) { // Goals scored
+                        if (aTeamGf > bTeamGf)
+                            return -1;
+                        else
+                            return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+            });
+            const sortedGroup = {
+                name: group.name,
+                teams: sortedTeams,
+                games: group.games
+            }
+            return <Group 
+                key={group.name}
+                groupName={group.name}
+                group={sortedGroup}
+                changed={this.scoreChangedHandler}
+            />
+        });
+
         return (
             <Aux>
                 <SimpleStorage parent={this} />

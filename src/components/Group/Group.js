@@ -71,7 +71,7 @@ const group = (props) => {
                 <p className = {classes.GroupName}>{props.group.name}</p>
                 <table className = {classes.Table}><tbody>
                     <tr className = {classes.GroupHeading}>
-                        <td>Team</td>
+                        <td className = {classes.GroupHeadingTeam}>Team</td>
                         <td>W</td>
                         <td>L</td>
                         <td>T</td>
