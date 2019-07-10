@@ -302,6 +302,11 @@ class CupTable extends Component {
         }
     }
     
+    teamsFromGames = (stateCopy, groupIndex) => {
+        console.log(groupIndex, stateCopy);
+        stateCopy.groups[groupIndex].teams[0].wins = 1;
+    }
+
     scoreChangedHandler = (event, id) => {
         const groupIndex = this.state.groups.findIndex(group => {
             return group.name === id[0];
@@ -309,11 +314,8 @@ class CupTable extends Component {
 
        if (event.target.validity.valid) {
             let stateCopy = this.deepCopy(this.state);
-            console.log(event.target.value);
-
-            //const updatedGroups = [...this.state.groups];
             stateCopy.groups[groupIndex].games[id[1]][1][id[2]] = event.target.value;
-    
+            this.teamsFromGames(stateCopy, groupIndex);
             this.setState(stateCopy);
        }
     }
