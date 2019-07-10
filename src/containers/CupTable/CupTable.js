@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Group from '../../components/Group/Group';
+import SimpleStorage from 'react-simple-storage';
 
 class CupTable extends Component {
     state = {
@@ -360,6 +361,7 @@ class CupTable extends Component {
         })
         return (
             <Aux>
+                <SimpleStorage parent={this} />
                 <h1>Women's World Cup 2019</h1>
                 <h3>Group Stage</h3>
                 {groups}                
