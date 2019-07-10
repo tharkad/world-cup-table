@@ -278,6 +278,46 @@ class CupTable extends Component {
         ]
     }
 
+    deepCopy = (obj) => {
+        if(typeof obj !== 'object' || obj === null) {
+            return obj;
+        }
+    
+        if(obj instanceof Date) {
+            return new Date(obj.getTime());
+        }
+    
+        if(obj instanceof Array) {
+            return obj.reduce((arr, item, i) => {
+                arr[i] = this.deepCopy(item);
+                return arr;
+            }, []);
+        }
+    
+        if(obj instanceof Object) {
+            return Object.keys(obj).reduce((newObj, key) => {
+                newObj[key] = this.deepCopy(obj[key]);
+                return newObj;
+            }, {})
+        }
+    }
+    
+    scoreChangedHandler = (event, id) => {
+        const groupIndex = this.state.groups.findIndex(group => {
+            return group.name === id[0];
+        });
+
+       if (event.target.validity.valid) {
+            let stateCopy = this.deepCopy(this.state);
+            console.log(event.target.value);
+
+            //const updatedGroups = [...this.state.groups];
+            stateCopy.groups[groupIndex].games[id[1]][1][id[2]] = event.target.value;
+    
+            this.setState(stateCopy);
+       }
+    }
+
     render () {
         const groups = this.state.groups.map(group => {
                 const sortedTeams = group.teams.sort((a, b) => {
@@ -311,7 +351,9 @@ class CupTable extends Component {
                 }
                 return <Group 
                     key={group.name}
+                    groupName={group.name}
                     group={sortedGroup}
+                    changed={this.scoreChangedHandler}
                 />
         })
         return (
