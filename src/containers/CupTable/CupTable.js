@@ -88,7 +88,7 @@ class CupTable extends Component {
                     },                    
                 ],
                 games: [
-                    [["German", "China"], ["",""]],
+                    [["Germany", "China"], ["",""]],
                     [["Spain", "South Africa"], ["",""]],
                     [["Germany", "Spain"], ["",""]],
                     [["South Africa", "China"], ["",""]],
@@ -243,7 +243,7 @@ class CupTable extends Component {
                         ga: 0
                     },
                    {
-                        name: "Sweden",
+                        name: "Sweeden",
                         wins: 0,
                         loses: 0,
                         ties: 0,
@@ -370,64 +370,72 @@ class CupTable extends Component {
        }
     }
 
+    constructTiebreakerGroup = (group, a, b) => {
+        let tiebreakerGroup = {name: group.name};
+        const teamA = {
+            name: a.name,
+            wins: 0,
+            loses: 0,
+            ties: 0,
+            gf: 0,
+            ga: 0
+        };
+        const teamB = {
+            name: a.name,
+            wins: 0,
+            loses: 0,
+            ties: 0,
+            gf: 0,
+            ga: 0
+        }
+        const tiebreakerTeams = {teams: [teamA, teamB]};
+        tiebreakerGroup = {...tiebreakerGroup, ...tiebreakerTeams};
+
+        // for (let team of group.teams) {
+            
+        // }
+
+        return tiebreakerGroup;
+    }
+
+    groupCompare = (group, a, b) => {
+        const aPts = (a.wins * 3) + a.ties;
+        const bPts = (b.wins * 3) + b.ties;
+        const aGd = a.gf - a.ga;
+        const bGd = b.gf - b.ga;
+        if (aPts !== bPts) { // Points
+            if (aPts > bPts)
+                return -1;
+            else
+                return 1;
+        }
+        else if (aGd !== bGd) { // Goal differential
+            if (aGd > bGd)
+                return -1;
+            else
+                return 1;
+        }
+        else if (a.gf !== b.gf) { // Goals scored
+            if (a.gf > b.gf)
+                return -1;
+            else
+                return 1;
+        }
+        else {
+            // const tiebreakerGroup = this.constructTiebreakerGroup(group, a, b);
+            // const aTieBreakerIndex = tiebreakerGroup.teams.findIndex(team => {
+            //     return a.name === team.name;
+            // });
+            // const result = this.groupCompare(tiebreakerGroup, a, b);
+            // return result;
+            return 0;
+        }
+    }
+
     render () {
         const groups = this.state.groups.map(group => {
             const sortedTeams = group.teams.sort((a, b) => {
-                const aPts = (a.wins * 3) + a.ties;
-                const bPts = (b.wins * 3) + b.ties;
-                const aGd = a.gf - a.ga;
-                const bGd = b.gf - b.ga;
-                if (aPts !== bPts) { // Points
-                    if (aPts > bPts)
-                        return -1;
-                    else
-                        return 1;
-                }
-                else if (aGd !== bGd) { // Goal differential
-                    if (aGd > bGd)
-                        return -1;
-                    else
-                        return 1;
-                }
-                else if (a.gf !== b.gf) { // Goals scored
-                    if (a.gf > b.gf)
-                        return -1;
-                    else
-                        return 1;
-                }
-                else {
-                    let aTeamGf = 0;
-                    let bTeamGf = 0;
-
-                    for (const game of group.games) {
-                        if ((a.name === game[0][0]) &&
-                            (b.name === game[0][1])) {
-                                if (game[1][0] !== "") {
-                                    aTeamGf = aTeamGf + parseInt(game[1][0]);
-                                }
-                                if (game[1][1] !== "") {
-                                    bTeamGf = bTeamGf + parseInt(game[1][1]);
-                                }
-                        } else 
-                            if ((a.name === game[0][1]) &&
-                            (b.name === game[0][0])) {
-                                if (game[1][1] !== "") {
-                                    aTeamGf = aTeamGf + parseInt(game[1][1]);
-                                }
-                                if (game[1][0] !== "") {
-                                    bTeamGf = bTeamGf + parseInt(game[1][0]);
-                                }
-                        }
-                    }
-                    if (aTeamGf !== bTeamGf) { // Goals scored
-                        if (aTeamGf > bTeamGf)
-                            return -1;
-                        else
-                            return 1;
-                    } else {
-                        return 0;
-                    }
-                }
+                return this.groupCompare(group, a, b); 
             });
             const sortedGroup = {
                 name: group.name,
