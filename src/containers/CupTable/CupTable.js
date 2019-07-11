@@ -334,12 +334,9 @@ class CupTable extends Component {
         this.setState(this.defaultState);
     }
 
-    updateTeamsFromGames = (stateCopy, groupIndex) => {
-        stateCopy.groups[groupIndex].teams = 
-            this.deepCopy(this.defaultState.groups[groupIndex].teams);
-
-            for (const game of stateCopy.groups[groupIndex].games) {
-            for (const team of stateCopy.groups[groupIndex].teams) {
+    updateTeamsInGroupFromGames = (group) => {
+        for (const game of group.games) {
+            for (const team of group.teams) {
                 if (team.name === game[0][0]) {
                     if (game[1][0] !== "") {
                         team.gf += parseInt(game[1][0]);
@@ -389,8 +386,16 @@ class CupTable extends Component {
                 }
             }
         }
+        return(group);
+    }
 
-        const tiedTeams = {};
+    updateTeamsFromGames = (stateCopy, groupIndex) => {
+        stateCopy.groups[groupIndex].teams = 
+            this.deepCopy(this.defaultState.groups[groupIndex].teams);
+
+        stateCopy.groups[groupIndex] = this.updateTeamsInGroupFromGames(stateCopy.groups[groupIndex]);
+
+        let tiedTeams = {};
         for (const team of stateCopy.groups[groupIndex].teams) {
             tiedTeams[team.name] = 
                 stateCopy.groups[groupIndex].teams.filter((subTeam) => {
@@ -404,6 +409,23 @@ class CupTable extends Component {
                 });
         }
 
+        let threeWayTie = null;
+        for (const team of stateCopy.groups[groupIndex].teams) {
+            if (tiedTeams[team.name].length === 2) {
+                threeWayTie = {};
+                threeWayTie[team.name] = tiedTeams[team.name];
+                for (const subTeam of stateCopy.groups[groupIndex].teams) {
+                    if (!(threeWayTie.hasOwnProperty(subTeam.name))) {
+                        threeWayTie[subTeam.name] = [];
+                    }
+                }
+            }
+        }
+        
+        if (threeWayTie !== null) {
+            tiedTeams = threeWayTie;
+        }
+        
         for (const team of stateCopy.groups[groupIndex].teams) {
             if (tiedTeams[team.name].length === 1) {
                 for (const game of stateCopy.groups[groupIndex].games) {
@@ -448,6 +470,9 @@ class CupTable extends Component {
                         }
                     }
                 }
+            }
+            else if (tiedTeams[team.name].length === 2) {
+                console.log(tiedTeams);
             }
         }
     }
