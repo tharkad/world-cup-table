@@ -5,7 +5,7 @@ const group = (props) => {
     const teamRows = props.group.teams.map(team => {
         return (
             <tr key={team.name}>
-                <td className={classes.TeamName}>{team.name}</td>
+                <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")}</td>
                 <td className={classes.Number}>{team.wins}</td>
                 <td className={classes.Number}>{team.loses}</td>
                 <td className={classes.Number}>{team.ties}</td>

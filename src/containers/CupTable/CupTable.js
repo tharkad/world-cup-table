@@ -15,7 +15,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Nigeria",
@@ -23,7 +24,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Norway",
@@ -31,7 +33,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "South Korea",
@@ -39,7 +42,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },                    
                 ],
                 games: [
@@ -60,7 +64,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Germany",
@@ -68,7 +73,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "South Africa",
@@ -76,7 +82,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Spain",
@@ -84,7 +91,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },                    
                 ],
                 games: [
@@ -105,7 +113,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Brazil",
@@ -113,7 +122,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Italy",
@@ -121,7 +131,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Jamaica",
@@ -129,7 +140,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },                    
                 ],
                 games: [
@@ -150,7 +162,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                    {
                         name: "England",
@@ -158,7 +171,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Japan",
@@ -166,7 +180,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Scotland",
@@ -174,7 +189,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     }             
                 ],
                 games: [
@@ -195,7 +211,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Canada",
@@ -203,7 +220,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Netherlands",
@@ -211,7 +229,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "New Zealand",
@@ -219,7 +238,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },                    
                 ],
                 games: [
@@ -240,7 +260,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                    {
                         name: "Sweeden",
@@ -248,7 +269,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "Thailand",
@@ -256,7 +278,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     },
                     {
                         name: "United States",
@@ -264,7 +287,8 @@ class CupTable extends Component {
                         loses: 0,
                         ties: 0,
                         gf: 0,
-                        ga: 0
+                        ga: 0,
+                        tibreakers: [0,0,0,0,0,0,0]
                     }             
                 ],
                 games: [
@@ -314,48 +338,120 @@ class CupTable extends Component {
         stateCopy.groups[groupIndex].teams = 
             this.deepCopy(this.defaultState.groups[groupIndex].teams);
 
-        for (const game of stateCopy.groups[groupIndex].games) {
+            for (const game of stateCopy.groups[groupIndex].games) {
             for (const team of stateCopy.groups[groupIndex].teams) {
                 if (team.name === game[0][0]) {
                     if (game[1][0] !== "") {
-                        team.gf = team.gf + parseInt(game[1][0]);
+                        team.gf += parseInt(game[1][0]);
+                        team.tibreakers[1] += parseInt(game[1][0]);
+                        team.tibreakers[2] += parseInt(game[1][0]);
                     }
                     if (game[1][1] !== "") {
+                        team.tibreakers[1] -= parseInt(game[1][1]);
                         team.ga = team.ga + parseInt(game[1][1]);
                     }
                     if ((game[1][0] !== "") && (game[1][1] !== "")) {
                         let gf = parseInt(game[1][0]);
                         let ga = parseInt(game[1][1]);
                         if (gf > ga) {
-                            team.wins = team.wins + 1;
+                            team.tibreakers[0] += 3;
+                            team.wins += 1;
                         } else if (gf < ga) {
-                            team.loses = team.loses + 1;
+                            team.loses += 1;
                         } else {
-                            team.ties = team.ties + 1;
+                            team.tibreakers[0] += 1
+                            team.ties += 1;
                         }
                     }
                 } else if (team.name === game[0][1]) {
                     if (game[1][1] !== "") {
-                        team.gf = team.gf + parseInt(game[1][1]);
+                        team.gf += parseInt(game[1][1]);
+                        team.tibreakers[1] += parseInt(game[1][1]);
+                        team.tibreakers[2] += parseInt(game[1][1]);
                     }
                     if (game[1][0] !== "") {
-                        team.ga = team.ga + parseInt(game[1][0]);
+                        team.tibreakers[1] -= parseInt(game[1][0]);
+                        team.ga += parseInt(game[1][0]);
                     }
                     if ((game[1][0] !== "") && (game[1][1] !== "")) {
                         let gf = parseInt(game[1][1]);
                         let ga = parseInt(game[1][0]);
                         if (gf > ga) {
-                            team.wins = team.wins + 1;
+                            team.tibreakers[0] += 3;
+                            team.wins += 1;
                         } else if (gf < ga) {
-                            team.loses = team.loses + 1;
+                            team.loses += 1;
                         } else {
-                            team.ties = team.ties + 1;
+                            team.tibreakers[0] += 1;
+                            team.ties += 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        const tiedTeams = {};
+        for (const team of stateCopy.groups[groupIndex].teams) {
+            tiedTeams[team.name] = 
+                stateCopy.groups[groupIndex].teams.filter((subTeam) => {
+                    if (team.name === subTeam.name)
+                        return false;
+                    if ((team.tibreakers[0] === subTeam.tibreakers[0]) &&
+                        (team.tibreakers[1] === subTeam.tibreakers[1]) &&
+                        (team.tibreakers[2] === subTeam.tibreakers[2]))
+                        return true;
+                    return false;
+                });
+        }
+
+        for (const team of stateCopy.groups[groupIndex].teams) {
+            if (tiedTeams[team.name].length === 1) {
+                for (const game of stateCopy.groups[groupIndex].games) {
+                    if ((team.name === game[0][0]) &&
+                        (tiedTeams[team.name][0].name === game[0][1])) {
+                            if (game[1][0] !== "") {
+                                team.tibreakers[4] += parseInt(game[1][0]);
+                                team.tibreakers[5] += parseInt(game[1][0]);
+                            }
+                            if (game[1][1] !== "") {
+                                team.tibreakers[4] -= parseInt(game[1][1]);
+                            }
+                            if ((game[1][0] !== "") && (game[1][1] !== "")) {
+                                let gf = parseInt(game[1][0]);
+                                let ga = parseInt(game[1][1]);
+                                if (gf > ga) {
+                                    team.tibreakers[3] += 3;
+                                } else if (gf < ga) {
+                                } else {
+                                    team.tibreakers[3] += 1
+                                }
+                            }
+                    }
+                    else if ((team.name === game[0][1]) &&
+                        (tiedTeams[team.name][0].name === game[0][0])) {
+                            if (game[1][1] !== "") {
+                                team.tibreakers[4] += parseInt(game[1][1]);
+                                team.tibreakers[5] += parseInt(game[1][1]);
+                            }
+                            if (game[1][0] !== "") {
+                                team.tibreakers[4] -= parseInt(game[1][0]);
+                            }
+                            if ((game[1][0] !== "") && (game[1][1] !== "")) {
+                                let gf = parseInt(game[1][1]);
+                                let ga = parseInt(game[1][0]);
+                                if (gf > ga) {
+                                    team.tibreakers[3] += 3;
+                                } else if (gf < ga) {
+                                } else {
+                                    team.tibreakers[3] += 1;
+                                }
                         }
                     }
                 }
             }
         }
     }
+
 
     scoreChangedHandler = (event, id) => {
         const groupIndex = this.state.groups.findIndex(group => {
