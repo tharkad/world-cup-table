@@ -472,7 +472,18 @@ class CupTable extends Component {
                 }
             }
             else if (tiedTeams[team.name].length === 2) {
-                console.log(tiedTeams);
+                let tieGroup = this.constructTiebreakerGroup(stateCopy.groups[groupIndex], team.name, tiedTeams[team.name]);
+                tieGroup = this.updateTeamsInGroupFromGames(tieGroup);
+
+                for (const subTeam of stateCopy.groups[groupIndex].teams) {
+                    for (const subSubTeam of tieGroup.teams) {
+                        if (subTeam.name === subSubTeam.name) {
+                            subTeam.tibreakers[3] = subSubTeam.tibreakers[0];
+                            subTeam.tibreakers[4] = subSubTeam.tibreakers[1];
+                            subTeam.tibreakers[5] = subSubTeam.tibreakers[2];
+                        }
+                    }
+                }
             }
         }
     }
@@ -491,72 +502,75 @@ class CupTable extends Component {
        }
     }
 
-    constructTiebreakerGroup = (group, a, b) => {
+    constructTiebreakerGroup = (group, teamName, tiedTeams) => {
         let tiebreakerGroup = {name: group.name};
         const teamA = {
-            name: a.name,
+            name: teamName,
             wins: 0,
             loses: 0,
             ties: 0,
             gf: 0,
-            ga: 0
+            ga: 0,
+            tibreakers: [0,0,0,0,0,0,0]
         };
         const teamB = {
-            name: a.name,
+            name: tiedTeams[0].name,
             wins: 0,
             loses: 0,
             ties: 0,
             gf: 0,
-            ga: 0
+            ga: 0,
+            tibreakers: [0,0,0,0,0,0,0]
         }
-        const tiebreakerTeams = {teams: [teamA, teamB]};
+        const teamC = {
+            name: tiedTeams[1].name,
+            wins: 0,
+            loses: 0,
+            ties: 0,
+            gf: 0,
+            ga: 0,
+            tibreakers: [0,0,0,0,0,0,0]
+        }
+        const tiebreakerTeams = {teams: [teamA, teamB, teamC]};
         tiebreakerGroup = {...tiebreakerGroup, ...tiebreakerTeams};
+        const filteredGames = group.games.filter((game) => {
+            let homeIn = false;
+            let visitorIn = false;
 
-        // for (let team of group.teams) {
-            
-        // }
+            for (const team of tiebreakerTeams["teams"]) {
+                if (team.name === game[0][0])
+                    homeIn = true;
+                if (team.name === game[0][1])
+                    visitorIn = true;
+            }
+
+            if (homeIn && visitorIn) {
+                return true;
+            }
+
+            return false;
+        });
+        const tiebreakerGames = {games: filteredGames};
+        tiebreakerGroup = {...tiebreakerGroup, ...tiebreakerGames};
 
         return tiebreakerGroup;
     }
 
-    groupCompare = (group, a, b) => {
-        const aPts = (a.wins * 3) + a.ties;
-        const bPts = (b.wins * 3) + b.ties;
-        const aGd = a.gf - a.ga;
-        const bGd = b.gf - b.ga;
-        if (aPts !== bPts) { // Points
-            if (aPts > bPts)
+    teamCompare = (a, b) => {
+        for (let i = 0; i < a.tibreakers.length; i++) {
+            if (a.tibreakers[i] > b.tibreakers[i])
                 return -1;
-            else
+            else if (a.tibreakers[i] < b.tibreakers[i])
                 return 1;
         }
-        else if (aGd !== bGd) { // Goal differential
-            if (aGd > bGd)
-                return -1;
-            else
-                return 1;
-        }
-        else if (a.gf !== b.gf) { // Goals scored
-            if (a.gf > b.gf)
-                return -1;
-            else
-                return 1;
-        }
-        else {
-            // const tiebreakerGroup = this.constructTiebreakerGroup(group, a, b);
-            // const aTieBreakerIndex = tiebreakerGroup.teams.findIndex(team => {
-            //     return a.name === team.name;
-            // });
-            // const result = this.groupCompare(tiebreakerGroup, a, b);
-            // return result;
-            return 0;
-        }
+
+        return 0;
     }
 
     render () {
         const groups = this.state.groups.map(group => {
             const sortedTeams = group.teams.sort((a, b) => {
-                return this.groupCompare(group, a, b); 
+                return this.teamCompare(a, b); 
             });
             const sortedGroup = {
                 name: group.name,
