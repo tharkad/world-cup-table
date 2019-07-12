@@ -409,6 +409,19 @@ class CupTable extends Component {
                 });
         }
 
+        console.log(tiedTeams);
+
+        const newTiedTeams = this.deepCopy(tiedTeams);
+        for (const team of stateCopy.groups[groupIndex].teams) {
+            if (newTiedTeams.hasOwnProperty(team.name)) {
+                for (const subTeam of newTiedTeams[team.name]) {
+                    delete newTiedTeams[subTeam.name];
+                }               
+            }
+        }
+
+        console.log(newTiedTeams);
+
         let threeWayTie = null;
         for (const team of stateCopy.groups[groupIndex].teams) {
             if (tiedTeams[team.name].length === 2) {
@@ -425,7 +438,7 @@ class CupTable extends Component {
         if (threeWayTie !== null) {
             tiedTeams = threeWayTie;
         }
-        
+
         for (const team of stateCopy.groups[groupIndex].teams) {
             if (tiedTeams[team.name].length === 1) {
                 for (const game of stateCopy.groups[groupIndex].games) {
