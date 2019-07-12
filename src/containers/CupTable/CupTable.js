@@ -409,8 +409,6 @@ class CupTable extends Component {
                 });
         }
 
-        console.log(tiedTeams);
-
         const newTiedTeams = this.deepCopy(tiedTeams);
         for (const team of stateCopy.groups[groupIndex].teams) {
             if (newTiedTeams.hasOwnProperty(team.name)) {
@@ -420,72 +418,11 @@ class CupTable extends Component {
             }
         }
 
-        console.log(newTiedTeams);
+        tiedTeams = newTiedTeams;
 
-        let threeWayTie = null;
-        for (const team of stateCopy.groups[groupIndex].teams) {
-            if (tiedTeams[team.name].length === 2) {
-                threeWayTie = {};
-                threeWayTie[team.name] = tiedTeams[team.name];
-                for (const subTeam of stateCopy.groups[groupIndex].teams) {
-                    if (!(threeWayTie.hasOwnProperty(subTeam.name))) {
-                        threeWayTie[subTeam.name] = [];
-                    }
-                }
-            }
-        }
-        
-        if (threeWayTie !== null) {
-            tiedTeams = threeWayTie;
-        }
-
-        for (const team of stateCopy.groups[groupIndex].teams) {
-            if (tiedTeams[team.name].length === 1) {
-                for (const game of stateCopy.groups[groupIndex].games) {
-                    if ((team.name === game[0][0]) &&
-                        (tiedTeams[team.name][0].name === game[0][1])) {
-                            if (game[1][0] !== "") {
-                                team.tibreakers[4] += parseInt(game[1][0]);
-                                team.tibreakers[5] += parseInt(game[1][0]);
-                            }
-                            if (game[1][1] !== "") {
-                                team.tibreakers[4] -= parseInt(game[1][1]);
-                            }
-                            if ((game[1][0] !== "") && (game[1][1] !== "")) {
-                                let gf = parseInt(game[1][0]);
-                                let ga = parseInt(game[1][1]);
-                                if (gf > ga) {
-                                    team.tibreakers[3] += 3;
-                                } else if (gf < ga) {
-                                } else {
-                                    team.tibreakers[3] += 1
-                                }
-                            }
-                    }
-                    else if ((team.name === game[0][1]) &&
-                        (tiedTeams[team.name][0].name === game[0][0])) {
-                            if (game[1][1] !== "") {
-                                team.tibreakers[4] += parseInt(game[1][1]);
-                                team.tibreakers[5] += parseInt(game[1][1]);
-                            }
-                            if (game[1][0] !== "") {
-                                team.tibreakers[4] -= parseInt(game[1][0]);
-                            }
-                            if ((game[1][0] !== "") && (game[1][1] !== "")) {
-                                let gf = parseInt(game[1][1]);
-                                let ga = parseInt(game[1][0]);
-                                if (gf > ga) {
-                                    team.tibreakers[3] += 3;
-                                } else if (gf < ga) {
-                                } else {
-                                    team.tibreakers[3] += 1;
-                                }
-                        }
-                    }
-                }
-            }
-            else if (tiedTeams[team.name].length === 2) {
-                let tieGroup = this.constructTiebreakerGroup(stateCopy.groups[groupIndex], team.name, tiedTeams[team.name]);
+        for (let [key, value] of Object.entries(newTiedTeams)) {
+            if (value.length > 0) {
+                let tieGroup = this.constructTiebreakerGroup(stateCopy.groups[groupIndex], key, value);
                 tieGroup = this.updateTeamsInGroupFromGames(tieGroup);
 
                 for (const subTeam of stateCopy.groups[groupIndex].teams) {
@@ -498,9 +435,8 @@ class CupTable extends Component {
                     }
                 }
             }
-        }
+        } 
     }
-
 
     scoreChangedHandler = (event, id) => {
         const groupIndex = this.state.groups.findIndex(group => {
@@ -517,7 +453,7 @@ class CupTable extends Component {
 
     constructTiebreakerGroup = (group, teamName, tiedTeams) => {
         let tiebreakerGroup = {name: group.name};
-        const teamA = {
+        const teams = [{
             name: teamName,
             wins: 0,
             loses: 0,
@@ -525,26 +461,21 @@ class CupTable extends Component {
             gf: 0,
             ga: 0,
             tibreakers: [0,0,0,0,0,0,0]
-        };
-        const teamB = {
-            name: tiedTeams[0].name,
-            wins: 0,
-            loses: 0,
-            ties: 0,
-            gf: 0,
-            ga: 0,
-            tibreakers: [0,0,0,0,0,0,0]
+        }];
+
+        for (const team of tiedTeams) {
+            teams.push({
+                name: team.name,
+                wins: 0,
+                loses: 0,
+                ties: 0,
+                gf: 0,
+                ga: 0,
+                tibreakers: [0,0,0,0,0,0,0]    
+            })
         }
-        const teamC = {
-            name: tiedTeams[1].name,
-            wins: 0,
-            loses: 0,
-            ties: 0,
-            gf: 0,
-            ga: 0,
-            tibreakers: [0,0,0,0,0,0,0]
-        }
-        const tiebreakerTeams = {teams: [teamA, teamB, teamC]};
+
+        const tiebreakerTeams = {teams: teams};
         tiebreakerGroup = {...tiebreakerGroup, ...tiebreakerTeams};
         const filteredGames = group.games.filter((game) => {
             let homeIn = false;
