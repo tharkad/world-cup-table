@@ -16,7 +16,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -26,7 +26,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -36,7 +36,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -46,7 +46,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },                    
                 ],
@@ -69,7 +69,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -79,7 +79,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -89,7 +89,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -99,7 +99,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },                    
                 ],
@@ -122,7 +122,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -132,7 +132,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -142,7 +142,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -152,7 +152,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },                    
                 ],
@@ -175,7 +175,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                    {
@@ -185,7 +185,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -195,7 +195,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -205,7 +205,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     }             
                 ],
@@ -228,7 +228,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -238,7 +238,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -248,7 +248,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -258,7 +258,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },                    
                 ],
@@ -281,7 +281,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                    {
@@ -291,7 +291,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -301,7 +301,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     },
                     {
@@ -311,7 +311,7 @@ class CupTable extends Component {
                         ties: 0,
                         gf: 0,
                         ga: 0,
-                        tibreakers: [0,0,0,0,0,0,0],
+                        tibreakers: [0,0,0,0,0,0,10],
                         tiedWith: []
                     }             
                 ],
@@ -418,6 +418,10 @@ class CupTable extends Component {
             this.deepCopy(this.defaultState.groups[groupIndex].teams);
 
         stateCopy.groups[groupIndex] = this.updateTeamsInGroupFromGames(stateCopy.groups[groupIndex]);
+        stateCopy.groups[groupIndex].teams = 
+            stateCopy.groups[groupIndex].teams.sort((a, b) => {
+                return this.teamCompare(a, b); 
+            });
 
         let tiedTeams = {};
         for (const team of stateCopy.groups[groupIndex].teams) {
@@ -431,9 +435,6 @@ class CupTable extends Component {
                         return true;
                     return false;
                 });
-            for (let i = 0; i < tiedTeams[team.name].length; i++) {
-                team.tiedWith.push(tiedTeams[team.name][i].name);
-            }
         }
 
         const newTiedTeams = this.deepCopy(tiedTeams);
@@ -447,7 +448,7 @@ class CupTable extends Component {
 
         tiedTeams = newTiedTeams;
 
-        for (let [key, value] of Object.entries(newTiedTeams)) {
+        for (let [key, value] of Object.entries(tiedTeams)) {
             if (value.length > 0) {
                 let tieGroup = this.constructTiebreakerGroup(stateCopy.groups[groupIndex], key, value);
                 tieGroup = this.updateTeamsInGroupFromGames(tieGroup);
@@ -463,6 +464,49 @@ class CupTable extends Component {
                 }
             }
         } 
+        
+        stateCopy.groups[groupIndex].teams = 
+            stateCopy.groups[groupIndex].teams.sort((a, b) => {
+                return this.teamCompare(a, b); 
+        });
+
+        let fullyTiedTeams = {};
+        for (const team of stateCopy.groups[groupIndex].teams) {
+            fullyTiedTeams[team.name] = 
+                stateCopy.groups[groupIndex].teams.filter((subTeam) => {
+                    if (team.name === subTeam.name)
+                        return false;
+                    if ((team.tibreakers[0] === subTeam.tibreakers[0]) &&
+                        (team.tibreakers[1] === subTeam.tibreakers[1]) &&
+                        (team.tibreakers[2] === subTeam.tibreakers[2]) &&
+                        (team.tibreakers[3] === subTeam.tibreakers[3]) &&
+                        (team.tibreakers[4] === subTeam.tibreakers[4]) &&
+                        (team.tibreakers[5] === subTeam.tibreakers[5]))
+                        return true;
+                    return false;
+                });
+        }
+
+        for (let [key, value] of Object.entries(fullyTiedTeams)) {
+            let teamIndex = stateCopy.groups[groupIndex].teams.findIndex((team) => {
+                return key === team.name;
+            });
+            let team = stateCopy.groups[groupIndex].teams[teamIndex];
+            if (fullyTiedTeams[key].length > 0) {
+                team.tiedWith.push(1 +
+                    stateCopy.groups[groupIndex].teams.findIndex((subTeam) => {
+                    return subTeam.name === team.name;
+                }))
+                for (const subTeam of value) {
+                    team.tiedWith.push(1 +
+                        stateCopy.groups[groupIndex].teams.findIndex((subSubTeam) => {
+                        return subSubTeam.name === subTeam.name;
+                    }))
+                }
+            }
+            team.tiedWith.sort();
+        }
+ 
     }
 
     scoreChangedHandler = (event, id) => {
@@ -487,7 +531,7 @@ class CupTable extends Component {
             ties: 0,
             gf: 0,
             ga: 0,
-            tibreakers: [0,0,0,0,0,0,0]
+            tibreakers: [0,0,0,0,0,0,10]
         }];
 
         for (const team of tiedTeams) {
@@ -498,7 +542,7 @@ class CupTable extends Component {
                 ties: 0,
                 gf: 0,
                 ga: 0,
-                tibreakers: [0,0,0,0,0,0,0]    
+                tibreakers: [0,0,0,0,0,0,10]    
             })
         }
 
