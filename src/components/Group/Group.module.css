@@ -1,14 +1,14 @@
 .Group {
     overflow: hidden;
     margin: 8px auto;
-    width: 800px;
+    width: 900px;
     text-align: left;
     font-size: 1.1rem;
 }
 
 .GroupTable {
     margin: 4px;
-    width: 45%;
+    width: 50%;
     padding: 4px 8px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -17,7 +17,7 @@
 
 .Fixtures {
     margin: 4px;
-    width: 45%;
+    width: 40%;
     padding: 0px 16px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -31,7 +31,7 @@
 }
 
 .FixtureTable tr {
-    line-height: 31px;
+    line-height: 32px;
 }
 
 .GroupName {
@@ -43,7 +43,7 @@
 }
 
 .Table {
-    border-spacing: 8px;
+    border-spacing: 9px;
 }
 
 .GroupHeadingTeam {

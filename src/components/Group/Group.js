@@ -1,11 +1,19 @@
 import React from 'react';
 import classes from './Group.module.css';
+import TieControl from './TieControl';
 
 const group = (props) => {
-    const teamRows = props.group.teams.map(team => {
+    const teamRows = props.group.teams.map((team, index) => {
         return (
             <tr key={team.name}>
-                <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")} {team.tiedWith.join(",")}</td>
+{/*                 <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")} {team.tiedWith.join(",")}</td>
+ */}                
+                <td className={classes.TeamName}>{team.name}</td>
+{/*                 <td className={classes.TieControl}><TieControl up=" "/></td>
+                <td className={classes.TieControl}><TieControl /></td>
+ */}                
+                <td></td>
+                <td></td>
                 <td className={classes.Number}>{team.wins}</td>
                 <td className={classes.Number}>{team.loses}</td>
                 <td className={classes.Number}>{team.ties}</td>
@@ -72,6 +80,8 @@ const group = (props) => {
                 <table className = {classes.Table}><tbody>
                     <tr className = {classes.GroupHeading}>
                         <td className = {classes.GroupHeadingTeam}>Team</td>
+                        <td></td>
+                        <td></td>
                         <td>W</td>
                         <td>L</td>
                         <td>T</td>
