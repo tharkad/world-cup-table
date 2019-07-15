@@ -7,12 +7,26 @@ import noneArrowImg from '../../assets/none.png';
 const TieControl = (props) => {
     let arrow = noneArrowImg;
     if (props.arrow === "up")
-        arrow = upArrowImg;
+        return (
+            <img 
+                src={upArrowImg} 
+                alt="Up Arrow"
+                onClick={(event) => props.arrowClicked(event, [props.group, props.teamIndex, true])}
+            />
+        );
     else if (props.arrow === "down")
-        arrow = downArrowImg;
-
+        return (
+            <img 
+                src={downArrowImg} 
+                alt="Down Arrow"
+                onClick={(event) => props.arrowClicked(event, [props.group, props.teamIndex, false])}
+            />
+        );
     return (
-        <img src={arrow} alt="Arrow"></img>
+        <img 
+            src={arrow} 
+            alt="No Arrow"
+        />
     );
 }
 

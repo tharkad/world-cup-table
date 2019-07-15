@@ -327,7 +327,6 @@ class CupTable extends Component {
         ]
     }
 
-
     deepCopy = (obj) => {
         if(typeof obj !== 'object' || obj === null) {
             return obj;
@@ -357,6 +356,13 @@ class CupTable extends Component {
     resetToDefaultState = () => {
         this.setState(this.defaultState);
     }
+
+    // componentDidMount() {
+    //     clearStorage();
+    //     this.resetToDefaultState();
+    //   }
+    
+
 
     updateTeamsInGroupFromGames = (group) => {
         for (const game of group.games) {
@@ -493,12 +499,12 @@ class CupTable extends Component {
             });
             let team = stateCopy.groups[groupIndex].teams[teamIndex];
             if (fullyTiedTeams[key].length > 0) {
-                team.tiedWith.push(1 +
+                team.tiedWith.push(
                     stateCopy.groups[groupIndex].teams.findIndex((subTeam) => {
                     return subTeam.name === team.name;
                 }))
                 for (const subTeam of value) {
-                    team.tiedWith.push(1 +
+                    team.tiedWith.push(
                         stateCopy.groups[groupIndex].teams.findIndex((subSubTeam) => {
                         return subSubTeam.name === subTeam.name;
                     }))
@@ -521,6 +527,32 @@ class CupTable extends Component {
             this.setState(stateCopy);
        }
     }
+
+    tieArrowHandler = (event, [group, teamIndex, upArrow]) => {
+        const groupIndex = this.state.groups.findIndex(subGroup => {
+            return subGroup.name === group.name;
+        });
+
+        let stateCopy = this.deepCopy(this.state);
+        for (const i of stateCopy.groups[groupIndex].teams[teamIndex].tiedWith) {
+            if (upArrow) {
+                if (i === teamIndex - 1) 
+                    stateCopy.groups[groupIndex].teams[i].tibreakers[6] = teamIndex;
+                else if (i === teamIndex)
+                    stateCopy.groups[groupIndex].teams[i].tibreakers[6] = teamIndex - 1;
+                else   
+                    stateCopy.groups[groupIndex].teams[i].tibreakers[6] = i;
+            } else {
+                if (i === teamIndex + 1) 
+                    stateCopy.groups[groupIndex].teams[i].tibreakers[6] = teamIndex;
+                else if (i === teamIndex)
+                    stateCopy.groups[groupIndex].teams[i].tibreakers[6] = teamIndex + 1;
+                else   
+                    stateCopy.groups[groupIndex].teams[i].tibreakers[6] = i;
+            }
+        }
+        this.setState(stateCopy);
+    };
 
     constructTiebreakerGroup = (group, teamName, tiedTeams) => {
         let tiebreakerGroup = {name: group.name};
@@ -572,12 +604,17 @@ class CupTable extends Component {
     }
 
     teamCompare = (a, b) => {
-        for (let i = 0; i < a.tibreakers.length; i++) {
+        for (let i = 0; i < a.tibreakers.length - 1; i++) {
             if (a.tibreakers[i] > b.tibreakers[i])
                 return -1;
             else if (a.tibreakers[i] < b.tibreakers[i])
                 return 1;
         }
+
+        if (a.tibreakers[6] > b.tibreakers[6])
+            return 1;
+        else if (a.tibreakers[6] < b.tibreakers[6])
+            return -1;
 
         return 0;
     }
@@ -597,6 +634,7 @@ class CupTable extends Component {
                 groupName={group.name}
                 group={sortedGroup}
                 changed={this.scoreChangedHandler}
+                arrowClicked={this.tieArrowHandler}
             />
         });
 

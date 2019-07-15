@@ -11,22 +11,31 @@ class Group extends Component {
             let canMoveUp = false;
             let canMoveDown = false;
             for (const i of this.props.group.teams[index].tiedWith) {
-                console.log(this.props.group.teams[index].name, this.props.group.teams[index].tiedWith, i, index);
-                if (i < index + 1)
+                if (i < index)
                     canMoveUp = true;
-                if (i > index + 1)
+                if (i > index)
                     canMoveDown = true;
             }
 
             if (upArrow) {
                 if (canMoveUp)
-                    return <TieControl arrow="up" />;
+                    return <TieControl 
+                        arrow="up" 
+                        arrowClicked = {this.props.arrowClicked}
+                        group = {this.props.group}
+                        teamIndex = {index}
+                    />;
                 else
                     return <TieControl arrow="none" />;
             } else {
                 if (canMoveDown)
-                    return <TieControl arrow="down" />;
-                else
+                    return <TieControl 
+                        arrow="down" 
+                        group = {this.props.group}
+                        teamIndex = {index}
+                        arrowClicked = {this.props.arrowClicked}
+                    />;
+        else
                     return <TieControl arrow="none" />;
             }
 
