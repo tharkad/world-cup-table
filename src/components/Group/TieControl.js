@@ -1,13 +1,18 @@
 import React from 'react';
 import upArrowImg from '../../assets/up.png';
 import downArrowImg from '../../assets/down.png';
+import noneArrowImg from '../../assets/none.png';
 
 
 const TieControl = (props) => {
+    let arrow = noneArrowImg;
+    if (props.arrow === "up")
+        arrow = upArrowImg;
+    else if (props.arrow === "down")
+        arrow = downArrowImg;
+
     return (
-        props.up ? 
-            <img src={upArrowImg} alt="Up Arrow"></img> :
-            <img src={downArrowImg} alt="Down Arrow"></img>
+        <img src={arrow} alt="Arrow"></img>
     );
 }
 
