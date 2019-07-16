@@ -17,7 +17,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Nigeria",
@@ -27,7 +28,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Norway",
@@ -37,7 +39,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "South Korea",
@@ -47,7 +50,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },                    
                 ],
                 games: [
@@ -70,7 +74,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Germany",
@@ -80,7 +85,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "South Africa",
@@ -90,7 +96,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Spain",
@@ -100,7 +107,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },                    
                 ],
                 games: [
@@ -123,7 +131,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Brazil",
@@ -133,7 +142,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Italy",
@@ -143,7 +153,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Jamaica",
@@ -153,7 +164,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },                    
                 ],
                 games: [
@@ -176,7 +188,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                    {
                         name: "England",
@@ -186,7 +199,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Japan",
@@ -196,7 +210,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Scotland",
@@ -206,7 +221,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     }             
                 ],
                 games: [
@@ -229,7 +245,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Canada",
@@ -239,7 +256,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Netherlands",
@@ -249,7 +267,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "New Zealand",
@@ -259,7 +278,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },                    
                 ],
                 games: [
@@ -282,7 +302,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                    {
                         name: "Sweeden",
@@ -292,7 +313,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "Thailand",
@@ -302,7 +324,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     },
                     {
                         name: "United States",
@@ -312,7 +335,8 @@ class CupTable extends Component {
                         gf: 0,
                         ga: 0,
                         tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: []
+                        tiedWith: [],
+                        thirdBreakers: [0,0,0,0,0,0,10]
                     }             
                 ],
                 games: [
@@ -351,7 +375,19 @@ class CupTable extends Component {
         }
     }
 
-    state = this.deepCopy(this.defaultState);
+    constructThirdsGroup = (stateObj) => {
+        const thirdGroup = {name: "Third Place Teams", teams: []};
+        for (const group of stateObj.groups) {
+            const team = group.teams[2];
+            team.thirdBreakers = [0,0,0,0,0,0,10];
+            thirdGroup.teams.push(team);
+        }
+        stateObj["thirds"] = thirdGroup;
+        console.log(stateObj);
+        return stateObj;
+    }
+
+    state = this.deepCopy(this.constructThirdsGroup(this.defaultState));
 
     resetToDefaultState = () => {
         this.setState(this.defaultState);
@@ -362,8 +398,6 @@ class CupTable extends Component {
     //     this.resetToDefaultState();
     //   }
     
-
-
     updateTeamsInGroupFromGames = (group) => {
         for (const game of group.games) {
             for (const team of group.teams) {
@@ -524,6 +558,7 @@ class CupTable extends Component {
             let stateCopy = this.deepCopy(this.state);
             stateCopy.groups[groupIndex].games[id[1]][1][id[2]] = event.target.value;
             this.updateTeamsFromGames(stateCopy, groupIndex);
+            this.constructThirdsGroup(stateCopy);
             this.setState(stateCopy);
        }
     }
@@ -551,6 +586,10 @@ class CupTable extends Component {
                     stateCopy.groups[groupIndex].teams[i].tibreakers[6] = i;
             }
         }
+        stateCopy.groups[groupIndex].teams = stateCopy.groups[groupIndex].teams.sort((a, b) => {
+            return this.teamCompare(a, b); 
+        });
+        this.constructThirdsGroup(stateCopy);
         this.setState(stateCopy);
     };
 
@@ -635,6 +674,7 @@ class CupTable extends Component {
                 group={sortedGroup}
                 changed={this.scoreChangedHandler}
                 arrowClicked={this.tieArrowHandler}
+                renderFixtures="true"
             />
         });
 
@@ -644,7 +684,15 @@ class CupTable extends Component {
                 <h1>Women's World Cup 2019</h1>
                 <h3>Group Stage</h3>
                 <button onClick={this.resetToDefaultState}>Reset</button>
-                {groups}                
+                {groups}   
+                <Group 
+                    key={this.state.thirds.name}
+                    groupName={this.state.thirds.name}
+                    group={this.state.thirds}
+                    changed={this.scoreChangedHandler}
+                    arrowClicked={this.tieArrowHandler}
+                />
+             
             </Aux>
         );
     }

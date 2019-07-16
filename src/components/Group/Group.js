@@ -65,53 +65,56 @@ class Group extends Component {
             )
         });
 
-        const fixtureRows = this.props.group.games.map((game, index) => {
-            return (
-                <tr key={game[0][0] + game[0][1]}>
-                    <td className={classes.GameLeftTeamName}>{game[0][0]}</td>
-                    <td className={classes.GameScore}>
+        let fixtureRows = null
+        if (this.props.renderFixtures) {
+            fixtureRows = this.props.group.games.map((game, index) => {
+                return (
+                    <tr key={game[0][0] + game[0][1]}>
+                        <td className={classes.GameLeftTeamName}>{game[0][0]}</td>
+                        <td className={classes.GameScore}>
+                            { 
+                                game[1][0] == null ?
+                                    <input 
+                                        className={classes.LeftScoreInput}
+                                        size="2"
+                                        type="text"
+                                        pattern="^[0-9]*$"
+                                        onChange={(event) => this.props.changed(event, [this.props.groupName,index,0])}
+                                        value="" /> :
+                                    <input 
+                                        className={classes.LeftScoreInput}
+                                        size="2"
+                                        type="text"
+                                        pattern="^[0-9]*$"
+                                        onChange={(event) => this.props.changed(event, [this.props.groupName,index,0])}
+                                        value={game[1][0]} />
+                            }
+                        </td>
+                        <td className={classes.ScoreDivider}>-</td>
+                        <td className={classes.GameScore}>
                         { 
-                            game[1][0] == null ?
-                                <input 
-                                    className={classes.LeftScoreInput}
-                                    size="2"
-                                    type="text"
-                                    pattern="^[0-9]*$"
-                                    onChange={(event) => this.props.changed(event, [this.props.groupName,index,0])}
-                                    value="" /> :
-                                <input 
-                                    className={classes.LeftScoreInput}
-                                    size="2"
-                                    type="text"
-                                    pattern="^[0-9]*$"
-                                    onChange={(event) => this.props.changed(event, [this.props.groupName,index,0])}
-                                    value={game[1][0]} />
-                        }
-                    </td>
-                    <td className={classes.ScoreDivider}>-</td>
-                    <td className={classes.GameScore}>
-                    { 
-                            game[1][1] == null ?
-                                <input 
-                                    className={classes.LeftScoreInput}
-                                    size="2"
-                                    type="text"
-                                    pattern="^[0-9]*$"
-                                    onChange={(event) => this.props.changed(event, [this.props.groupName,index,1])}
-                                    value="" /> :
-                                <input 
-                                    className={classes.LeftScoreInput}
-                                    size="2"
-                                    type="text"
-                                    pattern="^[0-9]*$"
-                                    onChange={(event) => this.props.changed(event, [this.props.groupName,index,1])}    
-                                    value={game[1][1]} />
-                        }
-                    </td>
-                    <td className={classes.GameRightTeamName}>{game[0][1]}</td>
-                </tr>
-            )
-        });
+                                game[1][1] == null ?
+                                    <input 
+                                        className={classes.LeftScoreInput}
+                                        size="2"
+                                        type="text"
+                                        pattern="^[0-9]*$"
+                                        onChange={(event) => this.props.changed(event, [this.props.groupName,index,1])}
+                                        value="" /> :
+                                    <input 
+                                        className={classes.LeftScoreInput}
+                                        size="2"
+                                        type="text"
+                                        pattern="^[0-9]*$"
+                                        onChange={(event) => this.props.changed(event, [this.props.groupName,index,1])}    
+                                        value={game[1][1]} />
+                            }
+                        </td>
+                        <td className={classes.GameRightTeamName}>{game[0][1]}</td>
+                    </tr>
+                )
+            });
+        }
 
         return (
             <div className = {classes.Group}>
