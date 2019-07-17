@@ -3,7 +3,6 @@ import upArrowImg from '../../assets/up.png';
 import downArrowImg from '../../assets/down.png';
 import noneArrowImg from '../../assets/none.png';
 
-
 const TieControl = (props) => {
     let arrow = noneArrowImg;
     if (props.arrow === "up")

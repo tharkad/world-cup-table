@@ -1,0 +1,8 @@
+.KnockoutStage {
+    overflow: hidden;
+    margin: 8px auto;
+    width: 900px;
+    text-align: left;
+    font-size: 1.1rem;
+    display: flex;
+}

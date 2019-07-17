@@ -1,0 +1,8 @@
+.KnockoutFixture {
+    margin: 4px;
+    width: 50%;
+    padding: 4px 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    float: left;
+}

@@ -4,13 +4,18 @@ import TieControl from './TieControl';
 
 class Group extends Component {
     tieControl = (index, upArrow) => {
-        if (this.props.group.teams[index].tiedWith.length === 0) {
+        let localTiedWith = null;
+        if (this.props.thirdGroup)
+            localTiedWith = this.props.group.teams[index].thirdTiedWith;
+        else
+            localTiedWith = this.props.group.teams[index].tiedWith;
+        if (localTiedWith.length === 0) {
             return <TieControl arrow="none" />
         }
         else {
             let canMoveUp = false;
             let canMoveDown = false;
-            for (const i of this.props.group.teams[index].tiedWith) {
+            for (const i of localTiedWith) {
                 if (i < index)
                     canMoveUp = true;
                 if (i > index)
@@ -136,11 +141,15 @@ class Group extends Component {
                         {teamRows}
                     </tbody></table>
                 </div>
-                <div className={classes.Fixtures}>
-                    <table className = {classes.FixtureTable}><tbody>
-                        {fixtureRows}
-                    </tbody></table>
-                </div>
+                {
+                    this.props.renderFixtures ?
+                        <div className={classes.Fixtures}>
+                            <table className = {classes.FixtureTable}><tbody>
+                                {fixtureRows}
+                            </tbody></table>
+                        </div> :
+                        <div></div>
+                }
             </div>
         )
     }
