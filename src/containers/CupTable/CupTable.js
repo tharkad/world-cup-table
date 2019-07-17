@@ -488,30 +488,6 @@ class CupTable extends Component {
         return stateObj;
     }
 
-    thirdTeamFromGroups = (groupNames, blacklist, stateObj) => {
-        console.log("groupNames", groupNames);
-        console.log("blacklist", blacklist);
-        console.log("stateObj", stateObj);
-
-        for (const groupName of groupNames) {
-            const groupIndex = stateObj.groups.findIndex(subGroup => {
-                return subGroup.name === groupName;
-            });
-            for (let i = 0; i < 4; i++) {
-                if (stateObj.groups[groupIndex].teams[2].name ===
-                    stateObj.thirds.teams[i].name) {
-                        if (!blacklist.includes(stateObj.thirds.teams[i].name)) {
-                            console.log("returning", stateObj.thirds.teams[i].name);
-                            return stateObj.thirds.teams[i];
-                        }
-                    }
-            }    
-        }
-
-        console.log("return null");
-        return null;
-    }
-
     constructKnockoutStage = (stateObj) => {
         let knockout = {roundOf16: []};
         let thirdTeams = [];
@@ -526,29 +502,164 @@ class CupTable extends Component {
                     }
                 }
             }
-        }
+        }   
 
-        console.log("thirds", thirdTeams, thirdGroups);
+        const thirdGroupsString = thirdGroups.map(groupName => {
+            return groupName.slice(-1);
+        }).join("");
+
+        let thirdTeam = null;
+
+        // Game 1: 2A vs 2C
+        knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[1], 
+            stateObj.groups[2].teams[1]], result:["",""]});
         
+        // Game 2: 1D vs 3B/E/F
+        switch (thirdGroupsString) {
+            case "ABCD":
+                thirdTeam = stateObj.groups[1].teams[2];
+                break;
 
-        // knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[1], 
-        //     stateObj.groups[2].teams[1]], result:["",""]});
-        // knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], thirdTeams[1]], result:["",""]});
+            case "ABCE":
+            case "ABDE":
+            case "ACDE":
+            case "ACEF":
+            case "ADEF":
+            case "BCDE":
+            case "CDEF":
+                thirdTeam = stateObj.groups[4].teams[2];
+                break;
 
-        // knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], thirdTeams[2]], result:["",""]});
-        // knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[1], 
-        //     stateObj.groups[5].teams[0]], result:["",""]})
+            case "ABCF":
+            case "ABDF":
+            case "ABEF":
+            case "ACDF":
+            case "BCDF":
+            case "BCEF":
+            case "BDEF":
+                thirdTeam = stateObj.groups[5].teams[2];
+                break;
+                                       
+            default:
+                thirdTeam = null;
+                debugger;
+        }
+        knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], 
+            thirdTeam], result:["",""]});
 
-        // knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], thirdTeams[3]], result:["",""]});
-        // knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
-        //     stateObj.groups[3].teams[1]], result:["",""]})
+        // Game 3: 1A vs 3CDE
+        switch (thirdGroupsString) {
+            case "ABCD":
+            case "ABCE":
+            case "ABCF":
+            case "ACDE":
+            case "ACDF":
+            case "ACEF":
+            case "BCDE":
+            case "BCDF":
+            case "CDEF":
+                thirdTeam = stateObj.groups[2].teams[2];
+                break;
 
-        // knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], thirdTeams[1]], result:["",""]});
-        // knockout["roundOf16"].push({teams:[stateObj.groups[5].teams[1], 
-        //     stateObj.groups[4].teams[1]], result:["",""]})
+            case "ABDE":
+            case "ABDF":
+            case "ADEF":
+                thirdTeam = stateObj.groups[3].teams[2];
+                break;
+
+            case "ABEF":
+            case "BCEF":
+            case "BDEF":
+                thirdTeam = stateObj.groups[4].teams[2];
+                break;
+                                                                                                                       
+            default:
+                thirdTeam = null;
+                debugger;
+        }
+        knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
+            thirdTeam], result:["",""]});
+            
+        // Game 4: 1F vs 2B
+         knockout["roundOf16"].push({teams:[stateObj.groups[5].teams[0], 
+            stateObj.groups[1].teams[1]], result:["",""]});
     
+        // Game 5: 1B vs 3A/C/D
+        switch (thirdGroupsString) {
+            case "ABCE":
+            case "ABCF":
+            case "ABDE":
+            case "ABDF":
+            case "ABEF":
+            case "ACEF":
+            case "ADEF":
+                thirdTeam = stateObj.groups[0].teams[2];
+                break;
+
+            case "BCEF":
+                thirdTeam = stateObj.groups[2].teams[2];
+                break;       
+ 
+            case "ABCD":
+            case "ACDE":
+            case "ACDF":
+            case "BCDE":
+            case "BCDF":
+            case "BDEF":
+            case "CDEF":
+                thirdTeam = stateObj.groups[3].teams[2];
+                break;
+                                       
+            default:
+                thirdTeam = null;
+                debugger;
+        }
+        knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], 
+            thirdTeam], result:["",""]});
+
+        // Game 6: 2E vs 2F
+        knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[1], 
+            stateObj.groups[5].teams[1]], result:["",""]});
+
+        // Game 7: 1C vs 3A/B/F
+        switch (thirdGroupsString) {
+            case "ABCD":
+            case "ACDE":
+            case "ACDF":
+                thirdTeam = stateObj.groups[0].teams[2];
+                break;
+
+            case "ABCE":
+            case "ABCF":
+            case "ABDE":
+            case "ABDF":
+            case "ABEF":
+            case "BCDE":
+            case "BCDF":
+            case "BCEF":
+            case "BDEF":
+                thirdTeam = stateObj.groups[1].teams[2];
+                break;
+
+            case "ACEF":
+            case "ADEF":
+            case "CDEF":
+                thirdTeam = stateObj.groups[5].teams[2];
+                break;
+                                                
+            default:
+                thirdTeam = null;
+                debugger;
+        }
+        knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], 
+            thirdTeam], result:["",""]});
+
+        // Game 8: 1E vs 2D
+        knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
+            stateObj.groups[3].teams[1]], result:["",""]});
+
+
         stateObj["knockout"] = knockout;
-        console.log(stateObj);
         return stateObj;
     }
 
@@ -782,7 +893,7 @@ class CupTable extends Component {
         stateCopy.thirds.teams = stateCopy.thirds.teams.sort((a, b) => {
             return this.teamThirdsCompare(a, b); 
         });
-        console.log(stateCopy);
+
         this.constructKnockoutStage(stateCopy);
         this.setState(stateCopy);
     };
@@ -872,7 +983,7 @@ class CupTable extends Component {
                     thirdGroup="true"
                 />
                 <h2>Knockout Stage</h2>
-                <KnockoutStage />
+                <KnockoutStage knockout={this.state.knockout} />
             </Aux>
         );
     }
