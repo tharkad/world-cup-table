@@ -4,9 +4,11 @@
   "homepage": "http://tharkad.github.io/world-cup-table",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "react-select": "^3.0.4",
     "react-simple-storage": "^1.4.1"
   },
   "scripts": {
