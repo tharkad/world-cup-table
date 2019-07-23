@@ -25,3 +25,11 @@
 .FixtureTable tr {
     line-height: 22px;
 }
+
+.ThirdPlaceHeading {
+    vertical-align: bottom
+}
+
+.GameTitleHeading {
+    font-weight: bold;
+}
