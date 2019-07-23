@@ -612,22 +612,43 @@ class CupTable extends Component {
     }
 
     constructKnockoutStage = (stateObj) => {
+        let knockout = null;
+
         if (stateObj.groups.length === 6) {
-            return this.constructKnockoutStage24(stateObj);
+            knockout = this.constructKnockoutStage24(stateObj);
         } else if (stateObj.groups.length === 8) {
-            return this.constructKnockoutStage32(stateObj);
+            knockout =  this.constructKnockoutStage32(stateObj);
         } else {
-            return null;
+            knockout =  null;
         }
+
+        stateObj["knockout"] = knockout;
     }
 
-    constructKnockoutStage32 = (stateObj) => {
+    constructKnockoutRounds = () => {
         let knockout = {
             roundOf16: [],
-            quaterFinals: [],
+            quarterFinals: [],
             semiFinals: [],
             finals: []
         };
+
+        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
+
+        knockout["semiFinals"].push({teams:["",""], result:["",""]});
+        knockout["semiFinals"].push({teams:["",""], result:["",""]});
+
+        knockout["finals"].push({teams:["",""], result:["",""]});
+        knockout["finals"].push({teams:["",""], result:["",""]});
+
+        return knockout;
+    }
+
+    constructKnockoutStage32 = (stateObj) => {
+        const knockout = this.constructKnockoutRounds();
 
         // Game 1: A1 vs B2
         knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
@@ -661,22 +682,20 @@ class CupTable extends Component {
         knockout["roundOf16"].push({teams:[stateObj.groups[7].teams[0], 
             stateObj.groups[6].teams[1]], result:["",""]});
         
-        // Fake rest of knockout stage
-        knockout["quaterFinals"].push({teams:[stateObj.groups[0].teams[0], 
-            stateObj.groups[2].teams[0]], result:["",""]});
+        // // Fake rest of knockout stage
+        // knockout["quaterFinals"].push({teams:[stateObj.groups[0].teams[0], 
+        //     stateObj.groups[2].teams[0]], result:["",""]});
 
-        knockout["quaterFinals"].push({teams:[stateObj.groups[4].teams[0], 
-            stateObj.groups[6].teams[0]], result:["",""]})
+        // knockout["quaterFinals"].push({teams:[stateObj.groups[4].teams[0], 
+        //     stateObj.groups[6].teams[0]], result:["",""]})
     
-        knockout["quaterFinals"].push({teams:[stateObj.groups[1].teams[0], 
-            stateObj.groups[3].teams[0]], result:["",""]});
+        // knockout["quaterFinals"].push({teams:[stateObj.groups[1].teams[0], 
+        //     stateObj.groups[3].teams[0]], result:["",""]});
 
-        knockout["quaterFinals"].push({teams:[stateObj.groups[5].teams[0], 
-            stateObj.groups[7].teams[0]], result:["",""]})
+        // knockout["quaterFinals"].push({teams:[stateObj.groups[5].teams[0], 
+        //     stateObj.groups[7].teams[0]], result:["",""]})
         
-    
-        stateObj["knockout"] = knockout;
-        return stateObj;
+        return knockout;
     }
 
     constructKnockoutStage24 = (stateObj) => {
@@ -848,6 +867,8 @@ class CupTable extends Component {
         // Game 8: 1E vs 2D
         knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
             stateObj.groups[3].teams[1]], result:["",""]});
+
+        this.constructLateKnockoutRounds(knockout);
 
         stateObj["knockout"] = knockout;
         return stateObj;
