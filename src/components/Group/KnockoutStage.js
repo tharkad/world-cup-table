@@ -13,7 +13,6 @@ const knockoutStage = (props) => {
     let row8 = null;
 
     if (Object.keys(props.knockout).length > 0) {
-        console.log("quarters", props.knockout);
         const rdOf16 = [];
         for (let i = 0; i < 8; i++) {
             rdOf16.push(
@@ -27,7 +26,7 @@ const knockoutStage = (props) => {
 
         const quarters = [];
         for (let i = 0; i < 4; i++) {
-            let name1 = "-----";
+            let name1 = "-----"
             let name2 = "-----";
 
             if (props.knockout.quarterFinals[i].teams[0] !== "")
@@ -42,73 +41,78 @@ const knockoutStage = (props) => {
                     team2 = {name2} />
             );
         }
-    
-        // 16 G1, QF G1, SF G1, Third Place Heading
-        console.log("here", props.knockout);
 
+        const semis = [];
+        for (let i = 0; i < 2; i++) {
+            let name1 = "-----";
+            let name2 = "-----";
+
+            if (props.knockout.semiFinals[i].teams[0] !== "")
+                name1 = props.knockout.semiFinals[i].teams[0].name;
+            if (props.knockout.semiFinals[i].teams[1] !== "")
+                name2 = props.knockout.semiFinals[i].teams[1].name;
+            
+            semis.push(
+                <KnockoutFixture className={classes.Fixtures}
+                    key = {name1 + name2}
+                    team1 = {name1}
+                    team2 = {name2} />
+            );
+        }
+
+        const finals = [];
+        for (let i = 0; i < 2; i++) {
+            let name1 = "-----";
+            let name2 = "-----";
+
+            if (props.knockout.finals[i].teams[0] !== "")
+                name1 = props.knockout.finals[i].teams[0].name;
+            if (props.knockout.finals[i].teams[1] !== "")
+                name2 = props.knockout.finals[i].teams[1].name;
+            
+            finals.push(
+                <KnockoutFixture className={classes.Fixtures}
+                    key = {name1 + name2}
+                    team1 = {name1}
+                    team2 = {name2} />
+            );
+        }
+
+        // 16 G1, QF G1, SF G1, Third Place Heading
         row1 = <React.Fragment>
-        <td>{rdOf16[0]}</td>
-        <td rowSpan="2">{quarters[0]}</td>
-        <td rowSpan="4">
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[0].teams[0].name + 
-                    props.knockout.roundOf16[2].teams[0].name}
-                team1 = {props.knockout.roundOf16[0].teams[0].name}
-                team2 = {props.knockout.roundOf16[2].teams[0].name} />
-        </td>
-        <th className={classes.ThirdPlaceHeading}>Third Place Game</th></React.Fragment>
+            <td>{rdOf16[0]}</td>
+            <td rowSpan="2">{quarters[0]}</td>
+            <td rowSpan="4">{semis[0]}</td>
+            <th className={classes.ThirdPlaceHeading}>Third Place Game</th>
+        </React.Fragment>
         
         // 16 G2, Third Place Game
         row2 = <React.Fragment>
             <td>{rdOf16[1]}</td>
-        <td>
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[2].teams[0].name + 
-                    props.knockout.roundOf16[6].teams[0].name}
-                team1 = {props.knockout.roundOf16[2].teams[0].name}
-                team2 = {props.knockout.roundOf16[6].teams[0].name} />
-        </td></React.Fragment>
+            <td>{finals[1]}</td>
+        </React.Fragment>
         
         // 16 G3, GF G2
         row3 = <React.Fragment>
             <td>{rdOf16[2]}</td>
-        <td rowSpan="2">
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[2].teams[0].name + 
-                    props.knockout.roundOf16[3].teams[0].name}
-                team1 = {props.knockout.roundOf16[2].teams[0].name}
-                team2 = {props.knockout.roundOf16[3].teams[0].name} />
-        </td></React.Fragment>
+            <td rowSpan="2">{quarters[1]}</td>
+        </React.Fragment>
 
         // 16 G4, Final Game
         row4 = <React.Fragment>
             <td>{rdOf16[3]}</td>
-        <td rowSpan="2">
-            <p className={classes.GameTitleHeading}>Final Game</p>
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[0].teams[0].name + 
-                    props.knockout.roundOf16[4].teams[0].name}
-                team1 = {props.knockout.roundOf16[0].teams[0].name}
-                team2 = {props.knockout.roundOf16[4].teams[0].name} />
-        </td></React.Fragment>
+            <td rowSpan="2">
+                <p className={classes.GameTitleHeading}>Final Game</p>
+                {finals[0]}
+            </td>
+        </React.Fragment>
 
-        // 16 G5, GF G3, SF G2
+        // 16 G5, QF G3, SF G2
         row5 = <React.Fragment>
             <td>{rdOf16[4]}</td>
-        <td rowSpan="2">
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[4].teams[0].name + 
-                    props.knockout.roundOf16[5].teams[0].name}
-                team1 = {props.knockout.roundOf16[4].teams[0].name}
-                team2 = {props.knockout.roundOf16[5].teams[0].name} />
-        </td>
-        <td rowSpan="4">
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[4].teams[0].name + 
-                    props.knockout.roundOf16[6].teams[0].name}
-                team1 = {props.knockout.roundOf16[4].teams[0].name}
-                team2 = {props.knockout.roundOf16[6].teams[0].name} />
-        </td></React.Fragment>
+            <td rowSpan="2">{quarters[2]}</td>
+            <td rowSpan="4">{semis[1]}</td>
+        </React.Fragment>
 
         // 16 G6
         row6 = <td>{rdOf16[5]}</td>
@@ -116,20 +120,11 @@ const knockoutStage = (props) => {
         // 16 G7, QF G4
         row7 = <React.Fragment>
             <td>{rdOf16[6]}</td>
-        <td rowSpan="2">
-            <KnockoutFixture className={classes.Fixtures}
-                key = {props.knockout.roundOf16[6].teams[0].name + 
-                    props.knockout.roundOf16[7].teams[0].name}
-                team1 = {props.knockout.roundOf16[6].teams[0].name}
-                team2 = {props.knockout.roundOf16[7].teams[0].name} />
-        </td></React.Fragment>
+            <td rowSpan="2">{quarters[3]}</td></React.Fragment>
         
         // 16 G8
         row8 = <td>{rdOf16[7]}</td>
-
-}
-
-
+    }
 
     return (
         <div className={classes.KnockoutStage}>

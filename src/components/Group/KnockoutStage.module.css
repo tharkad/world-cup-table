@@ -9,7 +9,7 @@
 
 .Fixtures {
     margin: 4px;
-    width: 40%;
+    width: 25%;
     padding: 0px 16px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -20,6 +20,10 @@
 
 .FixtureTable {
     width: 100%;
+}
+
+.FixtureTable td {
+
 }
 
 .FixtureTable tr {
