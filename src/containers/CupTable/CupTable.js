@@ -556,7 +556,6 @@ class CupTable extends Component {
         return 0;
     }
 
-
     constructThirdsGroup = (stateObj) => {
         const thirdGroup = {name: "Third Place Teams", teams: []};
         for (const group of stateObj.groups) {
@@ -752,7 +751,6 @@ class CupTable extends Component {
                                        
             default:
                 thirdTeam = null;
-                debugger;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], 
             thirdTeam], result:["",""]});
@@ -785,7 +783,6 @@ class CupTable extends Component {
                                                                                                                        
             default:
                 thirdTeam = null;
-                debugger;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
             thirdTeam], result:["",""]});
@@ -822,7 +819,6 @@ class CupTable extends Component {
                                        
             default:
                 thirdTeam = null;
-                debugger;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], 
             thirdTeam], result:["",""]});
@@ -859,7 +855,6 @@ class CupTable extends Component {
                                                 
             default:
                 thirdTeam = null;
-                debugger;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], 
             thirdTeam], result:["",""]});
@@ -1033,7 +1028,125 @@ class CupTable extends Component {
             }
             team.tiedWith.sort();
         }
- 
+    }
+
+    updateKnockoutStage = (stateCopy) => {
+        for (let i = 0; i < 8; i++) {
+            let fixture = stateCopy.knockout.roundOf16[i];
+            let nextRoundIndex = Math.floor(i / 2);
+            let nextRoundGameIndex = i % 2;
+
+            if (fixture.result[0] === "" && fixture.result[1] === "") {
+                stateCopy.knockout.quarterFinals[nextRoundIndex].teams[nextRoundGameIndex] = ""
+                stateCopy.knockout.quarterFinals[nextRoundIndex].result[nextRoundGameIndex] = ""
+            }
+            else {
+                let team1Goals = 0;
+                let team2Goals = 0;
+                if (fixture.result[0] !== "") {
+                    let parsed = Number.parseInt(fixture.result[0]);
+                    if (!Number.isNaN(parsed))
+                        team1Goals = parsed;
+                }
+                if (fixture.result[1] !== "") {
+                    let parsed = Number.parseInt(fixture.result[1]);
+                    if (!Number.isNaN(parsed))
+                        team2Goals = parsed;
+                }
+
+                if (team1Goals > team2Goals) {
+                    stateCopy.knockout.quarterFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
+                        fixture.teams[0]
+                }
+                else {
+                    stateCopy.knockout.quarterFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
+                        fixture.teams[1]
+                }
+            }
+        }
+
+        for (let i = 0; i < 4; i++) {
+            let fixture = stateCopy.knockout.quarterFinals[i];
+            let nextRoundIndex = Math.floor(i / 2);
+            let nextRoundGameIndex = i % 2;
+
+            if (fixture.result[0] === "" && fixture.result[1] === "") {
+                stateCopy.knockout.semiFinals[nextRoundIndex].teams[nextRoundGameIndex] = ""
+                stateCopy.knockout.semiFinals[nextRoundIndex].result[nextRoundGameIndex] = ""
+            }
+            else {
+                let team1Goals = 0;
+                let team2Goals = 0;
+                if (fixture.result[0] !== "") {
+                    let parsed = Number.parseInt(fixture.result[0]);
+                    if (!Number.isNaN(parsed))
+                        team1Goals = parsed;
+                }
+                if (fixture.result[1] !== "") {
+                    let parsed = Number.parseInt(fixture.result[1]);
+                    if (!Number.isNaN(parsed))
+                        team2Goals = parsed;
+                }
+
+                if (team1Goals > team2Goals) {
+                    stateCopy.knockout.semiFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
+                        fixture.teams[0]
+                }
+                else {
+                    stateCopy.knockout.semiFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
+                        fixture.teams[1]
+                }
+            }
+        }
+
+        for (let i = 0; i < 2; i++) {
+            let fixture = stateCopy.knockout.semiFinals[i];
+            if (fixture.result[0] === "" && fixture.result[1] === "") {
+                stateCopy.knockout.finals[0].teams[i] = ""
+                stateCopy.knockout.finals[0].result[i] = ""
+
+                stateCopy.knockout.finals[1].teams[i] = ""
+                stateCopy.knockout.finals[1].result[i] = ""
+            }
+            else {
+                let team1Goals = 0;
+                let team2Goals = 0;
+
+                if (fixture.result[0] !== "") {
+                    let parsed = Number.parseInt(fixture.result[0]);
+                    if (!Number.isNaN(parsed))
+                        team1Goals = parsed;
+                }
+                if (fixture.result[1] !== "") {
+                    let parsed = Number.parseInt(fixture.result[1]);
+                    if (!Number.isNaN(parsed))
+                        team2Goals = parsed;
+                }
+
+                if (team1Goals > team2Goals) {
+                    stateCopy.knockout.finals[0].teams[i] = 
+                        fixture.teams[0]
+                    stateCopy.knockout.finals[1].teams[i] = 
+                        fixture.teams[1]
+                }
+                else {
+                    stateCopy.knockout.finals[0].teams[i] = 
+                        fixture.teams[1]
+                    stateCopy.knockout.finals[1].teams[i] = 
+                        fixture.teams[0]
+                }
+            }
+        }
+    }
+
+    knockoutScoreChangedHandler = (event, id) => {
+        let stateCopy = this.deepCopy(this.state);
+        if (event.target.validity.valid) {
+            stateCopy.knockout[id["round"]][id["gameIndex"]].result[id["teamIndex"]] = 
+                event.target.value;
+            this.updateKnockoutStage(stateCopy);
+            this.setState(stateCopy);
+        }
     }
 
     scoreChangedHandler = (event, id) => {
@@ -1043,7 +1156,8 @@ class CupTable extends Component {
 
        if (event.target.validity.valid) {
             let stateCopy = this.deepCopy(this.state);
-            stateCopy.groups[groupIndex].games[id[1]][1][id[2]] = event.target.value;
+            stateCopy.groups[groupIndex].games[id[1]][1][id[2]] = 
+                event.target.value;
             this.updateTeamsFromGames(stateCopy, groupIndex);
             this.constructThirdsGroup(stateCopy);
             this.constructKnockoutStage(stateCopy);
@@ -1199,7 +1313,10 @@ class CupTable extends Component {
                 {groups}   
                 {thirdPlaceGroup}
                 <h2>Knockout Stage</h2>
-                <KnockoutStage knockout={this.state.knockout} />
+                <KnockoutStage 
+                    knockout={this.state.knockout} 
+                    changed={this.knockoutScoreChangedHandler}
+                />
             </Aux>
         );
     }

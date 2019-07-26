@@ -20,7 +20,12 @@ const knockoutStage = (props) => {
                     key = {props.knockout.roundOf16[i].teams[0].name + 
                         props.knockout.roundOf16[i].teams[1].name}
                     team1 = {props.knockout.roundOf16[i].teams[0].name}
-                    team2 = {props.knockout.roundOf16[i].teams[1].name} />
+                    team2 = {props.knockout.roundOf16[i].teams[1].name}
+                    fixture = {props.knockout.roundOf16[i]}
+                    round = "roundOf16"
+                    gameIndex = {i}
+                    changed = {props.changed}
+                />
             );
         }
 
@@ -38,7 +43,13 @@ const knockoutStage = (props) => {
                 <KnockoutFixture className={classes.Fixtures}
                     key = {name1 + name2}
                     team1 = {name1}
-                    team2 = {name2} />
+                    team2 = {name2}
+                    fixture = {props.knockout.quarterFinals[i]}
+                    round = "quarterFinals"
+                    gameIndex = {i}
+                    changed = {props.changed}
+                />
+    
             );
         }
 
@@ -56,7 +67,13 @@ const knockoutStage = (props) => {
                 <KnockoutFixture className={classes.Fixtures}
                     key = {name1 + name2}
                     team1 = {name1}
-                    team2 = {name2} />
+                    team2 = {name2}
+                    fixture = {props.knockout.semiFinals[i]}
+                    round = "semiFinals"
+                    gameIndex = {i}
+                    changed = {props.changed}
+                />
+
             );
         }
 
@@ -74,7 +91,13 @@ const knockoutStage = (props) => {
                 <KnockoutFixture className={classes.Fixtures}
                     key = {name1 + name2}
                     team1 = {name1}
-                    team2 = {name2} />
+                    team2 = {name2}
+                    fixture = {props.knockout.finals[i]}
+                    round = "finals"
+                    gameIndex = {i}
+                    changed = {props.changed}
+                />
+
             );
         }
 

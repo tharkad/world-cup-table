@@ -19,3 +19,11 @@
 .FixtureTable tr {
     line-height: 32px;
 }
+
+.Winner {
+    font-weight: bold;
+}
+
+.Normal {
+
+}
