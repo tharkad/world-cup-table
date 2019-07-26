@@ -73,9 +73,29 @@ class Group extends Component {
         let fixtureRows = null
         if (this.props.renderFixtures) {
             fixtureRows = this.props.group.games.map((game, index) => {
+                let team1Goals = 0;
+                let team2Goals = 0;
+                
+                team1Goals = Number.parseInt(game[1][0]);
+                if (Number.isNaN(team1Goals))
+                    team1Goals = 0;
+
+                team2Goals = Number.parseInt(game[1][1]);
+                if (Number.isNaN(team2Goals))
+                    team2Goals = 0;
+
+                let team1Class = classes.Normal;
+                let team2Class = classes.Normal;
+                if (team1Goals > team2Goals)
+                    team1Class = classes.Winner;
+                if (team2Goals > team1Goals)
+                    team2Class = classes.Winner;
+
                 return (
                     <tr key={game[0][0] + game[0][1]}>
-                        <td className={classes.GameLeftTeamName}>{game[0][0]}</td>
+                        <td className={classes.GameLeftTeamName}>
+                            <span className={team1Class}>{game[0][0]}</span>
+                        </td>
                         <td className={classes.GameScore}>
                             { 
                                 game[1][0] == null ?
@@ -115,7 +135,9 @@ class Group extends Component {
                                         value={game[1][1]} />
                             }
                         </td>
-                        <td className={classes.GameRightTeamName}>{game[0][1]}</td>
+                        <td className={classes.GameRightTeamName}>
+                            <span className={team2Class}>{game[0][1]}</span>
+                        </td>
                     </tr>
                 )
             });
