@@ -632,16 +632,16 @@ class CupTable extends Component {
             finals: []
         };
 
-        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
-        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
-        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
-        knockout["quarterFinals"].push({teams:["",""], result:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""], penalties:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""], penalties:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""], penalties:["",""]});
+        knockout["quarterFinals"].push({teams:["",""], result:["",""], penalties:["",""]});
 
-        knockout["semiFinals"].push({teams:["",""], result:["",""]});
-        knockout["semiFinals"].push({teams:["",""], result:["",""]});
+        knockout["semiFinals"].push({teams:["",""], result:["",""], penalties:["",""]});
+        knockout["semiFinals"].push({teams:["",""], result:["",""], penalties:["",""]});
 
-        knockout["finals"].push({teams:["",""], result:["",""]});
-        knockout["finals"].push({teams:["",""], result:["",""]});
+        knockout["finals"].push({teams:["",""], result:["",""], penalties:["",""]});
+        knockout["finals"].push({teams:["",""], result:["",""], penalties:["",""]});
 
         return knockout;
     }
@@ -651,48 +651,35 @@ class CupTable extends Component {
 
         // Game 1: A1 vs B2
         knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
-            stateObj.groups[1].teams[1]], result:["",""]});
+            stateObj.groups[1].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 2: C1 vs D2
         knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], 
-            stateObj.groups[3].teams[1]], result:["",""]});
+            stateObj.groups[3].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 3: E1 vs F2
         knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
-            stateObj.groups[5].teams[1]], result:["",""]});
+            stateObj.groups[5].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 4: G1 vs H2
         knockout["roundOf16"].push({teams:[stateObj.groups[6].teams[0], 
-            stateObj.groups[7].teams[1]], result:["",""]});
+            stateObj.groups[7].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 5: B1 vs A2
         knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], 
-            stateObj.groups[0].teams[1]], result:["",""]});
+            stateObj.groups[0].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 6: D1 vs C2
         knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], 
-            stateObj.groups[2].teams[1]], result:["",""]});
+            stateObj.groups[2].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 7: F1 vs E2
         knockout["roundOf16"].push({teams:[stateObj.groups[5].teams[0], 
-            stateObj.groups[4].teams[1]], result:["",""]});
+            stateObj.groups[4].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 8: H1 vs G2
         knockout["roundOf16"].push({teams:[stateObj.groups[7].teams[0], 
-            stateObj.groups[6].teams[1]], result:["",""]});
-        
-        // // Fake rest of knockout stage
-        // knockout["quaterFinals"].push({teams:[stateObj.groups[0].teams[0], 
-        //     stateObj.groups[2].teams[0]], result:["",""]});
-
-        // knockout["quaterFinals"].push({teams:[stateObj.groups[4].teams[0], 
-        //     stateObj.groups[6].teams[0]], result:["",""]})
-    
-        // knockout["quaterFinals"].push({teams:[stateObj.groups[1].teams[0], 
-        //     stateObj.groups[3].teams[0]], result:["",""]});
-
-        // knockout["quaterFinals"].push({teams:[stateObj.groups[5].teams[0], 
-        //     stateObj.groups[7].teams[0]], result:["",""]})
+            stateObj.groups[6].teams[1]], result:["",""], penalties:["",""]});
         
         return knockout;
     }

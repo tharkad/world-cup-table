@@ -56,6 +56,8 @@ const knockoutFixture = (props) => {
                     <td className={classes.LeftScoreInput}>
                         {input1}
                     </td>
+                    <td className={classes.LeftScoreInput}>
+                    </td>
                 </tr>
                 <tr>
                     <td className={team2Class}>{props.team2}</td>
