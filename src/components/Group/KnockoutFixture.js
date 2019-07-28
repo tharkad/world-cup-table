@@ -4,9 +4,37 @@ import classes from './KnockoutFixture.module.css';
 const knockoutFixture = (props) => {
     let input1 = "";
     let input2 = "";
+    let penaltyInput1 = "";
+    let penaltyInput2 = "";
     let team1Goals = 0;
     let team2Goals = 0;
+    let team1Penalties = 0;
+    let team2Penalties = 0;
 
+    let goalsParsed1 = Number.parseInt(props.fixture["result"][0]);
+    if (Number.isNaN(goalsParsed1))
+        team1Goals = 0;
+    else
+        team1Goals = goalsParsed1;
+
+    let goalsParsed2 = Number.parseInt(props.fixture["result"][1]);
+    if (Number.isNaN(goalsParsed2))
+        team2Goals = 0;
+    else
+        team2Goals = goalsParsed2;
+
+    let penaltiesParsed1 = Number.parseInt(props.fixture["penalties"][0]);
+    if (Number.isNaN(penaltiesParsed1))
+        team1Penalties = 0;
+    else
+        team1Penalties = penaltiesParsed1;
+
+    let penaltiesParsed2 = Number.parseInt(props.fixture["penalties"][1]);
+    if (Number.isNaN(penaltiesParsed2))
+        team2Penalties = 0;
+    else
+        team2Penalties = penaltiesParsed2;
+    
     if (props.team1 !== "-----") {
         input1 = <input
             className={classes.LeftScoreInput}
@@ -19,34 +47,66 @@ const knockoutFixture = (props) => {
                 teamIndex: 0
             })}
             value={props.fixture["result"][0]} />
-        team1Goals = Number.parseInt(props.fixture["result"][0]);
-        if (Number.isNaN(team1Goals))
-            team1Goals = 0;
     }
 
     if (props.team2 !== "-----") {
         input2 = <input
-        className={classes.LeftScoreInput}
-        size="2"
-        type="text"
-        pattern="^[0-9]*$"
-        onChange={(event) => props.changed(event, {
-            round: props.round,
-            gameIndex: props.gameIndex,
-            teamIndex: 1
-        })}
-        value={props.fixture["result"][1]} />
-        team2Goals = Number.parseInt(props.fixture["result"][1]);
-        if (Number.isNaN(team2Goals))
-            team2Goals = 0;
+            className={classes.LeftScoreInput}
+            size="2"
+            type="text"
+            pattern="^[0-9]*$"
+            onChange={(event) => props.changed(event, {
+                round: props.round,
+                gameIndex: props.gameIndex,
+                teamIndex: 1
+            })}
+            value={props.fixture["result"][1]} />
+    }
+
+    if ((props.team1 !== "-----") && (props.team2 !== "-----")) {
+        if ((!Number.isNaN(goalsParsed1)) && (!Number.isNaN(goalsParsed2))) {
+            if (team1Goals === team2Goals) {
+                penaltyInput1 = <input
+                    className={classes.LeftScoreInput}
+                    size="2"
+                    type="text"
+                    pattern="^[0-9]*$"
+                    onChange={(event) => props.changedPenalty(event, {
+                        round: props.round,
+                        gameIndex: props.gameIndex,
+                        teamIndex: 0
+                    })}
+                    value={props.fixture["penalties"][0]} 
+                />
+
+                penaltyInput2 = <input
+                    className={classes.LeftScoreInput}
+                    size="2"
+                    type="text"
+                    pattern="^[0-9]*$"
+                    onChange={(event) => props.changedPenalty(event, {
+                        round: props.round,
+                        gameIndex: props.gameIndex,
+                        teamIndex: 1
+                    })}
+                    value={props.fixture["penalties"][1]} 
+                />
+            }
+        }
     }
 
     let team1Class = classes.Normal;
     let team2Class = classes.Normal;
     if (team1Goals > team2Goals)
         team1Class = classes.Winner;
-    if (team2Goals > team1Goals)
+    else if (team2Goals > team1Goals)
         team2Class = classes.Winner;
+    else {
+        if (team1Penalties > team2Penalties)
+            team1Class = classes.Winner;
+        else if (team2Penalties > team1Penalties)
+            team2Class = classes.Winner;
+    }
 
     return (
         <div className={classes.KnockoutFixture}>
@@ -57,12 +117,16 @@ const knockoutFixture = (props) => {
                         {input1}
                     </td>
                     <td className={classes.LeftScoreInput}>
+                        {penaltyInput1}
                     </td>
                 </tr>
                 <tr>
                     <td className={team2Class}>{props.team2}</td>
                     <td className={classes.LeftScoreInput}>
                         {input2}
+                    </td>
+                    <td className={classes.LeftScoreInput}>
+                        {penaltyInput2}
                     </td>
                 </tr>
             </tbody></table>

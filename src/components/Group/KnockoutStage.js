@@ -25,6 +25,7 @@ const knockoutStage = (props) => {
                     round = "roundOf16"
                     gameIndex = {i}
                     changed = {props.changed}
+                    changedPenalty = {props.changedPenalty}
                 />
             );
         }
@@ -48,7 +49,8 @@ const knockoutStage = (props) => {
                     round = "quarterFinals"
                     gameIndex = {i}
                     changed = {props.changed}
-                />
+                    changedPenalty = {props.changedPenalty}
+                    />
     
             );
         }
@@ -72,7 +74,8 @@ const knockoutStage = (props) => {
                     round = "semiFinals"
                     gameIndex = {i}
                     changed = {props.changed}
-                />
+                    changedPenalty = {props.changedPenalty}
+                    />
 
             );
         }
@@ -96,7 +99,8 @@ const knockoutStage = (props) => {
                     round = "finals"
                     gameIndex = {i}
                     changed = {props.changed}
-                />
+                    changedPenalty = {props.changedPenalty}
+                    />
 
             );
         }

@@ -1017,73 +1017,78 @@ class CupTable extends Component {
         }
     }
 
-    updateKnockoutStage = (stateCopy) => {
-        for (let i = 0; i < 8; i++) {
-            let fixture = stateCopy.knockout.roundOf16[i];
-            let nextRoundIndex = Math.floor(i / 2);
-            let nextRoundGameIndex = i % 2;
+    calculateKnockoutFixture = (currentRound, nextRound, index) => {
+        let fixture = currentRound[index];
+        let nextRoundIndex = Math.floor(index / 2);
+        let nextRoundGameIndex = index % 2;
 
-            if (fixture.result[0] === "" && fixture.result[1] === "") {
-                stateCopy.knockout.quarterFinals[nextRoundIndex].teams[nextRoundGameIndex] = ""
-                stateCopy.knockout.quarterFinals[nextRoundIndex].result[nextRoundGameIndex] = ""
+        if (fixture.result[0] === "" && fixture.result[1] === "") {
+            nextRound[nextRoundIndex].teams[nextRoundGameIndex] = ""
+            nextRound[nextRoundIndex].result[nextRoundGameIndex] = ""
+            nextRound[nextRoundIndex].penalties[nextRoundGameIndex] = ""
+        }
+        else {
+            let team1Goals = 0;
+            let team2Goals = 0;
+            if (fixture.result[0] !== "") {
+                let parsed = Number.parseInt(fixture.result[0]);
+                if (!Number.isNaN(parsed))
+                    team1Goals = parsed;
+            }
+            if (fixture.result[1] !== "") {
+                let parsed = Number.parseInt(fixture.result[1]);
+                if (!Number.isNaN(parsed))
+                    team2Goals = parsed;
+            }
+
+            if (team1Goals > team2Goals) {
+                nextRound[nextRoundIndex].teams[nextRoundGameIndex] = 
+                    fixture.teams[0]
+            }
+            else if (team2Goals > team1Goals) {
+                nextRound[nextRoundIndex].teams[nextRoundGameIndex] = 
+                    fixture.teams[1]
             }
             else {
-                let team1Goals = 0;
-                let team2Goals = 0;
-                if (fixture.result[0] !== "") {
-                    let parsed = Number.parseInt(fixture.result[0]);
+                let team1Penalties = 0;
+                let team2Penalties = 0;
+                if (fixture.penalties[0] !== "") {
+                    let parsed = Number.parseInt(fixture.penalties[0]);
                     if (!Number.isNaN(parsed))
-                        team1Goals = parsed;
+                        team1Penalties = parsed;
                 }
-                if (fixture.result[1] !== "") {
-                    let parsed = Number.parseInt(fixture.result[1]);
+                if (fixture.penalties[1] !== "") {
+                    let parsed = Number.parseInt(fixture.penalties[1]);
                     if (!Number.isNaN(parsed))
-                        team2Goals = parsed;
+                        team2Penalties = parsed;
                 }
 
-                if (team1Goals > team2Goals) {
-                    stateCopy.knockout.quarterFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
+                if (team1Penalties > team2Penalties) {
+                    nextRound[nextRoundIndex].teams[nextRoundGameIndex] = 
                         fixture.teams[0]
                 }
-                else {
-                    stateCopy.knockout.quarterFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
+                else if (team2Penalties > team1Penalties) {
+                    nextRound[nextRoundIndex].teams[nextRoundGameIndex] = 
                         fixture.teams[1]
+                }
+                else {
+                    nextRound[nextRoundIndex].teams[nextRoundGameIndex] = ""
+                    nextRound[nextRoundIndex].result[nextRoundGameIndex] = ""
+                    nextRound[nextRoundIndex].penalties[nextRoundGameIndex] = ""
                 }
             }
         }
+    }
+
+    updateKnockoutStage = (stateCopy) => {
+        for (let i = 0; i < 8; i++) {
+            this.calculateKnockoutFixture(stateCopy.knockout.roundOf16, 
+                stateCopy.knockout.quarterFinals, i);
+        }
 
         for (let i = 0; i < 4; i++) {
-            let fixture = stateCopy.knockout.quarterFinals[i];
-            let nextRoundIndex = Math.floor(i / 2);
-            let nextRoundGameIndex = i % 2;
-
-            if (fixture.result[0] === "" && fixture.result[1] === "") {
-                stateCopy.knockout.semiFinals[nextRoundIndex].teams[nextRoundGameIndex] = ""
-                stateCopy.knockout.semiFinals[nextRoundIndex].result[nextRoundGameIndex] = ""
-            }
-            else {
-                let team1Goals = 0;
-                let team2Goals = 0;
-                if (fixture.result[0] !== "") {
-                    let parsed = Number.parseInt(fixture.result[0]);
-                    if (!Number.isNaN(parsed))
-                        team1Goals = parsed;
-                }
-                if (fixture.result[1] !== "") {
-                    let parsed = Number.parseInt(fixture.result[1]);
-                    if (!Number.isNaN(parsed))
-                        team2Goals = parsed;
-                }
-
-                if (team1Goals > team2Goals) {
-                    stateCopy.knockout.semiFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
-                        fixture.teams[0]
-                }
-                else {
-                    stateCopy.knockout.semiFinals[nextRoundIndex].teams[nextRoundGameIndex] = 
-                        fixture.teams[1]
-                }
-            }
+            this.calculateKnockoutFixture(stateCopy.knockout.quarterFinals, 
+                stateCopy.knockout.semiFinals, i);
         }
 
         for (let i = 0; i < 2; i++) {
@@ -1091,9 +1096,11 @@ class CupTable extends Component {
             if (fixture.result[0] === "" && fixture.result[1] === "") {
                 stateCopy.knockout.finals[0].teams[i] = ""
                 stateCopy.knockout.finals[0].result[i] = ""
+                stateCopy.knockout.finals[0].penalties[i] = ""
 
                 stateCopy.knockout.finals[1].teams[i] = ""
                 stateCopy.knockout.finals[1].result[i] = ""
+                stateCopy.knockout.finals[1].penalties[i] = ""
             }
             else {
                 let team1Goals = 0;
@@ -1116,11 +1123,46 @@ class CupTable extends Component {
                     stateCopy.knockout.finals[1].teams[i] = 
                         fixture.teams[1]
                 }
-                else {
+                else if (team2Goals > team1Goals) {
                     stateCopy.knockout.finals[0].teams[i] = 
                         fixture.teams[1]
                     stateCopy.knockout.finals[1].teams[i] = 
                         fixture.teams[0]
+                } else {
+                    let team1Penalties = 0;
+                    let team2Penalties = 0;
+                    if (fixture.penalties[0] !== "") {
+                        let parsed = Number.parseInt(fixture.penalties[0]);
+                        if (!Number.isNaN(parsed))
+                            team1Penalties = parsed;
+                    }
+                    if (fixture.penalties[1] !== "") {
+                        let parsed = Number.parseInt(fixture.penalties[1]);
+                        if (!Number.isNaN(parsed))
+                            team2Penalties = parsed;
+                    }
+    
+                    if (team1Penalties > team2Penalties) {
+                        stateCopy.knockout.finals[0].teams[i] = 
+                            fixture.teams[0]
+                        stateCopy.knockout.finals[1].teams[i] = 
+                            fixture.teams[1]
+                    }
+                    else if (team2Penalties > team1Penalties) {
+                        stateCopy.knockout.finals[0].teams[i] = 
+                            fixture.teams[1]
+                        stateCopy.knockout.finals[1].teams[i] = 
+                            fixture.teams[0]
+                    }
+                    else {
+                        stateCopy.knockout.finals[0].teams[i] = ""
+                        stateCopy.knockout.finals[0].result[i] = ""
+                        stateCopy.knockout.finals[0].penalties[i] = ""
+        
+                        stateCopy.knockout.finals[1].teams[i] = ""
+                        stateCopy.knockout.finals[1].result[i] = ""
+                        stateCopy.knockout.finals[1].penalties[i] = ""
+                    }
                 }
             }
         }
@@ -1130,6 +1172,16 @@ class CupTable extends Component {
         let stateCopy = this.deepCopy(this.state);
         if (event.target.validity.valid) {
             stateCopy.knockout[id["round"]][id["gameIndex"]].result[id["teamIndex"]] = 
+                event.target.value;
+            this.updateKnockoutStage(stateCopy);
+            this.setState(stateCopy);
+        }
+    }
+
+    knockoutPenaltyChangedHandler = (event, id) => {
+        let stateCopy = this.deepCopy(this.state);
+        if (event.target.validity.valid) {
+            stateCopy.knockout[id["round"]][id["gameIndex"]].penalties[id["teamIndex"]] = 
                 event.target.value;
             this.updateKnockoutStage(stateCopy);
             this.setState(stateCopy);
@@ -1303,6 +1355,7 @@ class CupTable extends Component {
                 <KnockoutStage 
                     knockout={this.state.knockout} 
                     changed={this.knockoutScoreChangedHandler}
+                    changedPenalty={this.knockoutPenaltyChangedHandler}
                 />
             </Aux>
         );
