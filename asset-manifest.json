@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/world-cup-table/static/css/main.1dbbebac.chunk.css",
-    "main.js": "/world-cup-table/static/js/main.6c1c4c52.chunk.js",
-    "main.js.map": "/world-cup-table/static/js/main.6c1c4c52.chunk.js.map",
+    "main.css": "/world-cup-table/static/css/main.4a935319.chunk.css",
+    "main.js": "/world-cup-table/static/js/main.58d763f5.chunk.js",
+    "main.js.map": "/world-cup-table/static/js/main.58d763f5.chunk.js.map",
     "runtime~main.js": "/world-cup-table/static/js/runtime~main.2ab2220a.js",
     "runtime~main.js.map": "/world-cup-table/static/js/runtime~main.2ab2220a.js.map",
-    "static/js/2.161379f2.chunk.js": "/world-cup-table/static/js/2.161379f2.chunk.js",
-    "static/js/2.161379f2.chunk.js.map": "/world-cup-table/static/js/2.161379f2.chunk.js.map",
+    "static/js/2.3394cd20.chunk.js": "/world-cup-table/static/js/2.3394cd20.chunk.js",
+    "static/js/2.3394cd20.chunk.js.map": "/world-cup-table/static/js/2.3394cd20.chunk.js.map",
     "index.html": "/world-cup-table/index.html",
-    "precache-manifest.6f6c0a5db199075101bd12d745e34d1a.js": "/world-cup-table/precache-manifest.6f6c0a5db199075101bd12d745e34d1a.js",
+    "precache-manifest.a9b2f91ee2cbddfd39608127b31eb625.js": "/world-cup-table/precache-manifest.a9b2f91ee2cbddfd39608127b31eb625.js",
     "service-worker.js": "/world-cup-table/service-worker.js",
-    "static/css/main.1dbbebac.chunk.css.map": "/world-cup-table/static/css/main.1dbbebac.chunk.css.map"
+    "static/css/main.4a935319.chunk.css.map": "/world-cup-table/static/css/main.4a935319.chunk.css.map"
   }
 }
