@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Aux from '../../hoc/Auxiliary';
 import Group from '../../components/Group/Group';
 import KnockoutStage from '../../components/Group/KnockoutStage';
+import WorldCupSetup from '../../components/Group/WorldCupSetup';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
-import {mens2018Default, womens2019Default} from './defaults';
+import {mens2018Default, womens2019Default, genaric32Default, genaric24Default, genaric16Default} from './defaults';
 
 class CupTable extends Component {
     defaultState = mens2018Default;
@@ -124,7 +125,7 @@ class CupTable extends Component {
         if (stateObj.groups.length === 6) {
             knockout = this.constructKnockoutStage24(stateObj);
         } else if (stateObj.groups.length === 8) {
-            knockout =  this.constructKnockoutStage32(stateObj);
+        knockout =  this.constructKnockoutStage32(stateObj);
         } else {
             knockout =  null;
         }
@@ -364,8 +365,41 @@ class CupTable extends Component {
 
     state = this.deepCopy(this.constructThirdsGroup(this.defaultState));
 
-    resetToDefaultState = () => {
+    showSetup = () => {
+        this.setState({showSetup: true});
+    }
+
+    setupCancel = () => {
+        this.setState({showSetup: false});
+    }
+
+    setupMens2018 = () => {
+        this.defaultState = mens2018Default;
         this.setState(this.defaultState);
+    }
+
+    setupWomens2019 = () => {
+        this.defaultState = womens2019Default;
+        this.setState(this.constructThirdsGroup(this.defaultState));
+    }
+
+    setupGeneric32 = () => {
+        this.defaultState = genaric32Default;
+        this.setState(this.defaultState);
+    }
+
+    setupGeneric24 = () => {
+        this.defaultState = genaric24Default;
+        this.setState(this.constructThirdsGroup(this.defaultState));
+    }
+
+    setupGeneric16 = () => {
+        this.defaultState = genaric16Default;
+        this.setState(this.defaultState);
+    }
+
+    resetToDefaultState = () => {
+        this.setState(this.constructThirdsGroup(this.defaultState));
     }
 
     // componentDidMount() {
@@ -852,8 +886,18 @@ class CupTable extends Component {
         return (
             <Aux>
                 <SimpleStorage parent={this} />
+                {this.state.showSetup ? 
+                    <WorldCupSetup 
+                        setupCancel={this.setupCancel}
+                        setupMens2018={this.setupMens2018}
+                        setupWomens2019={this.setupWomens2019}
+                        setupGeneric32={this.setupGeneric32}
+                        setupGeneric24={this.setupGeneric24}
+                        setupGeneric16={this.setupGeneric16}
+                    /> :
+                    <button onClick={this.showSetup}>Setup</button>
+                }
                 <h1>{this.state.title}</h1>
-                <button onClick={this.resetToDefaultState}>Setup</button>
                 <h2>Group Stage</h2>
                 {groups}   
                 {thirdPlaceGroup}
