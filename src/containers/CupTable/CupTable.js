@@ -3,502 +3,10 @@ import Aux from '../../hoc/Auxiliary';
 import Group from '../../components/Group/Group';
 import KnockoutStage from '../../components/Group/KnockoutStage';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
+import {mens2018Default, womens2019Default} from './defaults';
 
 class CupTable extends Component {
-    defaultState = {
-        title: "The World Cup Game",
-        groups: [
-            {
-                name: "Group A",
-                teams: [
-                    {
-                        name: "Egypt",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Russia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Saudi Arabia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Uraguay",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },                    
-                ],
-                games: [
-                    [["Russia", "Saudi Arabia"], ["",""]],
-                    [["Egypt", "Uraguay"], ["",""]],
-                    [["Russia", "Egypt"], ["",""]],
-                    [["Uraguay", "Saudi Arabia"], ["",""]],
-                    [["Uraguay", "Russia"], ["",""]],
-                    [["Saudi Arabia", "Egypt"], ["",""]],
-                ]
-            },
-            {
-                name: "Group B",
-                teams: [
-                    {
-                        name: "Iran",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Morocco",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Portugal",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Spain",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },                    
-                ],
-                games: [
-                    [["Morocco", "Iran"], ["",""]],
-                    [["Portugal", "Spain"], ["",""]],
-                    [["Portugal", "Morocco"], ["",""]],
-                    [["Iran", "Spain"], ["",""]],
-                    [["Spain", "Morocco"], ["",""]],
-                    [["Iran", "Portugal"], ["",""]]
-                ]
-            },
-            {
-                name: "Group C",
-                teams: [
-                    {
-                        name: "Australia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Denmark",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "France",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Peru",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },                    
-                ],
-                games: [
-                    [["France", "Australia"], ["",""]],
-                    [["Peru", "Denmark"], ["",""]],
-                    [["Denmark", "Australia"], ["",""]],
-                    [["France", "Peru"], ["",""]],
-                    [["Denmark", "France"], ["",""]],
-                    [["Australia", "Peru"], ["",""]]
-                ]
-            },
-            {
-                name: "Group D",
-                teams: [
-                    {
-                        name: "Argentina",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                   {
-                        name: "Croatia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Iceland",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Nigeria",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    }             
-                ],
-                games: [
-                    [["Argentina", "Iceland"], ["",""]],
-                    [["Croatia", "Nigeria"], ["",""]],
-                    [["Argentina", "Croatia"], ["",""]],
-                    [["Nigeria", "Iceland"], ["",""]],
-                    [["Nigeria", "Argentina"], ["",""]],
-                    [["Iceland", "Croatia"], ["",""]]
-                ]
-            },            
-            {
-                name: "Group E",
-                teams: [
-                    {
-                        name: "Brazil",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Costa Rica",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Serbia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Switzerland",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },                    
-                ],
-                games: [
-                    [["Costa Rica", "Serbia"], ["",""]],
-                    [["Brazil", "Switzerland"], ["",""]],
-                    [["Brazil", "Costa Rica"], ["",""]],
-                    [["Serbia", "Switzerland"], ["",""]],
-                    [["Serbia", "Brazil"], ["",""]],
-                    [["Switzerland", "Costa Rica"], ["",""]]
-                ]
-            },
-            {
-                name: "Group F",
-                teams: [
-                    {
-                        name: "Germany",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                   {
-                        name: "Mexico",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "South Korea",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Sweden",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    }             
-                ],
-                games: [
-                    [["Germany", "Mexico"], ["",""]],
-                    [["Sweden", "South Korea"], ["",""]],
-                    [["South Korea", "Mexico"], ["",""]],
-                    [["Germany", "Sweden"], ["",""]],
-                    [["South Korea", "Germany"], ["",""]],
-                    [["Mexico", "Sweden"], ["",""]]
-                ]
-            },
-            {
-                name: "Group G",
-                teams: [
-                    {
-                        name: "Belgium",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                   {
-                        name: "England",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Panama",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Tunisia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    }             
-                ],
-                games: [
-                    [["Belgium", "Panama"], ["",""]],
-                    [["Tunisia", "England"], ["",""]],
-                    [["Belgium", "Tunisia"], ["",""]],
-                    [["England", "Panama"], ["",""]],
-                    [["England", "Belgium"], ["",""]],
-                    [["Panama", "Tunisia"], ["",""]]
-                ]
-            },
-            {
-                name: "Group H",
-                teams: [
-                    {
-                        name: "Columbia",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                   {
-                        name: "Japan",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Poland",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    },
-                    {
-                        name: "Senegal",
-                        wins: 0,
-                        loses: 0,
-                        ties: 0,
-                        gf: 0,
-                        ga: 0,
-                        tibreakers: [0,0,0,0,0,0,10],
-                        tiedWith: [],
-                        thirdBreakers: [0,0,0,0,0,0,10],
-                        thirdTiedWith: []
-                    }             
-                ],
-                games: [
-                    [["Columbia", "Japan"], ["",""]],
-                    [["Poland", "Senegal"], ["",""]],
-                    [["Japan", "Senegal"], ["",""]],
-                    [["Poland", "Columbia"], ["",""]],
-                    [["Japan", "Poland"], ["",""]],
-                    [["Senegal", "Columbia"], ["",""]]
-                ]
-            }
-        ],
-        knockout: {}
-    }
+    defaultState = mens2018Default;
 
     deepCopy = (obj) => {
         if(typeof obj !== 'object' || obj === null) {
@@ -685,7 +193,8 @@ class CupTable extends Component {
     }
 
     constructKnockoutStage24 = (stateObj) => {
-        let knockout = {roundOf16: []};
+        const knockout = this.constructKnockoutRounds();
+
         let thirdTeams = [];
         let thirdGroups = [];
 
@@ -708,7 +217,7 @@ class CupTable extends Component {
 
         // Game 1: 2A vs 2C
         knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[1], 
-            stateObj.groups[2].teams[1]], result:["",""]});
+            stateObj.groups[2].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 2: 1D vs 3B/E/F
         switch (thirdGroupsString) {
@@ -740,7 +249,7 @@ class CupTable extends Component {
                 thirdTeam = null;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], 
-            thirdTeam], result:["",""]});
+            thirdTeam], result:["",""], penalties:["",""]});
 
         // Game 3: 1A vs 3CDE
         switch (thirdGroupsString) {
@@ -772,11 +281,11 @@ class CupTable extends Component {
                 thirdTeam = null;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
-            thirdTeam], result:["",""]});
+            thirdTeam], result:["",""], penalties:["",""]});
             
         // Game 4: 1F vs 2B
          knockout["roundOf16"].push({teams:[stateObj.groups[5].teams[0], 
-            stateObj.groups[1].teams[1]], result:["",""]});
+            stateObj.groups[1].teams[1]], result:["",""], penalties:["",""]});
     
         // Game 5: 1B vs 3A/C/D
         switch (thirdGroupsString) {
@@ -808,11 +317,11 @@ class CupTable extends Component {
                 thirdTeam = null;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], 
-            thirdTeam], result:["",""]});
+            thirdTeam], result:["",""], penalties:["",""]});
 
         // Game 6: 2E vs 2F
         knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[1], 
-            stateObj.groups[5].teams[1]], result:["",""]});
+            stateObj.groups[5].teams[1]], result:["",""], penalties:["",""]});
 
         // Game 7: 1C vs 3A/B/F
         switch (thirdGroupsString) {
@@ -844,16 +353,13 @@ class CupTable extends Component {
                 thirdTeam = null;
         }
         knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], 
-            thirdTeam], result:["",""]});
+            thirdTeam], result:["",""], penalties:["",""]});
 
         // Game 8: 1E vs 2D
         knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
-            stateObj.groups[3].teams[1]], result:["",""]});
+            stateObj.groups[3].teams[1]], result:["",""], penalties:["",""]});
 
-        this.constructLateKnockoutRounds(knockout);
-
-        stateObj["knockout"] = knockout;
-        return stateObj;
+        return knockout;
     }
 
     state = this.deepCopy(this.constructThirdsGroup(this.defaultState));
@@ -1347,8 +853,8 @@ class CupTable extends Component {
             <Aux>
                 <SimpleStorage parent={this} />
                 <h1>{this.state.title}</h1>
+                <button onClick={this.resetToDefaultState}>Setup</button>
                 <h2>Group Stage</h2>
-                <button onClick={this.resetToDefaultState}>Reset</button>
                 {groups}   
                 {thirdPlaceGroup}
                 <h2>Knockout Stage</h2>
