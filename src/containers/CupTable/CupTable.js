@@ -4,7 +4,7 @@ import Group from '../../components/Group/Group';
 import KnockoutStage from '../../components/Group/KnockoutStage';
 import WorldCupSetup from '../../components/Group/WorldCupSetup';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
-import {mens2018Default, womens2019Default, genaric32Default, genaric24Default, genaric16Default} from './defaults';
+import {mens2018Default, womens2019Default, genaric32Default, genaric24Default } from './defaults';
 
 class CupTable extends Component {
     defaultState = mens2018Default;
@@ -391,11 +391,6 @@ class CupTable extends Component {
     setupGeneric24 = () => {
         this.defaultState = genaric24Default;
         this.setState(this.constructThirdsGroup(this.defaultState));
-    }
-
-    setupGeneric16 = () => {
-        this.defaultState = genaric16Default;
-        this.setState(this.defaultState);
     }
 
     resetToDefaultState = () => {
@@ -851,6 +846,43 @@ class CupTable extends Component {
         return tiebreakerGroup;
     }
 
+    teamClickHandler = (event, [groupName, teamIndex]) => {
+        let teamEditing = this.deepCopy(this.state.teamEditing);
+        teamEditing.push({groupName: groupName, teamIndex: teamIndex});
+        this.setState({teamEditing: teamEditing});
+    }
+
+    teamNameChangedHandler = (event, id) => {
+        const groupIndex = this.state.groups.findIndex(group => {
+            return group.name === id[0];
+        });
+
+        let stateCopy = this.deepCopy(this.state);
+        let oldTeamName = this.deepCopy(stateCopy.groups[groupIndex].teams[id[1]].name);
+        stateCopy.groups[groupIndex].teams[id[1]].name = 
+            event.target.value;
+
+        for (let i = 0; i < stateCopy.groups[groupIndex].games.length; i++) {
+            for (let j = 0; j < stateCopy.groups[groupIndex].games[i][0].length; j++) {
+                if (stateCopy.groups[groupIndex].games[i][0][j] === oldTeamName) {
+                    stateCopy.groups[groupIndex].games[i][0][j] = event.target.value;
+                }
+            }
+        }
+
+        this.setState(stateCopy);
+    }
+
+    doneEditingHandler = (event, id) => {
+        let newTeamEditing = this.state.teamEditing.filter((editStruct) => {
+            return (editStruct.groupName !== id);
+        })                
+
+        this.setState({teamEditing: newTeamEditing});
+}
+
+
+
     render () {
         const groups = this.state.groups.map(group => {
             const sortedTeams = group.teams.sort((a, b) => {
@@ -861,6 +893,16 @@ class CupTable extends Component {
                 teams: sortedTeams,
                 games: group.games
             }
+
+            let editing = false;
+            let editingTeamIndex = 0;
+            for (const edit of this.state.teamEditing) {
+                if (edit.groupName === group.name) {
+                    editing = true;
+                    editingTeamIndex = edit.teamIndex;
+                }
+            }
+
             return <Group 
                 key={group.name}
                 groupName={group.name}
@@ -868,6 +910,11 @@ class CupTable extends Component {
                 changed={this.scoreChangedHandler}
                 arrowClicked={this.tieArrowHandler}
                 renderFixtures="true"
+                teamClicked = {this.teamClickHandler}
+                editing = {editing}
+                editingTeamIndex = {editingTeamIndex}
+                teamNameChanged = {this.teamNameChangedHandler}
+                doneEditing = {this.doneEditingHandler}
             />
         });
 

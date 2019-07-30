@@ -67,6 +67,11 @@
     width: 100%;
 }
 
+.TeamName:hover {
+    cursor: pointer;
+}
+
+
 .GameLeftTeamName {
     text-align: left;
     width: 40%;
@@ -102,4 +107,21 @@
 
 .Normal {
 
+}
+
+.EditingArea {
+    padding: 10px;
+}
+
+.Label {
+    font-weight: bold;
+    float: left;
+    padding-right: 1px;
+    margin: 10px;
+}
+
+.TeamInput {
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 20px;
 }

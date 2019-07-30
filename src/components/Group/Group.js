@@ -48,28 +48,6 @@ class Group extends Component {
     }
 
     render() {
-        const teamRows = this.props.group.teams.map((team, index) => {
-            return (
-                <tr key={team.name}>
-                    {/* <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")} {team.tiedWith.join(",")}</td> */}
-                    <td className={classes.TeamName}>{team.name}</td>
-                    <td className={classes.TieControl}>
-                        {this.tieControl(index, true)}
-                    </td>
-                    <td className={classes.TieControl}>
-                        {this.tieControl(index, false)}
-                    </td>
-                    <td className={classes.Number}>{team.wins}</td>
-                    <td className={classes.Number}>{team.loses}</td>
-                    <td className={classes.Number}>{team.ties}</td>
-                    <td className={classes.Number}>{team.gf}</td>
-                    <td className={classes.Number}>{team.ga}</td>
-                    <td className={classes.Number}>{team.gf - team.ga}</td>
-                    <td className={classes.Number}>{(team.wins * 3) + (team.ties)}</td>
-                </tr>
-            )
-        });
-
         let fixtureRows = null
         if (this.props.renderFixtures) {
             fixtureRows = this.props.group.games.map((game, index) => {
@@ -143,25 +121,70 @@ class Group extends Component {
             });
         }
 
+        let groupDisplay = null;
+        if (!this.props.editing) {
+            let teamRows = this.props.group.teams.map((team, index) => {
+                return (
+                    <tr key={team.name}>
+                        {/* <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")} {team.tiedWith.join(",")}</td> */}
+                        <td 
+                            className={classes.TeamName}
+                            onClick={(event) => this.props.teamClicked(event, [this.props.groupName, index])}
+                            >{team.name}</td>
+                        <td className={classes.TieControl}>
+                            {this.tieControl(index, true)}
+                        </td>
+                        <td className={classes.TieControl}>
+                            {this.tieControl(index, false)}
+                        </td>
+                        <td className={classes.Number}>{team.wins}</td>
+                        <td className={classes.Number}>{team.loses}</td>
+                        <td className={classes.Number}>{team.ties}</td>
+                        <td className={classes.Number}>{team.gf}</td>
+                        <td className={classes.Number}>{team.ga}</td>
+                        <td className={classes.Number}>{team.gf - team.ga}</td>
+                        <td className={classes.Number}>{(team.wins * 3) + (team.ties)}</td>
+                    </tr>
+                )
+            });
+
+            groupDisplay = <table className = {classes.Table}><tbody>
+                <tr className = {classes.GroupHeading}>
+                    <td className = {classes.GroupHeadingTeam}>Team</td>
+                    <td></td>
+                    <td></td>
+                    <td>W</td>
+                    <td>L</td>
+                    <td>T</td>
+                    <td>GF</td>
+                    <td>GA</td>
+                    <td>GD</td>
+                    <td>Pts</td>
+                </tr>
+                {teamRows}
+            </tbody></table>
+        } else {
+            groupDisplay = <div className={classes.EditingArea}>
+                <p className={classes.Label}>Team: </p>
+                <input 
+                    className={classes.TeamInput}
+                    type="text"
+                    onChange={(event) => 
+                        this.props.teamNameChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
+                    value={this.props.group.teams[this.props.editingTeamIndex].name} 
+                />
+                <p></p>
+                <button onClick={(event) =>
+                    this.props.doneEditing(event, this.props.groupName)}>Done</button>
+            </div>
+        }
+
+
         return (
             <div className = {classes.Group}>
                 <div className = {classes.GroupTable}>
                     <p className = {classes.GroupName}>{this.props.group.name}</p>
-                    <table className = {classes.Table}><tbody>
-                        <tr className = {classes.GroupHeading}>
-                            <td className = {classes.GroupHeadingTeam}>Team</td>
-                            <td></td>
-                            <td></td>
-                            <td>W</td>
-                            <td>L</td>
-                            <td>T</td>
-                            <td>GF</td>
-                            <td>GA</td>
-                            <td>GD</td>
-                            <td>Pts</td>
-                        </tr>
-                        {teamRows}
-                    </tbody></table>
+                    {groupDisplay}
                 </div>
                 {
                     this.props.renderFixtures ?
