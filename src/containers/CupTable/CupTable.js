@@ -7,7 +7,7 @@ import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, genaric32Default, genaric24Default } from './defaults';
 
 class CupTable extends Component {
-    defaultState = mens2018Default;
+    defaultState = womens2019Default;
 
     deepCopy = (obj) => {
         if(typeof obj !== 'object' || obj === null) {
@@ -82,9 +82,9 @@ class CupTable extends Component {
 
         let fullyTiedTeams = {};
         for (const team of thirdGroup.teams) {
-            fullyTiedTeams[team.name] = 
+            fullyTiedTeams[team.id] = 
                 thirdGroup.teams.filter((subTeam) => {
-                    if (team.name === subTeam.name)
+                    if (team.id === subTeam.id)
                         return false;
                     if ((team.tibreakers[0] === subTeam.tibreakers[0]) &&
                         (team.tibreakers[1] === subTeam.tibreakers[1]) &&
@@ -96,19 +96,19 @@ class CupTable extends Component {
 
         for (let [key, value] of Object.entries(fullyTiedTeams)) {
             let teamIndex = thirdGroup.teams.findIndex((team) => {
-                return key === team.name;
+                return key === team.id;
             });
             let team = thirdGroup.teams[teamIndex];
             team.thirdTiedWith = [];
             if (fullyTiedTeams[key].length > 0) {
                 team.thirdTiedWith.push(
                     thirdGroup.teams.findIndex((subTeam) => {
-                    return subTeam.name === team.name;
+                    return subTeam.id === team.id;
                 }))
                 for (const subTeam of value) {
                     team.thirdTiedWith.push(
                         thirdGroup.teams.findIndex((subSubTeam) => {
-                        return subSubTeam.name === subTeam.name;
+                        return subSubTeam.id === subTeam.id;
                     }))
                 }
             }
@@ -125,7 +125,7 @@ class CupTable extends Component {
         if (stateObj.groups.length === 6) {
             knockout = this.constructKnockoutStage24(stateObj);
         } else if (stateObj.groups.length === 8) {
-        knockout =  this.constructKnockoutStage32(stateObj);
+            knockout =  this.constructKnockoutStage32(stateObj);
         } else {
             knockout =  null;
         }
@@ -202,7 +202,7 @@ class CupTable extends Component {
         for (const group of stateObj.groups) {
             for (let i = 0; i < 4; i++) {
                 for (const team of group.teams) {
-                    if (stateObj.thirds.teams[i].name === team.name) {
+                    if (stateObj.thirds.teams[i].id === team.id) {
                         thirdTeams.push(team);
                         thirdGroups.push(group.name);
                     }
@@ -393,6 +393,22 @@ class CupTable extends Component {
         this.setState(this.constructThirdsGroup(this.defaultState));
     }
 
+    resetCurrentWorldCup = () => {
+        let stateCopy = this.deepCopy(this.state);
+        stateCopy.knockout = {};
+        for (const [index, group] of stateCopy.groups.entries()) {
+            for (const game of group.games) {
+                game[1] = ["",""];
+            }
+            this.updateTeamsFromGames(stateCopy, index);
+        }
+
+        stateCopy.showSetup = false;
+        stateCopy.teamEditing = [];
+           
+        this.setState(this.constructThirdsGroup(stateCopy));
+    }
+
     resetToDefaultState = () => {
         this.setState(this.constructThirdsGroup(this.defaultState));
     }
@@ -405,7 +421,7 @@ class CupTable extends Component {
     updateTeamsInGroupFromGames = (group) => {
         for (const game of group.games) {
             for (const team of group.teams) {
-                if (team.name === game[0][0]) {
+                if (team.id === game[0][0]) {
                     if (game[1][0] !== "") {
                         team.gf += parseInt(game[1][0]);
                         team.tibreakers[1] += parseInt(game[1][0]);
@@ -428,7 +444,7 @@ class CupTable extends Component {
                             team.ties += 1;
                         }
                     }
-                } else if (team.name === game[0][1]) {
+                } else if (team.id === game[0][1]) {
                     if (game[1][1] !== "") {
                         team.gf += parseInt(game[1][1]);
                         team.tibreakers[1] += parseInt(game[1][1]);
@@ -469,9 +485,9 @@ class CupTable extends Component {
 
         let tiedTeams = {};
         for (const team of stateCopy.groups[groupIndex].teams) {
-            tiedTeams[team.name] = 
+            tiedTeams[team.id] = 
                 stateCopy.groups[groupIndex].teams.filter((subTeam) => {
-                    if (team.name === subTeam.name)
+                    if (team.id === subTeam.id)
                         return false;
                     if ((team.tibreakers[0] === subTeam.tibreakers[0]) &&
                         (team.tibreakers[1] === subTeam.tibreakers[1]) &&
@@ -483,9 +499,9 @@ class CupTable extends Component {
 
         const newTiedTeams = this.deepCopy(tiedTeams);
         for (const team of stateCopy.groups[groupIndex].teams) {
-            if (newTiedTeams.hasOwnProperty(team.name)) {
-                for (const subTeam of newTiedTeams[team.name]) {
-                    delete newTiedTeams[subTeam.name];
+            if (newTiedTeams.hasOwnProperty(team.id)) {
+                for (const subTeam of newTiedTeams[team.id]) {
+                    delete newTiedTeams[subTeam.id];
                 }               
             }
         }
@@ -499,7 +515,7 @@ class CupTable extends Component {
 
                 for (const subTeam of stateCopy.groups[groupIndex].teams) {
                     for (const subSubTeam of tieGroup.teams) {
-                        if (subTeam.name === subSubTeam.name) {
+                        if (subTeam.id === subSubTeam.id) {
                             subTeam.tibreakers[3] = subSubTeam.tibreakers[0];
                             subTeam.tibreakers[4] = subSubTeam.tibreakers[1];
                             subTeam.tibreakers[5] = subSubTeam.tibreakers[2];
@@ -516,9 +532,9 @@ class CupTable extends Component {
 
         let fullyTiedTeams = {};
         for (const team of stateCopy.groups[groupIndex].teams) {
-            fullyTiedTeams[team.name] = 
+            fullyTiedTeams[team.id] = 
                 stateCopy.groups[groupIndex].teams.filter((subTeam) => {
-                    if (team.name === subTeam.name)
+                    if (team.id === subTeam.id)
                         return false;
                     if ((team.tibreakers[0] === subTeam.tibreakers[0]) &&
                         (team.tibreakers[1] === subTeam.tibreakers[1]) &&
@@ -533,18 +549,18 @@ class CupTable extends Component {
 
         for (let [key, value] of Object.entries(fullyTiedTeams)) {
             let teamIndex = stateCopy.groups[groupIndex].teams.findIndex((team) => {
-                return key === team.name;
+                return key === team.id;
             });
             let team = stateCopy.groups[groupIndex].teams[teamIndex];
             if (fullyTiedTeams[key].length > 0) {
                 team.tiedWith.push(
                     stateCopy.groups[groupIndex].teams.findIndex((subTeam) => {
-                    return subTeam.name === team.name;
+                    return subTeam.id === team.id;
                 }))
                 for (const subTeam of value) {
                     team.tiedWith.push(
                         stateCopy.groups[groupIndex].teams.findIndex((subSubTeam) => {
-                        return subSubTeam.name === subTeam.name;
+                        return subSubTeam.id === subTeam.id;
                     }))
                 }
             }
@@ -797,10 +813,10 @@ class CupTable extends Component {
         this.setState(stateCopy);
     };
 
-    constructTiebreakerGroup = (group, teamName, tiedTeams) => {
+    constructTiebreakerGroup = (group, teamId, tiedTeams) => {
         let tiebreakerGroup = {name: group.name};
         const teams = [{
-            name: teamName,
+            id: teamId,
             wins: 0,
             loses: 0,
             ties: 0,
@@ -811,7 +827,7 @@ class CupTable extends Component {
 
         for (const team of tiedTeams) {
             teams.push({
-                name: team.name,
+                id: team.id,
                 wins: 0,
                 loses: 0,
                 ties: 0,
@@ -828,9 +844,9 @@ class CupTable extends Component {
             let visitorIn = false;
 
             for (const team of tiebreakerTeams["teams"]) {
-                if (team.name === game[0][0])
+                if (team.id === game[0][0])
                     homeIn = true;
-                if (team.name === game[0][1])
+                if (team.id === game[0][1])
                     visitorIn = true;
             }
 
@@ -858,17 +874,8 @@ class CupTable extends Component {
         });
 
         let stateCopy = this.deepCopy(this.state);
-        let oldTeamName = this.deepCopy(stateCopy.groups[groupIndex].teams[id[1]].name);
-        stateCopy.groups[groupIndex].teams[id[1]].name = 
-            event.target.value;
-
-        for (let i = 0; i < stateCopy.groups[groupIndex].games.length; i++) {
-            for (let j = 0; j < stateCopy.groups[groupIndex].games[i][0].length; j++) {
-                if (stateCopy.groups[groupIndex].games[i][0][j] === oldTeamName) {
-                    stateCopy.groups[groupIndex].games[i][0][j] = event.target.value;
-                }
-            }
-        }
+        let teamId = stateCopy.groups[groupIndex].teams[id[1]].id;
+        stateCopy.teams[teamId].name = event.target.value;
 
         this.setState(stateCopy);
     }
@@ -907,6 +914,7 @@ class CupTable extends Component {
                 key={group.name}
                 groupName={group.name}
                 group={sortedGroup}
+                teamsDB={this.state.teams}
                 changed={this.scoreChangedHandler}
                 arrowClicked={this.tieArrowHandler}
                 renderFixtures="true"
@@ -923,8 +931,8 @@ class CupTable extends Component {
             thirdPlaceGroup = <Group 
                     key={this.state.thirds.name}
                     groupName={this.state.thirds.name}
+                    teamsDB={this.state.teams}
                     group={this.state.thirds}
-                    changed={this.scoreChangedHandler}
                     arrowClicked={this.thirdTieArrowHandler}
                     thirdGroup="true"
                 />        
@@ -936,6 +944,7 @@ class CupTable extends Component {
                 {this.state.showSetup ? 
                     <WorldCupSetup 
                         setupCancel={this.setupCancel}
+                        resetCurrentWorldCup={this.resetCurrentWorldCup}
                         setupMens2018={this.setupMens2018}
                         setupWomens2019={this.setupWomens2019}
                         setupGeneric32={this.setupGeneric32}
@@ -951,6 +960,7 @@ class CupTable extends Component {
                 <h2>Knockout Stage</h2>
                 <KnockoutStage 
                     knockout={this.state.knockout} 
+                    teamsDB={this.state.teams}
                     changed={this.knockoutScoreChangedHandler}
                     changedPenalty={this.knockoutPenaltyChangedHandler}
                 />

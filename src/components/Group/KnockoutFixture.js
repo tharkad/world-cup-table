@@ -71,6 +71,7 @@ const knockoutFixture = (props) => {
                     size="2"
                     type="text"
                     pattern="^[0-9]*$"
+                    title="Enter the number of penalty shootout goals scored."
                     onChange={(event) => props.changedPenalty(event, {
                         round: props.round,
                         gameIndex: props.gameIndex,
@@ -84,6 +85,7 @@ const knockoutFixture = (props) => {
                     size="2"
                     type="text"
                     pattern="^[0-9]*$"
+                    title="Enter the number of penalty shootout goals scored."
                     onChange={(event) => props.changedPenalty(event, {
                         round: props.round,
                         gameIndex: props.gameIndex,

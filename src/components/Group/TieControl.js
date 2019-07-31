@@ -10,6 +10,7 @@ const TieControl = (props) => {
             <img 
                 src={upArrowImg} 
                 alt="Up Arrow"
+                title="Teams are tied on all tiebreakers. Draw lots and click to change team's order."
                 onClick={(event) => props.arrowClicked(event, [props.group, props.teamIndex, true])}
             />
         );
@@ -18,6 +19,7 @@ const TieControl = (props) => {
             <img 
                 src={downArrowImg} 
                 alt="Down Arrow"
+                title="Teams are tied on all tiebreakers. Draw lots and click to change team's order."
                 onClick={(event) => props.arrowClicked(event, [props.group, props.teamIndex, false])}
             />
         );

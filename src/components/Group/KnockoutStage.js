@@ -17,10 +17,10 @@ const knockoutStage = (props) => {
         for (let i = 0; i < 8; i++) {
             rdOf16.push(
                 <KnockoutFixture className={classes.Fixtures}
-                    key = {props.knockout.roundOf16[i].teams[0].name + 
-                        props.knockout.roundOf16[i].teams[1].name}
-                    team1 = {props.knockout.roundOf16[i].teams[0].name}
-                    team2 = {props.knockout.roundOf16[i].teams[1].name}
+                    key = {props.knockout.roundOf16[i].teams[0].id + 
+                        props.knockout.roundOf16[i].teams[1].id}
+                    team1 = {props.teamsDB[props.knockout.roundOf16[i].teams[0].id].name}
+                    team2 = {props.teamsDB[props.knockout.roundOf16[i].teams[1].id].name}
                     fixture = {props.knockout.roundOf16[i]}
                     round = "roundOf16"
                     gameIndex = {i}
@@ -36,9 +36,9 @@ const knockoutStage = (props) => {
             let name2 = "-----";
 
             if (props.knockout.quarterFinals[i].teams[0] !== "")
-                name1 = props.knockout.quarterFinals[i].teams[0].name;
+                name1 = props.teamsDB[props.knockout.quarterFinals[i].teams[0].id].name;
             if (props.knockout.quarterFinals[i].teams[1] !== "")
-                name2 = props.knockout.quarterFinals[i].teams[1].name;
+                name2 = props.teamsDB[props.knockout.quarterFinals[i].teams[1].id].name;
             
             quarters.push(
                 <KnockoutFixture className={classes.Fixtures}
@@ -61,9 +61,9 @@ const knockoutStage = (props) => {
             let name2 = "-----";
 
             if (props.knockout.semiFinals[i].teams[0] !== "")
-                name1 = props.knockout.semiFinals[i].teams[0].name;
+                name1 = props.teamsDB[props.knockout.semiFinals[i].teams[0].id].name;
             if (props.knockout.semiFinals[i].teams[1] !== "")
-                name2 = props.knockout.semiFinals[i].teams[1].name;
+                name2 = props.teamsDB[props.knockout.semiFinals[i].teams[1].id].name;
             
             semis.push(
                 <KnockoutFixture className={classes.Fixtures}
@@ -86,9 +86,9 @@ const knockoutStage = (props) => {
             let name2 = "-----";
 
             if (props.knockout.finals[i].teams[0] !== "")
-                name1 = props.knockout.finals[i].teams[0].name;
+                name1 = props.teamsDB[props.knockout.finals[i].teams[0].id].name;
             if (props.knockout.finals[i].teams[1] !== "")
-                name2 = props.knockout.finals[i].teams[1].name;
+                name2 = props.teamsDB[props.knockout.finals[i].teams[1].id].name;
             
             finals.push(
                 <KnockoutFixture className={classes.Fixtures}

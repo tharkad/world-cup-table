@@ -3,12 +3,206 @@ export let mens2018Default = {
     showSetup: false,
     teamEditing: [],
     title: "Men's World Cup 2018",
+    teams: {
+        "A1": {
+            name: "Egypt",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A2": {
+            name: "Russia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A3": {
+            name: "Saudi Arabia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A4": {
+            name: "Uraguay",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B1": {
+            name: "Iran",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B2": {
+            name: "Morocco",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B3": {
+            name: "Portugal",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B4": {
+            name: "Spain",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C1": {
+            name: "Australia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C2": {
+            name: "Denmark",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C3": {
+            name: "France",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C4": {
+            name: "Peru",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D1": {
+            name: "Argentina",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D2": {
+            name: "Croatia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D3": {
+            name: "Iceland",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D4": {
+            name: "Nigeria",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E1": {
+            name: "Brazil",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E2": {
+            name: "Costa Rica",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E3": {
+            name: "Serbia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E4": {
+            name: "Switzerland",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F1": {
+            name: "Germany",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F2": {
+            name: "Mexico",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F3": {
+            name: "South Korea",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F4": {
+            name: "Sweden",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G1": {
+            name: "Belgium",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G2": {
+            name: "England",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G3": {
+            name: "Panama",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G4": {
+            name: "Tunisia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H1": {
+            name: "Columbia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H2": {
+            name: "Japan",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H3": {
+            name: "Poland",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H4": {
+            name: "Senegal",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+    },
     groups: [
         {
             name: "Group A",
             teams: [
                 {
-                    name: "Egypt",
+                    id: "A1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -20,7 +214,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Russia",
+                    id: "A2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -32,7 +226,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Saudi Arabia",
+                    id: "A3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -44,7 +238,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Uraguay",
+                    id: "A4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -57,19 +251,19 @@ export let mens2018Default = {
                 },                    
             ],
             games: [
-                [["Russia", "Saudi Arabia"], ["",""]],
-                [["Egypt", "Uraguay"], ["",""]],
-                [["Russia", "Egypt"], ["",""]],
-                [["Uraguay", "Saudi Arabia"], ["",""]],
-                [["Uraguay", "Russia"], ["",""]],
-                [["Saudi Arabia", "Egypt"], ["",""]],
+                [["A2", "A3"], ["",""]],
+                [["A1", "A4"], ["",""]],
+                [["A2", "A1"], ["",""]],
+                [["A4", "A3"], ["",""]],
+                [["A4", "A2"], ["",""]],
+                [["A3", "A1"], ["",""]],
             ]
         },
         {
             name: "Group B",
             teams: [
                 {
-                    name: "Iran",
+                    id: "B1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -81,7 +275,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Morocco",
+                    id: "B2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -93,7 +287,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Portugal",
+                    id: "B3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -105,7 +299,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Spain",
+                    id: "B4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -118,19 +312,19 @@ export let mens2018Default = {
                 },                    
             ],
             games: [
-                [["Morocco", "Iran"], ["",""]],
-                [["Portugal", "Spain"], ["",""]],
-                [["Portugal", "Morocco"], ["",""]],
-                [["Iran", "Spain"], ["",""]],
-                [["Spain", "Morocco"], ["",""]],
-                [["Iran", "Portugal"], ["",""]]
+                [["B2", "B1"], ["",""]],
+                [["B3", "B4"], ["",""]],
+                [["B3", "B2"], ["",""]],
+                [["B1", "B4"], ["",""]],
+                [["B4", "B2"], ["",""]],
+                [["B1", "B3"], ["",""]]
             ]
         },
         {
             name: "Group C",
             teams: [
                 {
-                    name: "Australia",
+                    id: "C1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -142,7 +336,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Denmark",
+                    id: "C2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -154,7 +348,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "France",
+                    id: "C3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -166,7 +360,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Peru",
+                    id: "C4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -179,19 +373,19 @@ export let mens2018Default = {
                 },                    
             ],
             games: [
-                [["France", "Australia"], ["",""]],
-                [["Peru", "Denmark"], ["",""]],
-                [["Denmark", "Australia"], ["",""]],
-                [["France", "Peru"], ["",""]],
-                [["Denmark", "France"], ["",""]],
-                [["Australia", "Peru"], ["",""]]
+                [["C3", "C1"], ["",""]],
+                [["C4", "C2"], ["",""]],
+                [["C2", "C1"], ["",""]],
+                [["C3", "C4"], ["",""]],
+                [["C2", "C3"], ["",""]],
+                [["C1", "C4"], ["",""]]
             ]
         },
         {
             name: "Group D",
             teams: [
                 {
-                    name: "Argentina",
+                    id: "D1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -203,7 +397,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Croatia",
+                    id: "D2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -215,7 +409,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Iceland",
+                    id: "D3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -227,7 +421,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Nigeria",
+                    id: "D4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -240,19 +434,19 @@ export let mens2018Default = {
                 }             
             ],
             games: [
-                [["Argentina", "Iceland"], ["",""]],
-                [["Croatia", "Nigeria"], ["",""]],
-                [["Argentina", "Croatia"], ["",""]],
-                [["Nigeria", "Iceland"], ["",""]],
-                [["Nigeria", "Argentina"], ["",""]],
-                [["Iceland", "Croatia"], ["",""]]
+                [["D1", "D3"], ["",""]],
+                [["D2", "D4"], ["",""]],
+                [["D1", "D2"], ["",""]],
+                [["D4", "D3"], ["",""]],
+                [["D4", "D1"], ["",""]],
+                [["D3", "D2"], ["",""]]
             ]
         },            
         {
             name: "Group E",
             teams: [
                 {
-                    name: "Brazil",
+                    id: "E1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -264,7 +458,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Costa Rica",
+                    id: "E2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -276,7 +470,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Serbia",
+                    id: "E3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -288,7 +482,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Switzerland",
+                    id: "E4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -301,19 +495,19 @@ export let mens2018Default = {
                 },                    
             ],
             games: [
-                [["Costa Rica", "Serbia"], ["",""]],
-                [["Brazil", "Switzerland"], ["",""]],
-                [["Brazil", "Costa Rica"], ["",""]],
-                [["Serbia", "Switzerland"], ["",""]],
-                [["Serbia", "Brazil"], ["",""]],
-                [["Switzerland", "Costa Rica"], ["",""]]
+                [["E2", "E3"], ["",""]],
+                [["E1", "E4"], ["",""]],
+                [["E1", "E2"], ["",""]],
+                [["E3", "E4"], ["",""]],
+                [["E3", "E1"], ["",""]],
+                [["E4", "E2"], ["",""]]
             ]
         },
         {
             name: "Group F",
             teams: [
                 {
-                    name: "Germany",
+                    id: "F1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -325,7 +519,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Mexico",
+                    id: "F2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -337,7 +531,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "South Korea",
+                    id: "F3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -349,7 +543,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Sweden",
+                    id: "F4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -362,19 +556,19 @@ export let mens2018Default = {
                 }             
             ],
             games: [
-                [["Germany", "Mexico"], ["",""]],
-                [["Sweden", "South Korea"], ["",""]],
-                [["South Korea", "Mexico"], ["",""]],
-                [["Germany", "Sweden"], ["",""]],
-                [["South Korea", "Germany"], ["",""]],
-                [["Mexico", "Sweden"], ["",""]]
+                [["F1", "F2"], ["",""]],
+                [["F4", "F3"], ["",""]],
+                [["F3", "F2"], ["",""]],
+                [["F1", "F4"], ["",""]],
+                [["F3", "F1"], ["",""]],
+                [["F2", "F4"], ["",""]]
             ]
         },
         {
             name: "Group G",
             teams: [
                 {
-                    name: "Belgium",
+                    id: "G1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -386,7 +580,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "England",
+                    id: "G2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -398,7 +592,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Panama",
+                    id: "G3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -410,7 +604,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Tunisia",
+                    id: "G4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -423,19 +617,19 @@ export let mens2018Default = {
                 }             
             ],
             games: [
-                [["Belgium", "Panama"], ["",""]],
-                [["Tunisia", "England"], ["",""]],
-                [["Belgium", "Tunisia"], ["",""]],
-                [["England", "Panama"], ["",""]],
-                [["England", "Belgium"], ["",""]],
-                [["Panama", "Tunisia"], ["",""]]
+                [["G1", "G3"], ["",""]],
+                [["G4", "G2"], ["",""]],
+                [["G1", "G4"], ["",""]],
+                [["G2", "G3"], ["",""]],
+                [["G2", "G1"], ["",""]],
+                [["G3", "G4"], ["",""]]
             ]
         },
         {
             name: "Group H",
             teams: [
                 {
-                    name: "Columbia",
+                    id: "H1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -447,7 +641,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Japan",
+                    id: "H2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -459,7 +653,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Poland",
+                    id: "H3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -471,7 +665,7 @@ export let mens2018Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Senegal",
+                    id: "H4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -484,12 +678,12 @@ export let mens2018Default = {
                 }             
             ],
             games: [
-                [["Columbia", "Japan"], ["",""]],
-                [["Poland", "Senegal"], ["",""]],
-                [["Japan", "Senegal"], ["",""]],
-                [["Poland", "Columbia"], ["",""]],
-                [["Japan", "Poland"], ["",""]],
-                [["Senegal", "Columbia"], ["",""]]
+                [["H1", "H2"], ["",""]],
+                [["H3", "H4"], ["",""]],
+                [["H2", "H4"], ["",""]],
+                [["H3", "H1"], ["",""]],
+                [["H2", "H3"], ["",""]],
+                [["H4", "H1"], ["",""]]
             ]
         }
     ],
@@ -500,12 +694,158 @@ export let womens2019Default = {
     showSetup: false,
     teamEditing: [],
     title: "Women's World Cup 2019",
+    teams: {
+        "A1": {
+            name: "France",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A2": {
+            name: "Nigeria",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A3": {
+            name: "Norway",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A4": {
+            name: "South Korea",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B1": {
+            name: "China",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B2": {
+            name: "Germany",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B3": {
+            name: "South Africa",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B4": {
+            name: "Spain",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C1": {
+            name: "Australia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C2": {
+            name: "Brazil",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C3": {
+            name: "Italy",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C4": {
+            name: "Jamaica",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D1": {
+            name: "Argentina",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D2": {
+            name: "England",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D3": {
+            name: "Japan",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D4": {
+            name: "Scotland",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E1": {
+            name: "Cameroon",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E2": {
+            name: "Canada",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E3": {
+            name: "Netherlands",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E4": {
+            name: "New Zealand",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F1": {
+            name: "Chile",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F2": {
+            name: "Sweden",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F3": {
+            name: "Thailand",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F4": {
+            name: "USA",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        }
+    },
     groups: [
         {
             name: "Group A",
             teams: [
                 {
-                    name: "France",
+                    id: "A1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -517,7 +857,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Nigeria",
+                    id: "A2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -529,7 +869,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Norway",
+                    id: "A3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -541,7 +881,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "South Korea",
+                    id: "A4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -554,19 +894,19 @@ export let womens2019Default = {
                 },                    
             ],
             games: [
-                [["France", "South Korea"], ["",""]],
-                [["Norway", "Nigeria"], ["",""]],
-                [["Nigeria", "South Korea"], ["",""]],
-                [["France", "Norway"], ["",""]],
-                [["South Korea", "Norway"], ["",""]],
-                [["Nigeria", "France"], ["",""]],
+                [["A1", "A4"], ["",""]],
+                [["A3", "A2"], ["",""]],
+                [["A2", "A4"], ["",""]],
+                [["A1", "A3"], ["",""]],
+                [["A4", "A3"], ["",""]],
+                [["A2", "A1"], ["",""]],
             ]
         },
         {
             name: "Group B",
             teams: [
                 {
-                    name: "China",
+                    id: "B1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -578,7 +918,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Germany",
+                    id: "B2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -590,7 +930,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "South Africa",
+                    id: "B3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -602,7 +942,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Spain",
+                    id: "B4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -615,19 +955,19 @@ export let womens2019Default = {
                 },                    
             ],
             games: [
-                [["Germany", "China"], ["",""]],
-                [["Spain", "South Africa"], ["",""]],
-                [["Germany", "Spain"], ["",""]],
-                [["South Africa", "China"], ["",""]],
-                [["China", "Spain"], ["",""]],
-                [["South Africa", "Germany"], ["",""]]
+                [["B2", "B1"], ["",""]],
+                [["B4", "B3"], ["",""]],
+                [["B2", "B4"], ["",""]],
+                [["B3", "B1"], ["",""]],
+                [["B1", "B4"], ["",""]],
+                [["B3", "B2"], ["",""]]
             ]
         },
         {
             name: "Group C",
             teams: [
                 {
-                    name: "Australia",
+                    id: "C1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -639,7 +979,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Brazil",
+                    id: "C2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -651,7 +991,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Italy",
+                    id: "C3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -663,7 +1003,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Jamaica",
+                    id: "C4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -676,19 +1016,19 @@ export let womens2019Default = {
                 },                    
             ],
             games: [
-                [["Australia", "Italy"], ["",""]],
-                [["Brazil", "Jamaica"], ["",""]],
-                [["Australia", "Brazil"], ["",""]],
-                [["Jamaica", "Italy"], ["",""]],
-                [["Italy", "Brazil"], ["",""]],
-                [["Jamaica", "Australia"], ["",""]]
+                [["C1", "C3"], ["",""]],
+                [["C2", "C4"], ["",""]],
+                [["C1", "C2"], ["",""]],
+                [["C4", "C3"], ["",""]],
+                [["C3", "C2"], ["",""]],
+                [["C4", "C1"], ["",""]]
             ]
         },
         {
             name: "Group D",
             teams: [
                 {
-                    name: "Argentina",
+                    id: "D1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -700,7 +1040,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "England",
+                    id: "D2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -712,7 +1052,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Japan",
+                    id: "D3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -724,7 +1064,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Scotland",
+                    id: "D4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -737,19 +1077,19 @@ export let womens2019Default = {
                 }             
             ],
             games: [
-                [["England", "Scotland"], ["",""]],
-                [["Argentina", "Japan"], ["",""]],
-                [["Japan", "Scotland"], ["",""]],
-                [["England", "Argentina"], ["",""]],
-                [["Scotland", "Argentina"], ["",""]],
-                [["Japan", "England"], ["",""]]
+                [["D2", "D4"], ["",""]],
+                [["D1", "D3"], ["",""]],
+                [["D3", "D4"], ["",""]],
+                [["D2", "D1"], ["",""]],
+                [["D4", "D1"], ["",""]],
+                [["D3", "D2"], ["",""]]
             ]
         },            
         {
             name: "Group E",
             teams: [
                 {
-                    name: "Cameroon",
+                    id: "E1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -761,7 +1101,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Canada",
+                    id: "E2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -773,7 +1113,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Netherlands",
+                    id: "E3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -785,7 +1125,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "New Zealand",
+                    id: "E4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -798,19 +1138,19 @@ export let womens2019Default = {
                 },                    
             ],
             games: [
-                [["Canada", "Cameroon"], ["",""]],
-                [["New Zealand", "Netherlands"], ["",""]],
-                [["Netherlands", "Cameroon"], ["",""]],
-                [["Canada", "New Zealand"], ["",""]],
-                [["Netherlands", "Canada"], ["",""]],
-                [["Cameroon", "New Zealand"], ["",""]]
+                [["E2", "E1"], ["",""]],
+                [["E4", "E3"], ["",""]],
+                [["E3", "E1"], ["",""]],
+                [["E2", "E4"], ["",""]],
+                [["E3", "E2"], ["",""]],
+                [["E1", "E4"], ["",""]]
             ]
         },
         {
             name: "Group F",
             teams: [
                 {
-                    name: "Chile",
+                    id: "F1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -822,7 +1162,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Sweeden",
+                    id: "F2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -834,7 +1174,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Thailand",
+                    id: "F3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -846,7 +1186,7 @@ export let womens2019Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "United States",
+                    id: "F4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -859,12 +1199,12 @@ export let womens2019Default = {
                 }             
             ],
             games: [
-                [["Chile", "Sweeden"], ["",""]],
-                [["United States", "Thailand"], ["",""]],
-                [["Sweeden", "Thailand"], ["",""]],
-                [["United States", "Chile"], ["",""]],
-                [["Sweeden", "United States"], ["",""]],
-                [["Thailand", "Chile"], ["",""]]
+                [["F1", "F2"], ["",""]],
+                [["F4", "F3"], ["",""]],
+                [["F2", "F3"], ["",""]],
+                [["F4", "F1"], ["",""]],
+                [["F2", "F4"], ["",""]],
+                [["F3", "F1"], ["",""]]
             ]
         }
     ],
@@ -875,12 +1215,206 @@ export let genaric32Default = {
     showSetup: false,
     teamEditing: [],
     title: "32 Team World Cup",
+    teams: {
+        "A1": {
+            name: "Team A1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A2": {
+            name: "Team A2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A3": {
+            name: "Team A3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A4": {
+            name: "Team A4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B1": {
+            name: "Team B1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B2": {
+            name: "Team B2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B3": {
+            name: "Team B3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B4": {
+            name: "Team B4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C1": {
+            name: "Team C1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C2": {
+            name: "Team C2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C3": {
+            name: "Team C3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C4": {
+            name: "Team C4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D1": {
+            name: "Team D1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D2": {
+            name: "Team D2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D3": {
+            name: "Team D3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D4": {
+            name: "Team D4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E1": {
+            name: "Team E1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E2": {
+            name: "Team E2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E3": {
+            name: "Team E3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E4": {
+            name: "Team E4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F1": {
+            name: "Team F1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F2": {
+            name: "Team F2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F3": {
+            name: "Team F3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F4": {
+            name: "Team F4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G1": {
+            name: "Team G1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G2": {
+            name: "Team G2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G3": {
+            name: "Team G3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "G4": {
+            name: "Team G4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H1": {
+            name: "Team H1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H2": {
+            name: "Team H2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H3": {
+            name: "Team H3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "H4": {
+            name: "Team H4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+    },
     groups: [
         {
             name: "Group A",
             teams: [
                 {
-                    name: "Team A1",
+                    id: "A1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -892,7 +1426,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team A2",
+                    id: "A2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -904,7 +1438,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team A3",
+                    id: "A3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -916,7 +1450,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team A4",
+                    id: "A4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -929,19 +1463,19 @@ export let genaric32Default = {
                 },                    
             ],
             games: [
-                [["Team A2", "Team A3"], ["",""]],
-                [["Team A1", "Team A4"], ["",""]],
-                [["Team A2", "Team A1"], ["",""]],
-                [["Team A4", "Team A3"], ["",""]],
-                [["Team A4", "Team A2"], ["",""]],
-                [["Team A3", "Team A1"], ["",""]],
+                [["A2", "A3"], ["",""]],
+                [["A1", "A4"], ["",""]],
+                [["A2", "A1"], ["",""]],
+                [["A4", "A3"], ["",""]],
+                [["A4", "A2"], ["",""]],
+                [["A3", "A1"], ["",""]],
             ]
         },
         {
             name: "Group B",
             teams: [
                 {
-                    name: "Team B1",
+                    id: "B1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -953,7 +1487,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team B2",
+                    id: "B2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -965,7 +1499,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team B3",
+                    id: "B3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -977,7 +1511,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team B4",
+                    id: "B4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -990,19 +1524,19 @@ export let genaric32Default = {
                 },                    
             ],
             games: [
-                [["Team B2", "Team B1"], ["",""]],
-                [["Team B3", "Team B4"], ["",""]],
-                [["Team B3", "Team B2"], ["",""]],
-                [["Team B1", "Team B4"], ["",""]],
-                [["Team B4", "Team B2"], ["",""]],
-                [["Team B1", "Team B3"], ["",""]]
+                [["B2", "B1"], ["",""]],
+                [["B3", "B4"], ["",""]],
+                [["B3", "B2"], ["",""]],
+                [["B1", "B4"], ["",""]],
+                [["B4", "B2"], ["",""]],
+                [["B1", "B3"], ["",""]]
             ]
         },
         {
             name: "Group C",
             teams: [
                 {
-                    name: "Team C1",
+                    id: "C1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1014,7 +1548,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team C2",
+                    id: "C2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1026,7 +1560,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team C3",
+                    id: "C3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1038,7 +1572,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team C4",
+                    id: "C4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1051,19 +1585,19 @@ export let genaric32Default = {
                 },                    
             ],
             games: [
-                [["Team C3", "Team C1"], ["",""]],
-                [["Team C4", "Team C2"], ["",""]],
-                [["Team C2", "Team C1"], ["",""]],
-                [["Team C3", "Team C4"], ["",""]],
-                [["Team C2", "Team C3"], ["",""]],
-                [["Team C1", "Team C4"], ["",""]]
+                [["C3", "C1"], ["",""]],
+                [["C4", "C2"], ["",""]],
+                [["C2", "C1"], ["",""]],
+                [["C3", "C4"], ["",""]],
+                [["C2", "C3"], ["",""]],
+                [["C1", "C4"], ["",""]]
             ]
         },
         {
             name: "Group D",
             teams: [
                 {
-                    name: "Team D1",
+                    id: "D1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1075,7 +1609,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Team D2",
+                    id: "D2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1087,7 +1621,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team D3",
+                    id: "D3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1099,7 +1633,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team D4",
+                    id: "D4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1112,19 +1646,19 @@ export let genaric32Default = {
                 }             
             ],
             games: [
-                [["Team D1", "Team D3"], ["",""]],
-                [["Team D2", "Team D4"], ["",""]],
-                [["Team D1", "Team D2"], ["",""]],
-                [["Team D4", "Team D3"], ["",""]],
-                [["Team D4", "Team D1"], ["",""]],
-                [["Team D3", "Team D2"], ["",""]]
+                [["D1", "D3"], ["",""]],
+                [["D2", "D4"], ["",""]],
+                [["D1", "D2"], ["",""]],
+                [["D4", "D3"], ["",""]],
+                [["D4", "D1"], ["",""]],
+                [["D3", "D2"], ["",""]]
             ]
         },            
         {
             name: "Group E",
             teams: [
                 {
-                    name: "Team E1",
+                    id: "E1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1136,7 +1670,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team E2",
+                    id: "E2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1148,7 +1682,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team E3",
+                    id: "E3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1160,7 +1694,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team E4",
+                    id: "E4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1173,19 +1707,19 @@ export let genaric32Default = {
                 },                    
             ],
             games: [
-                [["Team E2", "Team E3"], ["",""]],
-                [["Team E1", "Team E4"], ["",""]],
-                [["Team E1", "Team E2"], ["",""]],
-                [["Team E3", "Team E4"], ["",""]],
-                [["Team E3", "Team E1"], ["",""]],
-                [["Team E4", "Team E2"], ["",""]]
+                [["E2", "E3"], ["",""]],
+                [["E1", "E4"], ["",""]],
+                [["E1", "E2"], ["",""]],
+                [["E3", "E4"], ["",""]],
+                [["E3", "E1"], ["",""]],
+                [["E4", "E2"], ["",""]]
             ]
         },
         {
             name: "Group F",
             teams: [
                 {
-                    name: "Team F1",
+                    id: "F1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1197,7 +1731,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Team F2",
+                    id: "F2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1209,7 +1743,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team F3",
+                    id: "F3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1221,7 +1755,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team F4",
+                    id: "F4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1234,19 +1768,19 @@ export let genaric32Default = {
                 }             
             ],
             games: [
-                [["Team F1", "Team F2"], ["",""]],
-                [["Team F4", "Team F3"], ["",""]],
-                [["Team F3", "Team F2"], ["",""]],
-                [["Team F1", "Team F4"], ["",""]],
-                [["Team F3", "Team F1"], ["",""]],
-                [["Team F2", "Team F4"], ["",""]]
+                [["F1", "F2"], ["",""]],
+                [["F4", "F3"], ["",""]],
+                [["F3", "F2"], ["",""]],
+                [["F1", "F4"], ["",""]],
+                [["F3", "F1"], ["",""]],
+                [["F2", "F4"], ["",""]]
             ]
         },
         {
             name: "Group G",
             teams: [
                 {
-                    name: "Team G1",
+                    id: "G1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1258,7 +1792,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Team G2",
+                    id: "G2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1270,7 +1804,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team G3",
+                    id: "G3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1282,7 +1816,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team G4",
+                    id: "G4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1295,19 +1829,19 @@ export let genaric32Default = {
                 }             
             ],
             games: [
-                [["Team G1", "Team G3"], ["",""]],
-                [["Team G4", "Team G2"], ["",""]],
-                [["Team G1", "Team G4"], ["",""]],
-                [["Team G2", "Team G3"], ["",""]],
-                [["Team G2", "Team G1"], ["",""]],
-                [["Team G3", "Team G4"], ["",""]]
+                [["G1", "G3"], ["",""]],
+                [["G4", "G2"], ["",""]],
+                [["G1", "G4"], ["",""]],
+                [["G2", "G3"], ["",""]],
+                [["G2", "G1"], ["",""]],
+                [["G3", "G4"], ["",""]]
             ]
         },
         {
             name: "Group H",
             teams: [
                 {
-                    name: "Team H1",
+                    id: "H1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1319,7 +1853,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Team H2",
+                    id: "H2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1331,7 +1865,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team H3",
+                    id: "H3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1343,7 +1877,7 @@ export let genaric32Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team H4",
+                    id: "H4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1356,12 +1890,12 @@ export let genaric32Default = {
                 }             
             ],
             games: [
-                [["Team H1", "Team H2"], ["",""]],
-                [["Team H3", "Team H4"], ["",""]],
-                [["Team H2", "Team H4"], ["",""]],
-                [["Team H3", "Team H1"], ["",""]],
-                [["Team H2", "Team H3"], ["",""]],
-                [["Team H4", "Team H1"], ["",""]]
+                [["H1", "H2"], ["",""]],
+                [["H3", "H4"], ["",""]],
+                [["H2", "H4"], ["",""]],
+                [["H3", "H1"], ["",""]],
+                [["H2", "H3"], ["",""]],
+                [["H4", "H1"], ["",""]]
             ]
         }
     ],
@@ -1372,12 +1906,158 @@ export let genaric24Default = {
     showSetup: false,
     teamEditing: [],
     title: "24 Team World Cup",
+    teams: {
+        "A1": {
+            name: "Team A1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A2": {
+            name: "Team A2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A3": {
+            name: "Team A3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A4": {
+            name: "Team A4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B1": {
+            name: "Team B1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B2": {
+            name: "Team B2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B3": {
+            name: "Team B3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B4": {
+            name: "Team B4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C1": {
+            name: "Team C1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C2": {
+            name: "Team C2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C3": {
+            name: "Team C3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C4": {
+            name: "Team C4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D1": {
+            name: "Team D1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D2": {
+            name: "Team D2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D3": {
+            name: "Team D3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D4": {
+            name: "Team D4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E1": {
+            name: "Team E1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E2": {
+            name: "Team E2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E3": {
+            name: "Team E3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E4": {
+            name: "Team E4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F1": {
+            name: "Team F1",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F2": {
+            name: "Team F2",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F3": {
+            name: "Team F3",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F4": {
+            name: "Team F4",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        }
+    },
     groups: [
         {
             name: "Group A",
             teams: [
                 {
-                    name: "Team A1",
+                    id: "A1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1389,7 +2069,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team A2",
+                    id: "A2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1401,7 +2081,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team A3",
+                    id: "A3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1413,7 +2093,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team A4",
+                    id: "A4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1426,19 +2106,19 @@ export let genaric24Default = {
                 },                    
             ],
             games: [
-                [["Team A2", "Team A3"], ["",""]],
-                [["Team A1", "Team A4"], ["",""]],
-                [["Team A2", "Team A1"], ["",""]],
-                [["Team A4", "Team A3"], ["",""]],
-                [["Team A4", "Team A2"], ["",""]],
-                [["Team A3", "Team A1"], ["",""]],
+                [["A2", "A3"], ["",""]],
+                [["A1", "A4"], ["",""]],
+                [["A2", "A1"], ["",""]],
+                [["A4", "A3"], ["",""]],
+                [["A4", "A2"], ["",""]],
+                [["A3", "A1"], ["",""]],
             ]
         },
         {
             name: "Group B",
             teams: [
                 {
-                    name: "Team B1",
+                    id: "B1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1450,7 +2130,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team B2",
+                    id: "B2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1462,7 +2142,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team B3",
+                    id: "B3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1474,7 +2154,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team B4",
+                    id: "B4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1487,19 +2167,19 @@ export let genaric24Default = {
                 },                    
             ],
             games: [
-                [["Team B2", "Team B1"], ["",""]],
-                [["Team B3", "Team B4"], ["",""]],
-                [["Team B3", "Team B2"], ["",""]],
-                [["Team B1", "Team B4"], ["",""]],
-                [["Team B4", "Team B2"], ["",""]],
-                [["Team B1", "Team B3"], ["",""]]
+                [["B2", "B1"], ["",""]],
+                [["B3", "B4"], ["",""]],
+                [["B3", "B2"], ["",""]],
+                [["B1", "B4"], ["",""]],
+                [["B4", "B2"], ["",""]],
+                [["B1", "B3"], ["",""]]
             ]
         },
         {
             name: "Group C",
             teams: [
                 {
-                    name: "Team C1",
+                    id: "C1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1511,7 +2191,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team C2",
+                    id: "C2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1523,7 +2203,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team C3",
+                    id: "C3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1535,7 +2215,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team C4",
+                    id: "C4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1548,19 +2228,19 @@ export let genaric24Default = {
                 },                    
             ],
             games: [
-                [["Team C3", "Team C1"], ["",""]],
-                [["Team C4", "Team C2"], ["",""]],
-                [["Team C2", "Team C1"], ["",""]],
-                [["Team C3", "Team C4"], ["",""]],
-                [["Team C2", "Team C3"], ["",""]],
-                [["Team C1", "Team C4"], ["",""]]
+                [["C3", "C1"], ["",""]],
+                [["C4", "C2"], ["",""]],
+                [["C2", "C1"], ["",""]],
+                [["C3", "C4"], ["",""]],
+                [["C2", "C3"], ["",""]],
+                [["C1", "C4"], ["",""]]
             ]
         },
         {
             name: "Group D",
             teams: [
                 {
-                    name: "Team D1",
+                    id: "D1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1572,7 +2252,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Team D2",
+                    id: "D2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1584,7 +2264,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team D3",
+                    id: "D3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1596,7 +2276,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team D4",
+                    id: "D4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1609,19 +2289,19 @@ export let genaric24Default = {
                 }             
             ],
             games: [
-                [["Team D1", "Team D3"], ["",""]],
-                [["Team D2", "Team D4"], ["",""]],
-                [["Team D1", "Team D2"], ["",""]],
-                [["Team D4", "Team D3"], ["",""]],
-                [["Team D4", "Team D1"], ["",""]],
-                [["Team D3", "Team D2"], ["",""]]
+                [["D1", "D3"], ["",""]],
+                [["D2", "D4"], ["",""]],
+                [["D1", "D2"], ["",""]],
+                [["D4", "D3"], ["",""]],
+                [["D4", "D1"], ["",""]],
+                [["D3", "D2"], ["",""]]
             ]
         },            
         {
             name: "Group E",
             teams: [
                 {
-                    name: "Team E1",
+                    id: "E1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1633,7 +2313,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team E2",
+                    id: "E2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1645,7 +2325,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team E3",
+                    id: "E3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1657,7 +2337,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team E4",
+                    id: "E4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1670,19 +2350,19 @@ export let genaric24Default = {
                 },                    
             ],
             games: [
-                [["Team E2", "Team E3"], ["",""]],
-                [["Team E1", "Team E4"], ["",""]],
-                [["Team E1", "Team E2"], ["",""]],
-                [["Team E3", "Team E4"], ["",""]],
-                [["Team E3", "Team E1"], ["",""]],
-                [["Team E4", "Team E2"], ["",""]]
+                [["E2", "E3"], ["",""]],
+                [["E1", "E4"], ["",""]],
+                [["E1", "E2"], ["",""]],
+                [["E3", "E4"], ["",""]],
+                [["E3", "E1"], ["",""]],
+                [["E4", "E2"], ["",""]]
             ]
         },
         {
             name: "Group F",
             teams: [
                 {
-                    name: "Team F1",
+                    id: "F1",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1694,7 +2374,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                {
-                    name: "Team F2",
+                    id: "F2",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1706,7 +2386,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team F3",
+                    id: "F3",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1718,7 +2398,7 @@ export let genaric24Default = {
                     thirdTiedWith: []
                 },
                 {
-                    name: "Team F4",
+                    id: "F4",
                     wins: 0,
                     loses: 0,
                     ties: 0,
@@ -1731,14 +2411,14 @@ export let genaric24Default = {
                 }             
             ],
             games: [
-                [["Team F1", "Team F2"], ["",""]],
-                [["Team F4", "Team F3"], ["",""]],
-                [["Team F3", "Team F2"], ["",""]],
-                [["Team F1", "Team F4"], ["",""]],
-                [["Team F3", "Team F1"], ["",""]],
-                [["Team F2", "Team F4"], ["",""]]
+                [["F1", "F2"], ["",""]],
+                [["F4", "F3"], ["",""]],
+                [["F3", "F2"], ["",""]],
+                [["F1", "F4"], ["",""]],
+                [["F3", "F1"], ["",""]],
+                [["F2", "F4"], ["",""]]
             ]
-        },
+        }
     ],
     knockout: {}
 }

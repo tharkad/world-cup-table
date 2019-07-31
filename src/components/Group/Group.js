@@ -72,7 +72,7 @@ class Group extends Component {
                 return (
                     <tr key={game[0][0] + game[0][1]}>
                         <td className={classes.GameLeftTeamName}>
-                            <span className={team1Class}>{game[0][0]}</span>
+                            <span className={team1Class}>{this.props.teamsDB[game[0][0]].name}</span>
                         </td>
                         <td className={classes.GameScore}>
                             { 
@@ -114,7 +114,7 @@ class Group extends Component {
                             }
                         </td>
                         <td className={classes.GameRightTeamName}>
-                            <span className={team2Class}>{game[0][1]}</span>
+                            <span className={team2Class}>{this.props.teamsDB[game[0][1]].name}</span>
                         </td>
                     </tr>
                 )
@@ -124,13 +124,23 @@ class Group extends Component {
         let groupDisplay = null;
         if (!this.props.editing) {
             let teamRows = this.props.group.teams.map((team, index) => {
+                let teamNameTD = null;
+                if (this.props.thirdGroup) {
+                    teamNameTD = <td 
+                        className={classes.ThirdTeamName}
+                        >{this.props.teamsDB[team.id].name}</td>
+        } else {
+                    teamNameTD = <td 
+                        className={classes.TeamName}
+                        title="Click to edit team inforamtion."
+                        onClick={(event) => this.props.teamClicked(event, [this.props.groupName, index])}
+                        >{this.props.teamsDB[team.id].name}</td>
+        }
+
                 return (
-                    <tr key={team.name}>
+                    <tr key={team.id}>
                         {/* <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")} {team.tiedWith.join(",")}</td> */}
-                        <td 
-                            className={classes.TeamName}
-                            onClick={(event) => this.props.teamClicked(event, [this.props.groupName, index])}
-                            >{team.name}</td>
+                        {teamNameTD}
                         <td className={classes.TieControl}>
                             {this.tieControl(index, true)}
                         </td>
@@ -171,7 +181,7 @@ class Group extends Component {
                     type="text"
                     onChange={(event) => 
                         this.props.teamNameChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
-                    value={this.props.group.teams[this.props.editingTeamIndex].name} 
+                    value={this.props.teamsDB[this.props.group.teams[this.props.editingTeamIndex].id].name} 
                 />
                 <p></p>
                 <button onClick={(event) =>

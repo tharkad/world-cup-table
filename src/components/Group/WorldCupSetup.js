@@ -9,6 +9,10 @@ const worldCupSetup = (props) => {
                 Chosing a setup will erase your current World Cup. &nbsp;
                 <button onClick={props.setupCancel}>Cancel</button>
             </p>
+            <p>
+                Reset the scores of your current World Cup. &nbsp;
+                <button onClick={props.resetCurrentWorldCup}>Reset</button>
+            </p>
             <table className={classes.SetupTable}><tbody>
                 <tr>
                     <th>Historical</th>
