@@ -7,7 +7,7 @@ import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, genaric32Default, genaric24Default } from './defaults';
 
 class CupTable extends Component {
-    defaultState = womens2019Default;
+    defaultState = mens2018Default;
 
     deepCopy = (obj) => {
         if(typeof obj !== 'object' || obj === null) {
@@ -880,6 +880,20 @@ class CupTable extends Component {
         this.setState(stateCopy);
     }
 
+    ownerNameChangedHandler = (event, id) => {
+        let stateCopy = this.deepCopy(this.state);
+        for (const editing of this.state.teamEditing) {
+            let groupIndex = this.state.groups.findIndex(group => {
+                return group.name === editing.groupName;
+            });
+            let teamId = stateCopy.groups[groupIndex].teams[editing.teamIndex].id;
+            stateCopy.teams[teamId].owner = event.target.value;
+        }
+
+        this.setState(stateCopy);
+    }
+
+
     doneEditingHandler = (event, id) => {
         let newTeamEditing = this.state.teamEditing.filter((editStruct) => {
             return (editStruct.groupName !== id);
@@ -922,6 +936,7 @@ class CupTable extends Component {
                 editing = {editing}
                 editingTeamIndex = {editingTeamIndex}
                 teamNameChanged = {this.teamNameChangedHandler}
+                ownerNameChanged = {this.ownerNameChangedHandler}
                 doneEditing = {this.doneEditingHandler}
             />
         });

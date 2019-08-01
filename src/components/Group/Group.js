@@ -183,6 +183,16 @@ class Group extends Component {
                         this.props.teamNameChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
                     value={this.props.teamsDB[this.props.group.teams[this.props.editingTeamIndex].id].name} 
                 />
+                <p className={classes.EditLineBreak}></p>
+                <p className={classes.Label}>Owner: </p>
+                <input 
+                    className={classes.TeamInput}
+                    type="text"
+                    title="Edit multiple teams simultaneously to change the owners for all of them."
+                    onChange={(event) => 
+                        this.props.ownerNameChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
+                    value={this.props.teamsDB[this.props.group.teams[this.props.editingTeamIndex].id].owner} 
+                />
                 <p></p>
                 <button onClick={(event) =>
                     this.props.doneEditing(event, this.props.groupName)}>Done</button>
