@@ -203,3 +203,7 @@
 .GrayItem {
     color: gray;
 }
+
+.OwnerData {
+    font-size: 0.8rem;
+}

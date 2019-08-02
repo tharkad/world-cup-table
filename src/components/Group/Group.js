@@ -240,6 +240,7 @@ class Group extends Component {
                 return (
                     <tr key={team.id}>
                         {/* <td className={classes.TeamName}>{team.name} {team.tibreakers.join(",")} {team.tiedWith.join(",")}</td> */}
+                        <td className={classes.OwnerData} title="Print and Play team ranking.">{this.props.teamsDB[team.id].pnpRanking}</td>
                         {teamNameTD}
                         <td className={classes.TieControl}>
                             {this.tieControl(index, true)}
@@ -247,6 +248,7 @@ class Group extends Component {
                         <td className={classes.TieControl}>
                             {this.tieControl(index, false)}
                         </td>
+                        <td className={classes.OwnerData} title="Team owner.">{this.props.teamsDB[team.id].owner}</td>
                         <td className={classes.Number}>{team.wins}</td>
                         <td className={classes.Number}>{team.loses}</td>
                         <td className={classes.Number}>{team.ties}</td>
@@ -260,7 +262,9 @@ class Group extends Component {
 
             groupDisplay = <table className = {classes.Table}><tbody>
                 <tr className = {classes.GroupHeading}>
+                    <td></td>
                     <td className = {classes.GroupHeadingTeam}>Team</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>W</td>
@@ -310,12 +314,39 @@ class Group extends Component {
                     <option className={classes.YellowItem} value="Yellow">Yellow</option>
                     <option className={classes.GrayItem} value="Gray">Gray</option>
                 </select>
+                <p className={classes.SelectLineBread}></p>
+                <p className={classes.Label}>PnP Game Rating: </p>
+                <select 
+                    className={classes.selectcss}
+                    value={this.props.teamsDB[this.props.group.teams[this.props.editingTeamIndex].id].pnpRanking}
+                    onChange={(event) => 
+                        this.props.pnpRankingChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
+                >
+                    <option value=""></option>
+                    <option value="4A">4A</option>
+                    <option value="4B">4B</option>
+                    <option value="4C">4C</option>
+                    <option value="4D">4D</option>
+                    <option value="4E">4E</option>
+                    <option value="4F">4F</option>
+                    <option value="3A">3A</option>
+                    <option value="3B">3B</option>
+                    <option value="3C">3C</option>
+                    <option value="3D">3D</option>
+                    <option value="3E">3E</option>
+                    <option value="3F">3F</option>
+                    <option value="2A">2A</option>
+                    <option value="2B">2B</option>
+                    <option value="2C">2C</option>
+                    <option value="2D">2D</option>
+                    <option value="2E">2E</option>
+                    <option value="2F">2F</option>
+                </select>
                 <p></p>
                 <button onClick={(event) =>
                     this.props.doneEditing(event, this.props.groupName)}>Done</button>
             </div>
         }
-
 
         return (
             <div className = {classes.Group}>

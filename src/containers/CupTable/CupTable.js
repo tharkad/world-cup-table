@@ -7,6 +7,11 @@ import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, genaric32Default, genaric24Default } from './defaults';
 
 class CupTable extends Component {
+    constructor(props) {
+        super(props);
+        this.escFunction = this.escFunction.bind(this);
+    }
+
     defaultState = mens2018Default;
 
     deepCopy = (obj) => {
@@ -413,10 +418,22 @@ class CupTable extends Component {
         this.setState(this.constructThirdsGroup(this.defaultState));
     }
 
-    // componentDidMount() {
-    //     clearStorage();
-    //     this.resetToDefaultState();
-    //   }
+    escFunction = (event) => {
+        if (event.keyCode === 27) {
+            this.setState({teamEditing: []});
+        }
+    }
+
+    componentDidMount() {
+        //clearStorage();
+        //this.resetToDefaultState();
+
+        document.addEventListener("keydown", this.escFunction, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("keydown", this.escFunction, false);
+    }
     
     updateTeamsInGroupFromGames = (group) => {
         for (const game of group.games) {
@@ -905,6 +922,18 @@ class CupTable extends Component {
         this.setState(stateCopy);
     }
 
+    pnpRankingChangedHandler = (event, id) => {
+        const groupIndex = this.state.groups.findIndex(group => {
+            return group.name === id[0];
+        });
+
+        let stateCopy = this.deepCopy(this.state);
+        let teamId = stateCopy.groups[groupIndex].teams[id[1]].id;
+        stateCopy.teams[teamId].pnpRanking = event.target.value;
+
+        this.setState(stateCopy);
+    }
+
     doneEditingHandler = (event, id) => {
         let newTeamEditing = this.state.teamEditing.filter((editStruct) => {
             return (editStruct.groupName !== id);
@@ -949,6 +978,7 @@ class CupTable extends Component {
                 teamNameChanged = {this.teamNameChangedHandler}
                 ownerNameChanged = {this.ownerNameChangedHandler}
                 originalRankingChanged = {this.originalRankingChangedHandler}
+                pnpRankingChanged = {this.pnpRankingChangedHandler}
                 doneEditing = {this.doneEditingHandler}
             />
         });
