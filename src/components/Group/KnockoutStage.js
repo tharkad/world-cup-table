@@ -20,7 +20,9 @@ const knockoutStage = (props) => {
                     key = {props.knockout.roundOf16[i].teams[0].id + 
                         props.knockout.roundOf16[i].teams[1].id}
                     team1 = {props.teamsDB[props.knockout.roundOf16[i].teams[0].id].name}
+                    team1Color = {props.teamsDB[props.knockout.roundOf16[i].teams[0].id].originalRanking}
                     team2 = {props.teamsDB[props.knockout.roundOf16[i].teams[1].id].name}
+                    team2Color = {props.teamsDB[props.knockout.roundOf16[i].teams[1].id].originalRanking}
                     fixture = {props.knockout.roundOf16[i]}
                     round = "roundOf16"
                     gameIndex = {i}
@@ -34,17 +36,25 @@ const knockoutStage = (props) => {
         for (let i = 0; i < 4; i++) {
             let name1 = "-----"
             let name2 = "-----";
+            let name1Color = "";
+            let name2Color = "";
 
-            if (props.knockout.quarterFinals[i].teams[0] !== "")
+            if (props.knockout.quarterFinals[i].teams[0] !== "") {
                 name1 = props.teamsDB[props.knockout.quarterFinals[i].teams[0].id].name;
-            if (props.knockout.quarterFinals[i].teams[1] !== "")
+                name1Color = props.teamsDB[props.knockout.quarterFinals[i].teams[0].id].originalRanking;
+            }
+            if (props.knockout.quarterFinals[i].teams[1] !== "") {
                 name2 = props.teamsDB[props.knockout.quarterFinals[i].teams[1].id].name;
-            
+                name2Color = props.teamsDB[props.knockout.quarterFinals[i].teams[1].id].originalRanking;
+            }
+
             quarters.push(
                 <KnockoutFixture className={classes.Fixtures}
                     key = {name1 + name2}
                     team1 = {name1}
+                    team1Color = {name1Color}
                     team2 = {name2}
+                    team2Color = {name2Color}
                     fixture = {props.knockout.quarterFinals[i]}
                     round = "quarterFinals"
                     gameIndex = {i}
@@ -59,17 +69,25 @@ const knockoutStage = (props) => {
         for (let i = 0; i < 2; i++) {
             let name1 = "-----";
             let name2 = "-----";
+            let name1Color = "";
+            let name2Color = "";
 
-            if (props.knockout.semiFinals[i].teams[0] !== "")
+            if (props.knockout.semiFinals[i].teams[0] !== "") {
                 name1 = props.teamsDB[props.knockout.semiFinals[i].teams[0].id].name;
-            if (props.knockout.semiFinals[i].teams[1] !== "")
+                name1Color = props.teamsDB[props.knockout.semiFinals[i].teams[0].id].originalRanking;
+            }
+            if (props.knockout.semiFinals[i].teams[1] !== "") {
                 name2 = props.teamsDB[props.knockout.semiFinals[i].teams[1].id].name;
-            
+                name2Color = props.teamsDB[props.knockout.semiFinals[i].teams[1].id].originalRanking;
+            }
+           
             semis.push(
                 <KnockoutFixture className={classes.Fixtures}
                     key = {name1 + name2}
                     team1 = {name1}
+                    team1Color = {name1Color}
                     team2 = {name2}
+                    team2Color = {name2Color}
                     fixture = {props.knockout.semiFinals[i]}
                     round = "semiFinals"
                     gameIndex = {i}
@@ -84,17 +102,25 @@ const knockoutStage = (props) => {
         for (let i = 0; i < 2; i++) {
             let name1 = "-----";
             let name2 = "-----";
+            let name1Color = "";
+            let name2Color = "";
 
-            if (props.knockout.finals[i].teams[0] !== "")
+            if (props.knockout.finals[i].teams[0] !== "") {
                 name1 = props.teamsDB[props.knockout.finals[i].teams[0].id].name;
-            if (props.knockout.finals[i].teams[1] !== "")
+                name1Color = props.teamsDB[props.knockout.finals[i].teams[0].id].originalRanking;
+            }
+            if (props.knockout.finals[i].teams[1] !== "") {
                 name2 = props.teamsDB[props.knockout.finals[i].teams[1].id].name;
-            
+                name2Color = props.teamsDB[props.knockout.finals[i].teams[1].id].originalRanking;
+            }
+
             finals.push(
                 <KnockoutFixture className={classes.Fixtures}
                     key = {name1 + name2}
                     team1 = {name1}
+                    team1Color = {name1Color}
                     team2 = {name2}
+                    team2Color = {name2Color}
                     fixture = {props.knockout.finals[i]}
                     round = "finals"
                     gameIndex = {i}

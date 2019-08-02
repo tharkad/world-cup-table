@@ -110,11 +110,77 @@ const knockoutFixture = (props) => {
             team2Class = classes.Winner;
     }
 
+    let color1Item = classes.BlackItem;
+    if (props.team1Color !== "") {
+        switch (props.team1Color) {
+            case "Black":
+                color1Item = classes.BlackItem;
+                break;
+
+            case "Red":
+                color1Item = classes.RedItem;
+                break;
+
+            case "Blue":
+                color1Item = classes.BlueItem;
+                break;
+
+            case "Green":
+                color1Item = classes.GreenItem;
+                break;
+
+            case "Yellow":
+                color1Item = classes.YellowItem;
+                break;
+
+            case "Gray":
+                color1Item = classes.GrayItem;
+                break;
+
+            default:
+                color1Item = classes.BlackItem;
+                break;
+        }
+    }
+
+    let color2Item = classes.BlackItem;
+    if (props.team2Color !== "") {
+        switch (props.team2Color) {
+            case "Black":
+                color2Item = classes.BlackItem;
+                break;
+
+            case "Red":
+                color2Item = classes.RedItem;
+                break;
+
+            case "Blue":
+                color2Item = classes.BlueItem;
+                break;
+
+            case "Green":
+                color2Item = classes.GreenItem;
+                break;
+
+            case "Yellow":
+                color2Item = classes.YellowItem;
+                break;
+
+            case "Gray":
+                color2Item = classes.GrayItem;
+                break;
+
+            default:
+                color2Item = classes.BlackItem;
+                break;
+        }
+    }
+
     return (
         <div className={classes.KnockoutFixture}>
             <table className={classes.FixtureTable}><tbody>
                 <tr>
-                    <td className={team1Class}>{props.team1}</td>
+                    <td className={team1Class + " " + color1Item}>{props.team1}</td>
                     <td className={classes.LeftScoreInput}>
                         {input1}
                     </td>
@@ -123,7 +189,7 @@ const knockoutFixture = (props) => {
                     </td>
                 </tr>
                 <tr>
-                    <td className={team2Class}>{props.team2}</td>
+                    <td className={team2Class + " " + color2Item}>{props.team2}</td>
                     <td className={classes.LeftScoreInput}>
                         {input2}
                     </td>

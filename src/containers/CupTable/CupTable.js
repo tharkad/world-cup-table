@@ -893,6 +893,17 @@ class CupTable extends Component {
         this.setState(stateCopy);
     }
 
+    originalRankingChangedHandler = (event, id) => {
+        const groupIndex = this.state.groups.findIndex(group => {
+            return group.name === id[0];
+        });
+
+        let stateCopy = this.deepCopy(this.state);
+        let teamId = stateCopy.groups[groupIndex].teams[id[1]].id;
+        stateCopy.teams[teamId].originalRanking = event.target.value;
+
+        this.setState(stateCopy);
+    }
 
     doneEditingHandler = (event, id) => {
         let newTeamEditing = this.state.teamEditing.filter((editStruct) => {
@@ -937,6 +948,7 @@ class CupTable extends Component {
                 editingTeamIndex = {editingTeamIndex}
                 teamNameChanged = {this.teamNameChangedHandler}
                 ownerNameChanged = {this.ownerNameChangedHandler}
+                originalRankingChanged = {this.originalRankingChangedHandler}
                 doneEditing = {this.doneEditingHandler}
             />
         });

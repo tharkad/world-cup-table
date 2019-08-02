@@ -69,10 +69,76 @@ class Group extends Component {
                 if (team2Goals > team1Goals)
                     team2Class = classes.Winner;
 
+                let color1Item = classes.BlackItem;
+                if (this.props.teamsDB[game[0][0]].originalRanking !== "") {
+                    switch (this.props.teamsDB[game[0][0]].originalRanking) {
+                        case "Black":
+                            color1Item = classes.BlackItem;
+                            break;
+
+                        case "Red":
+                            color1Item = classes.RedItem;
+                            break;
+    
+                        case "Blue":
+                            color1Item = classes.BlueItem;
+                            break;
+    
+                        case "Green":
+                            color1Item = classes.GreenItem;
+                            break;
+    
+                        case "Yellow":
+                            color1Item = classes.YellowItem;
+                            break;
+    
+                        case "Gray":
+                            color1Item = classes.GrayItem;
+                            break;
+    
+                        default:
+                            color1Item = classes.BlackItem;
+                            break;
+                    }
+                }
+
+                let color2Item = classes.BlackItem;
+                if (this.props.teamsDB[game[0][1]].originalRanking !== "") {
+                    switch (this.props.teamsDB[game[0][1]].originalRanking) {
+                        case "Black":
+                            color2Item = classes.BlackItem;
+                            break;
+
+                        case "Red":
+                            color2Item = classes.RedItem;
+                            break;
+    
+                        case "Blue":
+                            color2Item = classes.BlueItem;
+                            break;
+    
+                        case "Green":
+                            color2Item = classes.GreenItem;
+                            break;
+    
+                        case "Yellow":
+                            color2Item = classes.YellowItem;
+                            break;
+    
+                        case "Gray":
+                            color2Item = classes.GrayItem;
+                            break;
+    
+                        default:
+                            color2Item = classes.BlackItem;
+                            break;
+                    }
+                }
+
                 return (
                     <tr key={game[0][0] + game[0][1]}>
                         <td className={classes.GameLeftTeamName}>
-                            <span className={team1Class}>{this.props.teamsDB[game[0][0]].name}</span>
+                            <span className={team1Class + " " + color1Item}>{this.props.teamsDB[game[0][0]].name}</span>
                         </td>
                         <td className={classes.GameScore}>
                             { 
@@ -114,7 +180,7 @@ class Group extends Component {
                             }
                         </td>
                         <td className={classes.GameRightTeamName}>
-                            <span className={team2Class}>{this.props.teamsDB[game[0][1]].name}</span>
+                            <span className={team2Class + " " + color2Item}>{this.props.teamsDB[game[0][1]].name}</span>
                         </td>
                     </tr>
                 )
@@ -125,13 +191,47 @@ class Group extends Component {
         if (!this.props.editing) {
             let teamRows = this.props.group.teams.map((team, index) => {
                 let teamNameTD = null;
+
+                let color1Item = classes.BlackItem;
+                if (this.props.teamsDB[team.id].originalRanking !== "") {
+                    switch (this.props.teamsDB[team.id].originalRanking) {
+                        case "Black":
+                            color1Item = classes.BlackItem;
+                            break;
+
+                        case "Red":
+                            color1Item = classes.RedItem;
+                            break;
+    
+                        case "Blue":
+                            color1Item = classes.BlueItem;
+                            break;
+    
+                        case "Green":
+                            color1Item = classes.GreenItem;
+                            break;
+    
+                        case "Yellow":
+                            color1Item = classes.YellowItem;
+                            break;
+    
+                        case "Gray":
+                            color1Item = classes.GrayItem;
+                            break;
+    
+                        default:
+                            color1Item = classes.BlackItem;
+                            break;
+                    }
+                }
+
                 if (this.props.thirdGroup) {
                     teamNameTD = <td 
-                        className={classes.ThirdTeamName}
+                        className={classes.ThirdTeamName + " " + color1Item}
                         >{this.props.teamsDB[team.id].name}</td>
         } else {
                     teamNameTD = <td 
-                        className={classes.TeamName}
+                        className={classes.TeamName + " " + color1Item}
                         title="Click to edit team inforamtion."
                         onClick={(event) => this.props.teamClicked(event, [this.props.groupName, index])}
                         >{this.props.teamsDB[team.id].name}</td>
@@ -193,6 +293,23 @@ class Group extends Component {
                         this.props.ownerNameChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
                     value={this.props.teamsDB[this.props.group.teams[this.props.editingTeamIndex].id].owner} 
                 />
+                <p></p>
+                <p className={classes.SelectLineBread}></p>
+                <p className={classes.Label}>Original Game Rating: </p>
+                <select 
+                    className={classes.selectcss}
+                    value={this.props.teamsDB[this.props.group.teams[this.props.editingTeamIndex].id].originalRanking}
+                    onChange={(event) => 
+                        this.props.originalRankingChanged(event, [this.props.groupName,this.props.editingTeamIndex])}    
+                >
+                    <option value=""></option>
+                    <option className={classes.BlackItem}value="Black">Black</option>
+                    <option className={classes.RedItem} value="Red">Red</option>
+                    <option className={classes.BlueItem} value="Blue">Blue</option>
+                    <option className={classes.GreenItem} value="Green">Green</option>
+                    <option className={classes.YellowItem} value="Yellow">Yellow</option>
+                    <option className={classes.GrayItem} value="Gray">Gray</option>
+                </select>
                 <p></p>
                 <button onClick={(event) =>
                     this.props.doneEditing(event, this.props.groupName)}>Done</button>

@@ -31,3 +31,27 @@
 .Normal {
 
 }
+
+.BlackItem {
+    color: black;
+}
+
+.RedItem {
+    color: red;
+}
+
+.BlueItem {
+    color: blue;
+}
+
+.GreenItem {
+    color: green;
+}
+
+.YellowItem {
+    color: rgb(176, 179, 34);
+}
+
+.GrayItem {
+    color: gray;
+}
