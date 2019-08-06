@@ -426,8 +426,8 @@ class CupTable extends Component {
     }
 
     componentDidMount() {
-        //clearStorage();
-        //this.resetToDefaultState();
+        // clearStorage();
+        // this.resetToDefaultState();
 
         document.addEventListener("keydown", this.escFunction, false);
     }
@@ -941,9 +941,18 @@ class CupTable extends Component {
         })                
 
         this.setState({teamEditing: newTeamEditing});
-}
+    }
 
+    shouldRenderPrintAndPlayScoring = () => {
+        if (Object.keys(this.state.knockout).length > 0) {
+            for (const teamID of Object.keys(this.state.teams)) {
+                if (this.state.teams[teamID].owner !== "")
+                    return true;
+            }
+        }
 
+        return false
+    }
 
     render () {
         const groups = this.state.groups.map(group => {
@@ -1015,15 +1024,20 @@ class CupTable extends Component {
                 <h2>Group Stage</h2>
                 {groups}   
                 {thirdPlaceGroup}
-                <KnockoutStage 
-                    knockout={this.state.knockout} 
-                    teamsDB={this.state.teams}
-                    changed={this.knockoutScoreChangedHandler}
-                    changedPenalty={this.knockoutPenaltyChangedHandler}
-                />
-                <PnpScoring 
-                    currentState = {this.state}
-                />
+                {  Object.keys(this.state.knockout).length > 0 
+                    ? <KnockoutStage 
+                        knockout={this.state.knockout} 
+                        teamsDB={this.state.teams}
+                        changed={this.knockoutScoreChangedHandler}
+                        changedPenalty={this.knockoutPenaltyChangedHandler} />
+                        : <React.Fragment></React.Fragment>
+                }
+                { this.shouldRenderPrintAndPlayScoring()
+                    ? <PnpScoring 
+                        currentState = {this.state}
+                    />
+                    : <React.Fragment></React.Fragment>
+                }
             </Aux>
         );
     }

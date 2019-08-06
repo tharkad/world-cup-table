@@ -24,3 +24,31 @@
 .RightField {
     text-align: right;
 }
+
+.GroupName {
+    font-size: 0.8rem;
+}
+
+.BlackItem {
+    color: black;
+}
+
+.RedItem {
+    color: red;
+}
+
+.BlueItem {
+    color: blue;
+}
+
+.GreenItem {
+    color: green;
+}
+
+.YellowItem {
+    color: rgb(176, 179, 34);
+}
+
+.GrayItem {
+    color: gray;
+}

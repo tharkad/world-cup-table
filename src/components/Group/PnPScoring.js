@@ -307,9 +307,62 @@ class PnpScoring extends Component {
     }
 
     teamDidFinish3rdInGroup = (teamID) => {
-        for (const group in this.props.currentState.groups) {
+        for (const group of this.props.currentState.groups) {
             if (teamID === group.teams[2].id) {
                 return true;
+            }
+        }
+
+        return false;
+    }
+
+    teamDidWinGroupGame = (teamID) => {
+        for (const group of this.props.currentState.groups) {
+            for (const game of group.games.filter((subGame) => {
+                if ((subGame[0][0] === teamID) || (subGame[0][1] === teamID))
+                    return true;
+                else
+                    return false;
+            })) {
+                let teamIndex = -1;
+                let otherTeamIndex = -1;
+                if (game[0][0] === teamID) {
+                    teamIndex = 0;
+                    otherTeamIndex = 1;
+                } else {
+                    teamIndex = 1;
+                    otherTeamIndex = 0;
+                }
+                
+                let team1Goals = 0;
+                let team2Goals = 0;
+            
+                let goalsParsed1 = Number.parseInt(game[1][teamIndex]);
+                if (Number.isNaN(goalsParsed1))
+                    team1Goals = 0;
+                else
+                    team1Goals = goalsParsed1;
+            
+                let goalsParsed2 = Number.parseInt(game[1][otherTeamIndex]);
+                if (Number.isNaN(goalsParsed2))
+                    team2Goals = 0;
+                else
+                    team2Goals = goalsParsed2;
+            
+                if (team1Goals > team2Goals) {
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+
+    groupFromTeamID = (teamID) => {
+        for (const group of this.props.currentState.groups) {
+            for (const team of group.teams) {
+                if (teamID === team.id)
+                    return group.name;
             }
         }
 
@@ -331,8 +384,11 @@ class PnpScoring extends Component {
             return ({comment: "Quarterfinalist", score: PnpScoreMatrix[this.props.currentState.teams[teamID].pnpRanking]["Quarters"]});
         } else if (this.teamDidMakeItToGames(teamID, this.props.currentState.knockout.roundOf16)) {
             return ({comment: "Last 16", score: PnpScoreMatrix[this.props.currentState.teams[teamID].pnpRanking]["Last16"]});
+        } else if (this.teamDidFinish3rdInGroup(teamID)) {
+            return ({comment: "3rd in Group", score: PnpScoreMatrix[this.props.currentState.teams[teamID].pnpRanking]["3rdInGroup"]});
+        } else if (this.teamDidWinGroupGame(teamID)) {
+            return ({comment: "Won 1 Game", score: PnpScoreMatrix[this.props.currentState.teams[teamID].pnpRanking]["Win1Game"]});
         }
-
 
         return ({comment: "---", score: 0});
     }
@@ -359,12 +415,35 @@ class PnpScoring extends Component {
             }
         }
 
-        const scoringRows = [];
+        let scoreSorter = [];
         for (const owner of Object.keys(ownersDB)) {
             let ownerScore = 0;
             for (const teamScoreStruct of ownersDB[owner]) {
                 ownerScore += teamScoreStruct["score"];
             }
+            scoreSorter.push([owner, ownerScore]);
+            ownersDB[owner] = ownersDB[owner].sort((a, b) => {
+                if (a["score"] < b["score"])
+                    return 1;
+                else if (a["score"] > b["score"])
+                    return -1;
+                return 0;
+            });
+        }
+
+        scoreSorter = scoreSorter.sort((a, b) => {
+            if (a[1] < b[1])
+                return 1;
+            else if (a[1] > b[1])
+                return -1;
+            return 0;
+        });
+
+
+        const scoringRows = [];
+        for (const sortedScorer of scoreSorter) {
+            let owner = sortedScorer[0];
+            let ownerScore = sortedScorer[1];
             scoringRows.push(
                 <tr className={classes.RightField} key={owner}>
                     <th>{owner}</th>
@@ -373,30 +452,46 @@ class PnpScoring extends Component {
                     <th></th>
                     <th>{ownerScore}</th>
                 </tr>);
-                scoringRows.push(
-                    ownersDB[owner].map((team, index) => {
-                        return (
-                            <tr key={owner + " " + team["teamID"]}>
-                                <td></td>
-                                <td>
-                                    {this.props.currentState.teams[team["teamID"]].name}
-                                </td>
-                                <td>
-                                    {this.props.currentState.teams[team["teamID"]].pnpRanking}
-                                </td>
-                                <td>
-                                    {team["comment"]}
-                                </td>
-                                <td className={classes.RightField}>
-                                    {team["score"]}
-                                </td>
-                            </tr>
-                        )
-                    })
-                )
-        }
+            scoringRows.push(
+                ownersDB[owner].map((team, index) => {
 
-        
+                    let colorItem = classes.BlackItem;
+                    if (this.props.currentState.teams[team["teamID"]].originalRanking === "Black") {
+                        colorItem = classes.BlackItem;
+                    } else if (this.props.currentState.teams[team["teamID"]].originalRanking === "Red") {
+                        colorItem = classes.RedItem;
+                    } else if (this.props.currentState.teams[team["teamID"]].originalRanking === "Blue") {
+                        colorItem = classes.BlueItem;
+                    } else if (this.props.currentState.teams[team["teamID"]].originalRanking === "Green") {
+                        colorItem = classes.GreenItem;
+                    } else if (this.props.currentState.teams[team["teamID"]].originalRanking === "Yellow") {
+                        colorItem = classes.YellowItem;
+                    } else if (this.props.currentState.teams[team["teamID"]].originalRanking === "Gray") {
+                        colorItem = classes.GrayItem;
+                    }
+                    
+                    return (
+                        <tr key={owner + " " + team["teamID"]}>
+                            <td className={classes.GroupName}>
+                                {this.groupFromTeamID(team["teamID"])}
+                            </td>
+                            <td className={colorItem}>
+                                {this.props.currentState.teams[team["teamID"]].name}
+                            </td>
+                            <td>
+                                {this.props.currentState.teams[team["teamID"]].pnpRanking}
+                            </td>
+                            <td>
+                                {team["comment"]}
+                            </td>
+                            <td className={classes.RightField}>
+                                {team["score"]}
+                            </td>
+                        </tr>
+                    )
+                })
+            )
+        }
 
         return (
             <div>
