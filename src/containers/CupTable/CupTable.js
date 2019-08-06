@@ -3,6 +3,7 @@ import Aux from '../../hoc/Auxiliary';
 import Group from '../../components/Group/Group';
 import KnockoutStage from '../../components/Group/KnockoutStage';
 import WorldCupSetup from '../../components/Group/WorldCupSetup';
+import PnpScoring from '../../components/Group/PnPScoring';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, genaric32Default, genaric24Default } from './defaults';
 
@@ -1014,12 +1015,14 @@ class CupTable extends Component {
                 <h2>Group Stage</h2>
                 {groups}   
                 {thirdPlaceGroup}
-                <h2>Knockout Stage</h2>
                 <KnockoutStage 
                     knockout={this.state.knockout} 
                     teamsDB={this.state.teams}
                     changed={this.knockoutScoreChangedHandler}
                     changedPenalty={this.knockoutPenaltyChangedHandler}
+                />
+                <PnpScoring 
+                    currentState = {this.state}
                 />
             </Aux>
         );

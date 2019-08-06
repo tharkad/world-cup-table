@@ -180,42 +180,45 @@ const knockoutStage = (props) => {
     }
 
     return (
-        <div className={classes.KnockoutStage}>
-            <table className={classes.FixtureTable}>
-                <tbody>
-                    <tr>
-                        <th>Round of 16</th>
-                        <th>Quater Finals</th>
-                        <th>Semi Finals</th>
-                        <th>Finals</th>
-                    </tr>
-                    <tr>
-                        {row1}
-                    </tr>
-                    <tr>
-                        {row2}
-                    </tr>
-                    <tr>
-                        {row3}
-                    </tr>
-                    <tr>
-                        {row4}
-                    </tr>
-                    <tr>
-                        {row5}
-                    </tr>
-                    <tr>
-                        {row6}
-                    </tr>
-                    <tr>
-                        {row7}
-                    </tr>
-                    <tr>
-                        {row8}
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <React.Fragment>
+            <h2>Knockout Stage</h2>
+            <div className={classes.KnockoutStage}>
+                <table className={classes.FixtureTable}>
+                    <tbody>
+                        <tr>
+                            <th>Round of 16</th>
+                            <th>Quater Finals</th>
+                            <th>Semi Finals</th>
+                            <th>Finals</th>
+                        </tr>
+                        <tr>
+                            {row1}
+                        </tr>
+                        <tr>
+                            {row2}
+                        </tr>
+                        <tr>
+                            {row3}
+                        </tr>
+                        <tr>
+                            {row4}
+                        </tr>
+                        <tr>
+                            {row5}
+                        </tr>
+                        <tr>
+                            {row6}
+                        </tr>
+                        <tr>
+                            {row7}
+                        </tr>
+                        <tr>
+                            {row8}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </React.Fragment>
     )
 }
 
