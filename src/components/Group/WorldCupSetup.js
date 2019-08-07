@@ -5,17 +5,35 @@ class WorldCupSetup extends Component {
 
     constructor(props) {
         super(props);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        // this.commentInput = React.createRef();
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.commentInput = React.createRef();
     }
 
-    // handleSubmit(event) {
-    //     event.preventDefault();
-    //     this.props.saveWorldCup(event, this.commentInput.current.value);
-    // }
+    handleSubmit(event) {
+        event.preventDefault();
+        this.props.saveWorldCup(event, this.commentInput.current.value);
+        this.commentInput.current.value = "";
+    }
 
     render() {
-        console.log(this.props.currentState);
+        let saveStorage = localStorage.getItem("saves");
+
+        let saveArray = []
+        if (saveStorage !== null) {
+            saveArray = JSON.parse(saveStorage);
+        }
+
+        const savesRows = saveArray.map((save, index) => {
+            return (
+                <tr key={save.timestamp}>
+                    <td>{save.savedState.title}</td>
+                    <td>{save.comment}</td>
+                    <td>{save.timestamp}</td>
+                    <td><button onClick={(event) => this.props.loadWorldCup(event, index)}>Load</button></td>
+                </tr>
+            );
+        });
+
         return (
             <div className={classes.Setup}>
                 <h3>World Cup Setup</h3>
@@ -27,13 +45,17 @@ class WorldCupSetup extends Component {
                     Reset the scores of your current World Cup but retain all the team information. &nbsp;
                     <button onClick={this.props.resetCurrentWorldCup}>Reset</button>
                 </p>
-                {/* <form onSubmit={this.handleSubmit}> */}
+                <form onSubmit={this.handleSubmit}>
                     <table className={classes.SaveTable}><tbody>
                         <tr>
-                            <th>Title</th>
+                            <th colSpan="3">Save your World Cup</th>
                         </tr>    
                         <tr>
-                            <td>
+                            <th>Title</th>
+                            <th>Comment</th>
+                        </tr>    
+                        <tr>
+                        <td>
                                 <input 
                                     className={classes.TeamInput}
                                     type="text"
@@ -42,9 +64,20 @@ class WorldCupSetup extends Component {
                                     value={this.props.currentState.title} 
                                 />
                             </td>
+                            <td>
+                                <input 
+                                    className={classes.TeamInput}
+                                    ref={this.commentInput}
+                                    type="text"
+                                    size="40"
+                                />
+                            </td>
+                            <td>
+                                <input type="submit" value="Save" />
+                            </td>
                         </tr>
                     </tbody></table>
-                {/* </form> */}
+                </form>
                 <table className={classes.SetupTable}><tbody>
                     <tr>
                         <th colSpan="2">Choose Setup</th>
@@ -67,6 +100,12 @@ class WorldCupSetup extends Component {
                     <tr>
                         <td><button onClick={this.props.setupMens2002}>Men's 2002</button></td>
                     </tr>
+                </tbody></table>
+                <table className={classes.SaveTable}><tbody>
+                    <tr>
+                        <th colSpan="3">Load a Saved World Cup</th>
+                    </tr>
+                    {savesRows}
                 </tbody></table>
                 <hr></hr>
             </div>

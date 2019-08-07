@@ -953,27 +953,37 @@ class CupTable extends Component {
     }
 
     saveWorldCupHandler = (event, comment) => {
-        let saveArray = []
-        if (this.state.hasOwnProperty("saves")) {
-            console.log("found it", this.state.saves);
-            saveArray = this.deepCopy(this.state.saves);
+        let saveStorage = localStorage.getItem("saves");
+
+        let saveArray = [];
+        if (saveStorage !== null) {
+            saveArray = JSON.parse(saveStorage);
         }
-        console.log("start", saveArray)
+
         let stateCopy = this.deepCopy(this.state);
         stateCopy.showSetup = false;
-        stateCopy.saves = [];
         saveArray.push({
             savedState: stateCopy, 
             comment: comment,
             timestamp: Date.now()
-        })
-        
-        let stateCopy2 = this.deepCopy(this.state);
-        stateCopy2.saves = saveArray;
-        stateCopy2.showSetup = false;
+        });
 
-        console.log("end", saveArray);
-        this.setState(stateCopy2);
+        localStorage.setItem("saves", JSON.stringify(saveArray));
+
+        this.setState({ state: this.state });
+    }
+
+    loadWordCupHandler = (event, saveIndex) => {
+        let saveStorage = localStorage.getItem("saves");
+
+        let saveArray = [];
+        if (saveStorage !== null) {
+            saveArray = JSON.parse(saveStorage);
+        }
+
+        if (saveArray.length > saveIndex) {
+            this.setState(saveArray[saveIndex].savedState);
+        }
     }
 
     doneEditingHandler = (event, id) => {
@@ -1063,6 +1073,7 @@ class CupTable extends Component {
                         setupGeneric16={this.setupGeneric16}
                         worldCupTitleChanged={this.worldCupTitleChangedHandler}
                         saveWorldCup={this.saveWorldCupHandler}
+                        loadWorldCup={this.loadWordCupHandler}
                     /> :
                     <button onClick={this.showSetup}>Setup</button>
                 }
