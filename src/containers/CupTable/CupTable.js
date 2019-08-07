@@ -421,7 +421,8 @@ class CupTable extends Component {
 
     escFunction = (event) => {
         if (event.keyCode === 27) {
-            this.setState({teamEditing: []});
+            this.setState({teamEditing: [], showSetup: false});
+
         }
     }
 
@@ -935,6 +936,36 @@ class CupTable extends Component {
         this.setState(stateCopy);
     }
 
+    worldCupTitleChangedHandler = (event) => {
+        let stateCopy = this.deepCopy(this.state);
+        stateCopy.title = event.target.value;
+        this.setState(stateCopy);
+    }
+
+    saveWorldCupHandler = (event, comment) => {
+        let saveArray = []
+        if (this.state.hasOwnProperty("saves")) {
+            console.log("found it", this.state.saves);
+            saveArray = this.deepCopy(this.state.saves);
+        }
+        console.log("start", saveArray)
+        let stateCopy = this.deepCopy(this.state);
+        stateCopy.showSetup = false;
+        stateCopy.saves = [];
+        saveArray.push({
+            savedState: stateCopy, 
+            comment: comment,
+            timestamp: Date.now()
+        })
+        
+        let stateCopy2 = this.deepCopy(this.state);
+        stateCopy2.saves = saveArray;
+        stateCopy2.showSetup = false;
+
+        console.log("end", saveArray);
+        this.setState(stateCopy2);
+    }
+
     doneEditingHandler = (event, id) => {
         let newTeamEditing = this.state.teamEditing.filter((editStruct) => {
             return (editStruct.groupName !== id);
@@ -1010,6 +1041,7 @@ class CupTable extends Component {
                 <SimpleStorage parent={this} />
                 {this.state.showSetup ? 
                     <WorldCupSetup 
+                        currentState={this.state}
                         setupCancel={this.setupCancel}
                         resetCurrentWorldCup={this.resetCurrentWorldCup}
                         setupMens2018={this.setupMens2018}
@@ -1017,6 +1049,8 @@ class CupTable extends Component {
                         setupGeneric32={this.setupGeneric32}
                         setupGeneric24={this.setupGeneric24}
                         setupGeneric16={this.setupGeneric16}
+                        worldCupTitleChanged={this.worldCupTitleChangedHandler}
+                        saveWorldCup={this.saveWorldCupHandler}
                     /> :
                     <button onClick={this.showSetup}>Setup</button>
                 }

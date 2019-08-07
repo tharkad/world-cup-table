@@ -17,6 +17,20 @@
     background-color: white;
 }
 
+.SaveTable {
+    align-content: center;
+    margin: 4px;
+    width: 40%;
+    padding: 0px 16px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    font-size: 1.0rem;
+    border-spacing: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
 .KnockoutStage {
     overflow: hidden;
     margin: 8px auto;
@@ -40,3 +54,10 @@
 .FixtureTable {
     width: 100%;
 }
+
+.TeamInput {
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 20px;
+}
+
