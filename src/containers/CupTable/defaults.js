@@ -1211,6 +1211,527 @@ export let womens2019Default = {
     knockout: {}
 }
 
+export let womens2015Default = {
+    showSetup: false,
+    teamEditing: [],
+    title: "Women's World Cup 2015",
+    teams: {
+        "A1": {
+            name: "Canada",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A2": {
+            name: "China",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A3": {
+            name: "Netherlands",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "A4": {
+            name: "Norway",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B1": {
+            name: "Germany",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B2": {
+            name: "Ivory Coast",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B3": {
+            name: "Norway",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "B4": {
+            name: "Thailand",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C1": {
+            name: "Cameroon",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C2": {
+            name: "Ecuador",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C3": {
+            name: "Japan",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "C4": {
+            name: "Switzerland",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D1": {
+            name: "Australia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D2": {
+            name: "Nigeria",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D3": {
+            name: "Sweden",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "D4": {
+            name: "USA",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E1": {
+            name: "Brazil",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E2": {
+            name: "Costa Rica",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E3": {
+            name: "South Korea",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "E4": {
+            name: "Spain",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F1": {
+            name: "Columbia",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F2": {
+            name: "England",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F3": {
+            name: "France",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        },
+        "F4": {
+            name: "Mexico",
+            owner: "",
+            originalRanking: "",
+            pnpRanking: ""
+        }
+    },
+    groups: [
+        {
+            name: "Group A",
+            teams: [
+                {
+                    id: "A1",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "A2",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "A3",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "A4",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },                    
+            ],
+            games: [
+                [["A1", "A4"], ["",""]],
+                [["A3", "A2"], ["",""]],
+                [["A2", "A4"], ["",""]],
+                [["A1", "A3"], ["",""]],
+                [["A4", "A3"], ["",""]],
+                [["A2", "A1"], ["",""]],
+            ]
+        },
+        {
+            name: "Group B",
+            teams: [
+                {
+                    id: "B1",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "B2",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "B3",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "B4",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },                    
+            ],
+            games: [
+                [["B2", "B1"], ["",""]],
+                [["B4", "B3"], ["",""]],
+                [["B2", "B4"], ["",""]],
+                [["B3", "B1"], ["",""]],
+                [["B1", "B4"], ["",""]],
+                [["B3", "B2"], ["",""]]
+            ]
+        },
+        {
+            name: "Group C",
+            teams: [
+                {
+                    id: "C1",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "C2",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "C3",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "C4",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },                    
+            ],
+            games: [
+                [["C1", "C3"], ["",""]],
+                [["C2", "C4"], ["",""]],
+                [["C1", "C2"], ["",""]],
+                [["C4", "C3"], ["",""]],
+                [["C3", "C2"], ["",""]],
+                [["C4", "C1"], ["",""]]
+            ]
+        },
+        {
+            name: "Group D",
+            teams: [
+                {
+                    id: "D1",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+               {
+                    id: "D2",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "D3",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "D4",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                }             
+            ],
+            games: [
+                [["D2", "D4"], ["",""]],
+                [["D1", "D3"], ["",""]],
+                [["D3", "D4"], ["",""]],
+                [["D2", "D1"], ["",""]],
+                [["D4", "D1"], ["",""]],
+                [["D3", "D2"], ["",""]]
+            ]
+        },            
+        {
+            name: "Group E",
+            teams: [
+                {
+                    id: "E1",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "E2",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "E3",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "E4",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },                    
+            ],
+            games: [
+                [["E2", "E1"], ["",""]],
+                [["E4", "E3"], ["",""]],
+                [["E3", "E1"], ["",""]],
+                [["E2", "E4"], ["",""]],
+                [["E3", "E2"], ["",""]],
+                [["E1", "E4"], ["",""]]
+            ]
+        },
+        {
+            name: "Group F",
+            teams: [
+                {
+                    id: "F1",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+               {
+                    id: "F2",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "F3",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                },
+                {
+                    id: "F4",
+                    wins: 0,
+                    loses: 0,
+                    ties: 0,
+                    gf: 0,
+                    ga: 0,
+                    tibreakers: [0,0,0,0,0,0,10],
+                    tiedWith: [],
+                    thirdBreakers: [0,0,0,0,0,0,10],
+                    thirdTiedWith: []
+                }             
+            ],
+            games: [
+                [["F1", "F2"], ["",""]],
+                [["F4", "F3"], ["",""]],
+                [["F2", "F3"], ["",""]],
+                [["F4", "F1"], ["",""]],
+                [["F2", "F4"], ["",""]],
+                [["F3", "F1"], ["",""]]
+            ]
+        }
+    ],
+    knockout: {}
+}
+
 export let mens2002Default = {
     showSetup: false,
     teamEditing: [],

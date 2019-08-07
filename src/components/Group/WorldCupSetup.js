@@ -62,6 +62,9 @@ class WorldCupSetup extends Component {
                         <td><button onClick={this.props.setupGeneric24}>24 Team</button></td>
                     </tr>
                     <tr>
+                    <td><button onClick={this.props.setupWomens2015}>Womens 2015</button></td>
+                    </tr>
+                    <tr>
                         <td><button onClick={this.props.setupMens2002}>Men's 2002</button></td>
                     </tr>
                 </tbody></table>

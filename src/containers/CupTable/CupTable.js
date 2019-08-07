@@ -5,7 +5,7 @@ import KnockoutStage from '../../components/Group/KnockoutStage';
 import WorldCupSetup from '../../components/Group/WorldCupSetup';
 import PnpScoring from '../../components/Group/PnPScoring';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
-import {mens2018Default, womens2019Default, mens2002Default, genaric32Default, genaric24Default } from './defaults';
+import {mens2018Default, womens2019Default, womens2015Default, mens2002Default, genaric32Default, genaric24Default } from './defaults';
 
 class CupTable extends Component {
     constructor(props) {
@@ -391,6 +391,11 @@ class CupTable extends Component {
 
     setupWomens2019 = () => {
         this.defaultState = womens2019Default;
+        this.setState(this.constructThirdsGroup(this.defaultState));
+    }
+
+    setupWomens2015 = () => {
+        this.defaultState = womens2015Default;
         this.setState(this.constructThirdsGroup(this.defaultState));
     }
 
@@ -1052,6 +1057,7 @@ class CupTable extends Component {
                         setupMens2018={this.setupMens2018}
                         setupMens2002={this.setupMens2002}
                         setupWomens2019={this.setupWomens2019}
+                        setupWomens2015={this.setupWomens2015}
                         setupGeneric32={this.setupGeneric32}
                         setupGeneric24={this.setupGeneric24}
                         setupGeneric16={this.setupGeneric16}
