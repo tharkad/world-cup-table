@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classes from './WorldCupSetup.module.css';
+import deleteImg from '../../assets/delete.png';
 
 class WorldCupSetup extends Component {
 
@@ -23,13 +24,32 @@ class WorldCupSetup extends Component {
             saveArray = JSON.parse(saveStorage);
         }
 
-        const savesRows = saveArray.map((save, index) => {
+        const indexedArray = saveArray.map((save, index) => {
+            return ([save, index]);
+        });
+
+        indexedArray.reverse();
+
+        const savesRows = indexedArray.map(save => {
+            let dateString = new Date(save[0].timestamp).toLocaleDateString("en-US")
+            let timeString = new Date(save[0].timestamp).toLocaleTimeString("en-US")
+
             return (
-                <tr key={save.timestamp}>
-                    <td>{save.savedState.title}</td>
-                    <td>{save.comment}</td>
-                    <td>{save.timestamp}</td>
-                    <td><button onClick={(event) => this.props.loadWorldCup(event, index)}>Load</button></td>
+                <tr key={save[0].timestamp}>
+                    <td>{save[0].savedState.title}</td>
+                    <td>{save[0].comment}</td>
+                    <td>{dateString + " " + timeString}</td>
+                    <td>
+                        <img 
+                            src={deleteImg} 
+                            alt="Delete this Saved World Cup"
+                            title="Delete this Saved World Cup"
+                            onClick={(event) => this.props.deleteSave(event, save[1])}
+                        />
+                    </td>
+                   <td>
+                       <button onClick={(event) => this.props.loadWorldCup(event, save[1])}>Load</button>
+                    </td>
                 </tr>
             );
         });
@@ -103,7 +123,7 @@ class WorldCupSetup extends Component {
                 </tbody></table>
                 <table className={classes.SaveTable}><tbody>
                     <tr>
-                        <th colSpan="3">Load a Saved World Cup</th>
+                        <th colSpan="5">Load a Saved World Cup</th>
                     </tr>
                     {savesRows}
                 </tbody></table>

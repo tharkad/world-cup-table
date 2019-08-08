@@ -986,6 +986,21 @@ class CupTable extends Component {
         }
     }
 
+    deleteSaveHandler = (event, saveIndex) => {
+        let saveStorage = localStorage.getItem("saves");
+
+        let saveArray = [];
+        if (saveStorage !== null) {
+            saveArray = JSON.parse(saveStorage);
+        }
+
+        if (saveArray.length > saveIndex) {
+            saveArray.splice(saveIndex, 1);
+            localStorage.setItem("saves", JSON.stringify(saveArray));
+            this.setState({ state: this.state });
+        }
+    }
+
     doneEditingHandler = (event, id) => {
         let newTeamEditing = this.state.teamEditing.filter((editStruct) => {
             return (editStruct.groupName !== id);
@@ -1074,8 +1089,9 @@ class CupTable extends Component {
                         worldCupTitleChanged={this.worldCupTitleChangedHandler}
                         saveWorldCup={this.saveWorldCupHandler}
                         loadWorldCup={this.loadWordCupHandler}
+                        deleteSave={this.deleteSaveHandler}
                     /> :
-                    <button onClick={this.showSetup}>Setup</button>
+                    <button onClick={this.showSetup}>Setup / Save</button>
                 }
                 <h1>{this.state.title}</h1>
                 <h2>Group Stage</h2>
