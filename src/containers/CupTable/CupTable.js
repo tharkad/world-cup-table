@@ -5,7 +5,7 @@ import KnockoutStage from '../../components/Group/KnockoutStage';
 import WorldCupSetup from '../../components/Group/WorldCupSetup';
 import PnpScoring from '../../components/Group/PnPScoring';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
-import {mens2018Default, womens2019Default, womens2015Default, mens2002Default, genaric32Default, genaric24Default } from './defaults';
+import {mens2018Default, womens2019Default, womens2015Default, mens2002Default, mens1966Default, genaric32Default, genaric24Default, genaric16Default } from './defaults';
 
 class CupTable extends Component {
     constructor(props) {
@@ -128,7 +128,9 @@ class CupTable extends Component {
     constructKnockoutStage = (stateObj) => {
         let knockout = null;
 
-        if (stateObj.groups.length === 6) {
+        if (stateObj.groups.length === 4) {
+            knockout = this.constructKnockoutStage16(stateObj);
+        } else if (stateObj.groups.length === 6) {
             knockout = this.constructKnockoutStage24(stateObj);
         } else if (stateObj.groups.length === 8) {
             knockout =  this.constructKnockoutStage32(stateObj);
@@ -161,41 +163,27 @@ class CupTable extends Component {
         return knockout;
     }
 
-    constructKnockoutStage32 = (stateObj) => {
+    constructKnockoutStage16 = (stateObj) => {
         const knockout = this.constructKnockoutRounds();
 
+        knockout["quarterFinals"] = [];
+
         // Game 1: A1 vs B2
-        knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
+        knockout["quarterFinals"].push({teams:[stateObj.groups[0].teams[0], 
             stateObj.groups[1].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 2: C1 vs D2
-        knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], 
+        knockout["quarterFinals"].push({teams:[stateObj.groups[2].teams[0], 
             stateObj.groups[3].teams[1]], result:["",""], penalties:["",""]});
-        
-        // Game 3: E1 vs F2
-        knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
-            stateObj.groups[5].teams[1]], result:["",""], penalties:["",""]});
-        
-        // Game 4: G1 vs H2
-        knockout["roundOf16"].push({teams:[stateObj.groups[6].teams[0], 
-            stateObj.groups[7].teams[1]], result:["",""], penalties:["",""]});
-        
+                
         // Game 5: B1 vs A2
-        knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], 
+        knockout["quarterFinals"].push({teams:[stateObj.groups[1].teams[0], 
             stateObj.groups[0].teams[1]], result:["",""], penalties:["",""]});
         
         // Game 6: D1 vs C2
-        knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], 
+        knockout["quarterFinals"].push({teams:[stateObj.groups[3].teams[0], 
             stateObj.groups[2].teams[1]], result:["",""], penalties:["",""]});
-        
-        // Game 7: F1 vs E2
-        knockout["roundOf16"].push({teams:[stateObj.groups[5].teams[0], 
-            stateObj.groups[4].teams[1]], result:["",""], penalties:["",""]});
-        
-        // Game 8: H1 vs G2
-        knockout["roundOf16"].push({teams:[stateObj.groups[7].teams[0], 
-            stateObj.groups[6].teams[1]], result:["",""], penalties:["",""]});
-        
+                
         return knockout;
     }
 
@@ -369,6 +357,44 @@ class CupTable extends Component {
         return knockout;
     }
 
+    constructKnockoutStage32 = (stateObj) => {
+        const knockout = this.constructKnockoutRounds();
+
+        // Game 1: A1 vs B2
+        knockout["roundOf16"].push({teams:[stateObj.groups[0].teams[0], 
+            stateObj.groups[1].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 2: C1 vs D2
+        knockout["roundOf16"].push({teams:[stateObj.groups[2].teams[0], 
+            stateObj.groups[3].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 3: E1 vs F2
+        knockout["roundOf16"].push({teams:[stateObj.groups[4].teams[0], 
+            stateObj.groups[5].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 4: G1 vs H2
+        knockout["roundOf16"].push({teams:[stateObj.groups[6].teams[0], 
+            stateObj.groups[7].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 5: B1 vs A2
+        knockout["roundOf16"].push({teams:[stateObj.groups[1].teams[0], 
+            stateObj.groups[0].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 6: D1 vs C2
+        knockout["roundOf16"].push({teams:[stateObj.groups[3].teams[0], 
+            stateObj.groups[2].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 7: F1 vs E2
+        knockout["roundOf16"].push({teams:[stateObj.groups[5].teams[0], 
+            stateObj.groups[4].teams[1]], result:["",""], penalties:["",""]});
+        
+        // Game 8: H1 vs G2
+        knockout["roundOf16"].push({teams:[stateObj.groups[7].teams[0], 
+            stateObj.groups[6].teams[1]], result:["",""], penalties:["",""]});
+        
+        return knockout;
+    }
+
     state = this.deepCopy(this.constructThirdsGroup(this.defaultState));
 
     showSetup = () => {
@@ -386,6 +412,11 @@ class CupTable extends Component {
 
     setupMens2002 = () => {
         this.defaultState = mens2002Default;
+        this.setState(this.defaultState);
+    }
+
+    setupMens1966 = () => {
+        this.defaultState = mens1966Default;
         this.setState(this.defaultState);
     }
 
@@ -407,6 +438,11 @@ class CupTable extends Component {
     setupGeneric24 = () => {
         this.defaultState = genaric24Default;
         this.setState(this.constructThirdsGroup(this.defaultState));
+    }
+
+    setupGeneric16 = () => {
+        this.defaultState = genaric16Default;
+        this.setState(this.defaultState);
     }
 
     resetCurrentWorldCup = () => {
@@ -661,9 +697,11 @@ class CupTable extends Component {
     }
 
     updateKnockoutStage = (stateCopy) => {
-        for (let i = 0; i < 8; i++) {
-            this.calculateKnockoutFixture(stateCopy.knockout.roundOf16, 
-                stateCopy.knockout.quarterFinals, i);
+        if (stateCopy.knockout.roundOf16.length > 0) {
+            for (let i = 0; i < 8; i++) {
+                this.calculateKnockoutFixture(stateCopy.knockout.roundOf16, 
+                    stateCopy.knockout.quarterFinals, i);
+            }
         }
 
         for (let i = 0; i < 4; i++) {
@@ -1081,6 +1119,7 @@ class CupTable extends Component {
                         resetCurrentWorldCup={this.resetCurrentWorldCup}
                         setupMens2018={this.setupMens2018}
                         setupMens2002={this.setupMens2002}
+                        setupMens1966={this.setupMens1966}
                         setupWomens2019={this.setupWomens2019}
                         setupWomens2015={this.setupWomens2015}
                         setupGeneric32={this.setupGeneric32}

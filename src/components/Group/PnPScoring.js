@@ -184,6 +184,171 @@ let PnpScoreMatrix = {
     }
 }
 
+let PnpScoreMatrix16 = {
+    "2F": {
+        "Win1Game": 2,
+        "3rdInGroup": 5,
+        "Quarters": 9,
+        "4th": 11,
+        "3rd": 14,
+        "2nd": 16,
+        "1st": 20
+    },
+    "2E": {
+        "Win1Game": 1,
+        "3rdInGroup": 4,
+        "Quarters": 8,
+        "4th": 10,
+        "3rd": 13,
+        "2nd": 15,
+        "1st": 19
+    },
+    "2D": {
+        "Win1Game": 0,
+        "3rdInGroup": 3,
+        "Quarters": 7,
+        "4th": 9,
+        "3rd": 12,
+        "2nd": 14,
+        "1st": 18
+    },
+    "3F": {
+        "Win1Game": 0,
+        "3rdInGroup": 3,
+        "Quarters": 7,
+        "4th": 9,
+        "3rd": 12,
+        "2nd": 14,
+        "1st": 18
+    },
+    "2C": {
+        "Win1Game": 0,
+        "3rdInGroup": 2,
+        "Quarters": 6,
+        "4th": 8,
+        "3rd": 11,
+        "2nd": 13,
+        "1st": 17
+    },
+    "3E": {
+        "Win1Game": 0,
+        "3rdInGroup": 2,
+        "Quarters": 6,
+        "4th": 8,
+        "3rd": 11,
+        "2nd": 13,
+        "1st": 17
+    },
+    "2B": {
+        "Win1Game": 0,
+        "3rdInGroup": 1,
+        "Quarters": 5,
+        "4th": 7,
+        "3rd": 10,
+        "2nd": 12,
+        "1st": 16
+    },
+    "3D": {
+        "Win1Game": 0,
+        "3rdInGroup": 1,
+        "Quarters": 5,
+        "4th": 7,
+        "3rd": 10,
+        "2nd": 12,
+        "1st": 16
+    },
+    "4F": {
+        "Win1Game": 0,
+        "3rdInGroup": 1,
+        "Quarters": 5,
+        "4th": 7,
+        "3rd": 10,
+        "2nd": 12,
+        "1st": 16
+    },
+    "2A": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 4,
+        "4th": 6,
+        "3rd": 9,
+        "2nd": 11,
+        "1st": 15
+    },
+    "3C": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 4,
+        "4th": 6,
+        "3rd": 9,
+        "2nd": 11,
+        "1st": 15
+    },
+    "4E": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 4,
+        "4th": 6,
+        "3rd": 9,
+        "2nd": 11,
+        "1st": 15
+    },
+    "3B": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 3,
+        "4th": 5,
+        "3rd": 82,
+        "2nd": 104,
+        "1st": 14
+    },
+    "4D": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 3,
+        "4th": 5,
+        "3rd": 8,
+        "2nd": 10,
+        "1st": 14
+    },
+    "3A": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 2,
+        "4th": 4,
+        "3rd": 7,
+        "2nd": 9,
+        "1st": 13
+    },
+    "4C": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 2,
+        "4th": 4,
+        "3rd": 7,
+        "2nd": 9,
+        "1st": 13
+    },
+    "4B": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 1,
+        "4th": 3,
+        "3rd": 6,
+        "2nd": 8,
+        "1st": 12
+    },
+    "4A": {
+        "Win1Game": 0,
+        "3rdInGroup": 0,
+        "Quarters": 0,
+        "4th": 2,
+        "3rd": 5,
+        "2nd": 7,
+        "1st": 11
+    }
+}
+
 class PnpScoring extends Component {
 
     teamDidWinKnockout = (teamID, games) => {
@@ -393,6 +558,28 @@ class PnpScoring extends Component {
         return ({comment: "---", score: 0});
     }
 
+    getTeamPnpScore16 = (teamID) => {
+        if (this.props.currentState.teams[teamID].pnpRanking === "") {
+            return ({comment: "No Print and Play Rating", score: 0});
+        } else if (this.teamDidWinKnockout(teamID, [this.props.currentState.knockout.finals[0]])) {
+            return ({comment: "Won World Cup!", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["1st"]});
+        } else if (this.teamDidLoseKnockout(teamID, [this.props.currentState.knockout.finals[0]])) {
+            return ({comment: "2nd Place", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["2nd"]});
+        } else if (this.teamDidWinKnockout(teamID, [this.props.currentState.knockout.finals[1]])) {
+            return ({comment: "3rd Place", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["3rd"]});
+        } else if (this.teamDidLoseKnockout(teamID, [this.props.currentState.knockout.finals[1]])) {
+            return ({comment: "4th Place", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["4th"]});
+        } else if (this.teamDidMakeItToGames(teamID, this.props.currentState.knockout.quarterFinals)) {
+            return ({comment: "Quarterfinalist", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["Quarters"]});
+        } else if (this.teamDidFinish3rdInGroup(teamID)) {
+            return ({comment: "3rd in Group", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["3rdInGroup"]});
+        } else if (this.teamDidWinGroupGame(teamID)) {
+            return ({comment: "Won 1 Game", score: PnpScoreMatrix16[this.props.currentState.teams[teamID].pnpRanking]["Win1Game"]});
+        }
+
+        return ({comment: "---", score: 0});
+    }
+
     render() {
         let ownersDB = {};
         for (const teamID of Object.keys(this.props.currentState.teams)) {
@@ -409,7 +596,12 @@ class PnpScoring extends Component {
 
         for (const owner of Object.keys(ownersDB)) {
             for (let i = 0; i < ownersDB[owner].length; i++) {
-                let scoreStruct = this.getTeamPnpScore(ownersDB[owner][i]["teamID"]);
+                let scoreStruct = {};
+                if (this.props.currentState.knockout.roundOf16.length > 0) {
+                    scoreStruct = this.getTeamPnpScore(ownersDB[owner][i]["teamID"]);
+                } else {
+                    scoreStruct = this.getTeamPnpScore16(ownersDB[owner][i]["teamID"]);
+                }
                 ownersDB[owner][i]["comment"] = scoreStruct["comment"];
                 ownersDB[owner][i]["score"] = scoreStruct["score"];
             }
