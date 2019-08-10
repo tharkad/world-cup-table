@@ -935,6 +935,20 @@ class CupTable extends Component {
         this.setState({teamEditing: teamEditing});
     }
 
+    ownerClickHandler = (event, ownerName) => {
+        let teamEditing = [];
+
+        for (const group of this.state.groups) {
+            for (const [index, team] of group.teams.entries()) {
+                if (this.state.teams[team.id].owner === ownerName) {
+                    teamEditing.push({groupName: group.name, teamIndex: index})
+                }
+            }
+        }
+
+        this.setState({teamEditing: teamEditing});
+    }
+
     teamNameChangedHandler = (event, id) => {
         const groupIndex = this.state.groups.findIndex(group => {
             return group.name === id[0];
@@ -1147,6 +1161,7 @@ class CupTable extends Component {
                 { this.shouldRenderPrintAndPlayScoring()
                     ? <PnpScoring 
                         currentState = {this.state}
+                        ownerClicked = {this.ownerClickHandler}
                     />
                     : <React.Fragment></React.Fragment>
                 }

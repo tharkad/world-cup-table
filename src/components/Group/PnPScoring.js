@@ -638,7 +638,12 @@ class PnpScoring extends Component {
             let ownerScore = sortedScorer[1];
             scoringRows.push(
                 <tr className={classes.RightField} key={owner}>
-                    <th>{owner}</th>
+                    <th className={classes.OwnerName}
+                        title="Click to open editing of owner's teams."
+                        onClick={(event) => this.props.ownerClicked(event, owner)}
+                    >
+                        {owner}
+                    </th>
                     <th></th>
                     <th></th>
                     <th></th>

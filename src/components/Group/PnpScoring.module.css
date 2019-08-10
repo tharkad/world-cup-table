@@ -17,6 +17,11 @@
     background-color: white;
 }
 
+.OwnerName:hover {
+    cursor: pointer;
+}
+
+
 .LeftField {
     text-align: left;
 }
