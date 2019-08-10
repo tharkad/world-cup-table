@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5221b449717dfd99e07cbf2673ed438d",
+    "revision": "8e4f9fb842b8d3656857515851013149",
     "url": "/world-cup-table/index.html"
   },
   {
-    "revision": "791af0776558b2789702",
+    "revision": "4a14c02a6f06221c1c12",
     "url": "/world-cup-table/static/css/main.66711214.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/world-cup-table/static/js/2.0b896430.chunk.js"
   },
   {
-    "revision": "791af0776558b2789702",
-    "url": "/world-cup-table/static/js/main.a2553edf.chunk.js"
+    "revision": "4a14c02a6f06221c1c12",
+    "url": "/world-cup-table/static/js/main.ad3e5185.chunk.js"
   },
   {
     "revision": "ad145d48e09f8bb49fef",
