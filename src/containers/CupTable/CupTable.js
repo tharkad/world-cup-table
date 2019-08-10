@@ -4,6 +4,7 @@ import Group from '../../components/Group/Group';
 import KnockoutStage from '../../components/Group/KnockoutStage';
 import WorldCupSetup from '../../components/Group/WorldCupSetup';
 import PnpScoring from '../../components/Group/PnPScoring';
+import Footer from '../../components/Group/Footer';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, womens2015Default, mens2002Default, mens1966Default, genaric32Default, genaric24Default, genaric16Default } from './defaults';
 
@@ -1126,6 +1127,7 @@ class CupTable extends Component {
         return (
             <Aux>
                 <SimpleStorage parent={this} />
+                <h3>The World Cup Table</h3>
                 {this.state.showSetup ? 
                     <WorldCupSetup 
                         currentState={this.state}
@@ -1165,6 +1167,7 @@ class CupTable extends Component {
                     />
                     : <React.Fragment></React.Fragment>
                 }
+                <Footer />
             </Aux>
         );
     }
