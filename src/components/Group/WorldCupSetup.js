@@ -86,10 +86,9 @@ class WorldCupSetup extends Component {
                             </td>
                             <td>
                                 <input 
-                                    className={classes.TeamInput}
+                                    className={classes.CommentInput}
                                     ref={this.commentInput}
                                     type="text"
-                                    size="40"
                                 />
                             </td>
                             <td>

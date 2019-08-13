@@ -38,7 +38,6 @@ const knockoutFixture = (props) => {
     if (props.team1 !== "-----") {
         input1 = <input
             className={classes.LeftScoreInput}
-            size="2"
             type="text"
             pattern="^[0-9]*$"
             onChange={(event) => props.changed(event, {
@@ -52,7 +51,6 @@ const knockoutFixture = (props) => {
     if (props.team2 !== "-----") {
         input2 = <input
             className={classes.LeftScoreInput}
-            size="2"
             type="text"
             pattern="^[0-9]*$"
             onChange={(event) => props.changed(event, {
@@ -68,7 +66,6 @@ const knockoutFixture = (props) => {
             if (team1Goals === team2Goals) {
                 penaltyInput1 = <input
                     className={classes.LeftScoreInput}
-                    size="2"
                     type="text"
                     pattern="^[0-9]*$"
                     title="Enter the number of penalty shootout goals scored."
@@ -82,7 +79,6 @@ const knockoutFixture = (props) => {
 
                 penaltyInput2 = <input
                     className={classes.LeftScoreInput}
-                    size="2"
                     type="text"
                     pattern="^[0-9]*$"
                     title="Enter the number of penalty shootout goals scored."

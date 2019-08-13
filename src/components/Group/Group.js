@@ -145,14 +145,12 @@ class Group extends Component {
                                 game[1][0] == null ?
                                     <input 
                                         className={classes.LeftScoreInput}
-                                        size="2"
                                         type="text"
                                         pattern="^[0-9]*$"
                                         onChange={(event) => this.props.changed(event, [this.props.groupName,index,0])}
                                         value="" /> :
                                     <input 
                                         className={classes.LeftScoreInput}
-                                        size="2"
                                         type="text"
                                         pattern="^[0-9]*$"
                                         onChange={(event) => this.props.changed(event, [this.props.groupName,index,0])}
@@ -165,14 +163,12 @@ class Group extends Component {
                                 game[1][1] == null ?
                                     <input 
                                         className={classes.LeftScoreInput}
-                                        size="2"
                                         type="text"
                                         pattern="^[0-9]*$"
                                         onChange={(event) => this.props.changed(event, [this.props.groupName,index,1])}
                                         value="" /> :
                                     <input 
                                         className={classes.LeftScoreInput}
-                                        size="2"
                                         type="text"
                                         pattern="^[0-9]*$"
                                         onChange={(event) => this.props.changed(event, [this.props.groupName,index,1])}    
