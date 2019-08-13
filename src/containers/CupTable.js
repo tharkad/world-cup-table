@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Auxiliary';
-import Group from '../../components/Group/Group';
-import KnockoutStage from '../../components/Group/KnockoutStage';
-import WorldCupSetup from '../../components/Group/WorldCupSetup';
-import PnpScoring from '../../components/Group/PnPScoring';
-import Footer from '../../components/Group/Footer';
+import Aux from '../hoc/Auxiliary';
+import Group from '../components/Group';
+import KnockoutStage from '../components/KnockoutStage';
+import WorldCupSetup from '../components/WorldCupSetup';
+import PnpScoring from '../components/PnPScoring';
+import Footer from '../components/Footer';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, womens2015Default, mens2002Default, mens1966Default, genaric32Default, genaric24Default, genaric16Default } from './defaults';
 

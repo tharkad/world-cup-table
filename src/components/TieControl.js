@@ -1,7 +1,7 @@
 import React from 'react';
-import upArrowImg from '../../assets/up.png';
-import downArrowImg from '../../assets/down.png';
-import noneArrowImg from '../../assets/none.png';
+import upArrowImg from '../assets/up.png';
+import downArrowImg from '../assets/down.png';
+import noneArrowImg from '../assets/none.png';
 
 const TieControl = (props) => {
     let arrow = noneArrowImg;

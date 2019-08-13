@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import classes from './WorldCupSetup.module.css';
-import deleteImg from '../../assets/delete.png';
+import deleteImg from '../assets/delete.png';
 
 class WorldCupSetup extends Component {
 
