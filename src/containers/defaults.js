@@ -173,7 +173,7 @@ export let mens2018Default = {
             pnpRanking: ""
         },
         "H1": {
-            name: "Columbia",
+            name: "Colombia",
             owner: "",
             originalRanking: "",
             pnpRanking: ""
@@ -1337,7 +1337,7 @@ export let womens2015Default = {
             pnpRanking: ""
         },
         "F1": {
-            name: "Columbia",
+            name: "Colombia",
             owner: "",
             originalRanking: "",
             pnpRanking: ""
