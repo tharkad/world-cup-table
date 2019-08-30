@@ -299,7 +299,7 @@ let PnpScoreMatrix16 = {
         "Quarters": 3,
         "4th": 5,
         "3rd": 82,
-        "2nd": 104,
+        "2nd": 10,
         "1st": 14
     },
     "4D": {
