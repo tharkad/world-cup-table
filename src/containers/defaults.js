@@ -687,7 +687,8 @@ export let mens2018Default = {
             ]
         }
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let womens2019Default = {
@@ -1208,7 +1209,8 @@ export let womens2019Default = {
             ]
         }
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let womens2015Default = {
@@ -1729,7 +1731,8 @@ export let womens2015Default = {
             ]
         }
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let mens2002Default = {
@@ -2420,7 +2423,8 @@ export let mens2002Default = {
             ]
         }
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let mens1966Default = {
@@ -2771,7 +2775,8 @@ export let mens1966Default = {
             ]
         },            
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let genaric32Default = {
@@ -3462,7 +3467,8 @@ export let genaric32Default = {
             ]
         }
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let genaric24Default = {
@@ -3983,7 +3989,8 @@ export let genaric24Default = {
             ]
         }
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }
 
 export let genaric16Default = {
@@ -4334,5 +4341,6 @@ export let genaric16Default = {
             ]
         },            
     ],
-    knockout: {}
+    knockout: {},
+    renderFixtures: "true"
 }

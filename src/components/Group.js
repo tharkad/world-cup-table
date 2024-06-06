@@ -344,9 +344,11 @@ class Group extends Component {
             </div>
         }
 
+        let groupStyle = this.props.renderFixtures ? classes.Group : classes.NarrowGroup;
+        let groupTableStyle = this.props.renderFixtures ? classes.GroupTable : classes.NarrowGroupTable;
         return (
-            <div className = {classes.Group}>
-                <div className = {classes.GroupTable}>
+            <div className = {groupStyle}>
+                <div className = {groupTableStyle}>
                     <p className = {classes.GroupName}>{this.props.group.name}</p>
                     {groupDisplay}
                 </div>
