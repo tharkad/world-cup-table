@@ -7,9 +7,28 @@
     display: flex;
 }
 
+.NarrowGroup {
+    overflow: hidden;
+    margin: 8px auto;
+    width: 450px;
+    text-align: left;
+    font-size: 1.1rem;
+    display: flex;
+}
+
 .GroupTable {
     margin: 4px;
     width: 50%;
+    padding: 4px 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    float: left;
+    background-color: white;
+}
+
+.NarrowGroupTable {
+    margin: 4px;
+    width: 100%;
     padding: 4px 8px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;

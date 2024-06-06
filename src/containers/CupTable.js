@@ -7,6 +7,7 @@ import PnpScoring from '../components/PnPScoring';
 import Footer from '../components/Footer';
 import SimpleStorage, { clearStorage } from 'react-simple-storage';
 import {mens2018Default, womens2019Default, womens2015Default, mens2002Default, mens1966Default, genaric32Default, genaric24Default, genaric16Default } from './defaults';
+import classes from './CupTable.module.css';
 
 class CupTable extends Component {
     constructor(props) {
@@ -823,6 +824,13 @@ class CupTable extends Component {
        }
     }
 
+    toggleFixtures = (event) => {
+        //event.target.innerHTML = ( event.target.innerHTML == "Enter Scores" ? "Hide Scores" : "Enter Scores" );
+        let stateCopy = this.deepCopy(this.state);
+        stateCopy.renderFixtures = !this.state.renderFixtures;
+        this.setState(stateCopy);
+    }
+
     tieArrowHandler = (event, [group, teamIndex, upArrow]) => {
         const groupIndex = this.state.groups.findIndex(subGroup => {
             return subGroup.name === group.name;
@@ -1100,7 +1108,7 @@ class CupTable extends Component {
                 teamsDB={this.state.teams}
                 changed={this.scoreChangedHandler}
                 arrowClicked={this.tieArrowHandler}
-                renderFixtures="true"
+                renderFixtures={this.state.renderFixtures}
                 teamClicked = {this.teamClickHandler}
                 editing = {editing}
                 editingTeamIndex = {editingTeamIndex}
@@ -1123,6 +1131,8 @@ class CupTable extends Component {
                     thirdGroup="true"
                 />        
             }
+            
+            let groupStandingsClass = this.state.renderFixtures ? classes.GroupStandingsAndScores : classes.GroupStandings;
 
         return (
             <Aux>
@@ -1150,7 +1160,10 @@ class CupTable extends Component {
                 }
                 <h1>{this.state.title}</h1>
                 <h2>Group Stage</h2>
-                {groups}   
+                <button onClick={(event) => this.toggleFixtures(event)}>Toggle Score Input</button> 
+                <div className={groupStandingsClass}>
+                    {groups} 
+                </div>
                 {thirdPlaceGroup}
                 {  Object.keys(this.state.knockout).length > 0 
                     ? <KnockoutStage 
